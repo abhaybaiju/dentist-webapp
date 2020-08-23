@@ -37,7 +37,8 @@ app.post("/book", async(req, res) => {
 });
 
 //edit(update) bookings?
-//Also how about reschedule appointment option? 
+//Also how about reschedule appointment option?
+//How much calendar should be visible? 
 
 //get all payments
 
