@@ -38,7 +38,8 @@ app.post("/book", async(req, res) => {
 
 //edit(update) bookings?
 //Also how about reschedule appointment option?
-//How much calendar should be visible? 
+//How much calendar should be visible?
+//login through contact w/0 password? So that user can view previous appointments?
 
 //get all payments
 
