@@ -6,14 +6,82 @@ const cors = require('cors');
 const pool = require('./db');
 const middlewares = require('./middlewares');
 
+const Razorpay = require('razorpay')
+const shortid = require('shortid')
+const path = require('path')
+const bodyParser = require('body-parser')
+
 const app = express();
+
+//var serviceAccount = require("./service_account.json");
 
 app.use(morgan('common'));
 app.use(helmet());
 app.use(cors());
+app.use(bodyParser.json())
 app.use(express.json()); //Let's us access the object req.body which contains data from client side for adding a booking
 
+const razorpay = new Razorpay({
+  key_id: 'rzp_test_KOxIh7UxMQOrbR',
+  key_secret: 'vu0uISENcLZPDFPvuKIWx4f6',
+});
+
 //ROUTES//
+
+app.post("/pay",async (req, res) => {
+
+  const payment_capture=1
+  const currency = 'INR'
+  const amount = 200
+
+  const options = {
+    amount: (amount*100).toString(),
+    currency: currency,
+    receipt: shortid.generate(),
+    payment_capture
+  }
+
+  try {
+    const response = await razorpay.orders.create(options)
+    console.log(response)
+    res.json({
+      id:response.id,
+      currency: response.currency,
+      amount: response.amount
+    })
+  } catch(err) {
+    console.log(err)
+  }
+})
+
+
+app.post('/verification', (req, res) => {
+  //do a validation
+  const SECRET = 'LilaDentalClinic@Vikaspuri'
+  console.log(req.body)
+
+
+  //RazorPay signature is the hashed value of the payload(all info on successful payment)
+  //We compute this hashed value. If hashed value matches, payment validated else not.
+  const crypto = require('crypto')
+  const shasum = crypto.createHmac('sha256', SECRET)
+  shasum.update(JSON.stringify(req.body))
+  const digest = shasum.digest('hex')
+
+  console.log(digest, req.headers['x-razorpay-signature'])
+  if(digest === req.headers['x-razorpay-signature']) {
+    console.log('Valid request!');
+    //process it
+    res.json({status: 'ok'}) //200 HTTP STATUS CODE RESPONSE
+    //If we don't send this response, RazorPay will deactivate our Webhook and we will not receive any further calls
+    //Mandatory line(Top/Bottom of code)
+    //RazorPay will mark our server as down if we do not respond.
+  } else {
+    //pass it
+    res.status(502)
+  }
+})
+
 
 //create bookings
 //Anytime we create or get data, it will take some time.
@@ -52,7 +120,7 @@ app.post("/book", async(req, res) => {
         ],
       },
     };
-    
+
     calendar.events.insert({
       auth: jwtClient,
       calendarId: 'abhay0198@gmail.com',
@@ -95,6 +163,10 @@ app.post("/book", async(req, res) => {
 //login through contact w/0 password? So that user can view previous appointments?
 
 //get all payments
+
+app.get('/logo.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'logo.png'))
+})
 
 app.get('/admin', async(req, res) => {
     /*res.json({
