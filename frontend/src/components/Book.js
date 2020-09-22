@@ -4,6 +4,11 @@ import Navbar from './Navbar';
 import {Redirect } from 'react-router-dom';
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 const Process = () => {
   const useStyles = makeStyles((theme) => ({
@@ -20,10 +25,29 @@ const Process = () => {
       color:'white'
     }
   },
+  tablebutton: {
+    marginRight: theme.spacing(1),
+    backgroundColor: 'white',
+    color:'#027e97',
+    boxShadow:'none',
+    borderRadius:'50px',
+    "&:hover": {
+      backgroundColor: "#ff7a59",
+      color:'white',
+      borderRadius:'50px'
+    },
+    "&:focus": {
+      backgroundColor: "#ff7a59",
+      color:'white',
+      borderRadius:'50px'
+    }
+  },
+  input: {
+    color: "#ff7a59"
+  },
   step: {
     textAlign:'center',
     width:'100%',
-    padding:'0.5%'
   },
   completed: {
     display: 'inline-block',
@@ -44,20 +68,7 @@ const Process = () => {
     }
   },
   activeIcon: {},
-  completedIcon: {},
-  label:{
-    "&$activeLabel": {
-      color:'white',
-      '& $text': {
-        color: '#ff7a59',
-      },
-    },
-    "&$completedLabel": {
-      color: 'white'
-    }
-  },
-  activeLabel: {},
-  completedLabel: {}
+  completedIcon: {}
 }));
 
 const One = () => {
@@ -68,45 +79,41 @@ const One = () => {
   const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
   const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
   return(
-    <Grid style={{marginRight:'5%', marginLeft:'5%'}}>
-      <Grid container justify="center" alignItems="baseline" spacing={10}>
-        <Grid item lg={6}>
-          <h3>Pick your date</h3>
-        </Grid>
-        <Grid item lg={6}>
-          <h3>Pick your time</h3>
-        </Grid>
-      </Grid>
-      <Grid container justify="space-evenly" alignItems="baseline" spacing={10}>
-        <Grid item lg={6}>
+    <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
+      <Grid container justify="space-evenly" alignItems="stretch" spacing={1}>
+        <Grid item lg={5}>
+          <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
           <Card variant="outlined">
-            <CardContent style={{marginLeft:'14%', marginTop:'5%'}}>
+            <CardContent style={{ marginTop:'5%'}}>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker disableToolbar autoOk variant="static" openTo="date" value={date} onChange={changeDate}/>
+                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={changeDate} InputProps={{ className: classes.input }}/>
               </MuiPickersUtilsProvider>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item lg={6}>
-          <Card variant="outlined" style={{width:'100%'}}>
-            <CardHeader>
-
-            </CardHeader>
+        <Grid item lg={5}>
+          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
+          <Card variant="outlined">
+            <CardHeader title={(am)?"Morning":"Evening"} action={
+              <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true}>
+                <ArrowForwardIosIcon />
+              </IconButton>} avatar={
+                <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?true:false}>
+                  <ArrowBackIosIcon />
+                </IconButton>} style={{ marginTop:'5%',  textAlign:'center'}}/>
             <CardContent>
-            <Button variant="contained" className={classes.button} onClick={() => setAM(true)}>AM</Button>
-            <Button variant="contained" className={classes.button} onClick={() => setAM(false)}>PM</Button>
-              <Table >
+              <Table>
                 {(am)?morning.map((timeList,i) =>(
                    <TableRow key={i} >
                     {timeList.map((time,j)=>
-                         <TableCell key={j}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></TableCell>
+                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
                     )}
                    </TableRow>
                 ))
                 : evening.map((timeList,i) =>(
                    <TableRow key={i}>
                     {timeList.map((time,j)=>
-                         <TableCell key={j}>{time}<sup>{pm}</sup></TableCell>
+                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{pm}</sup></Button></TableCell>
                     )}
                    </TableRow>
                 ))}
@@ -187,38 +194,40 @@ function HorizontalNonLinearStepper() {
 
   return (
     <Grid>
-      <Grid>
-        <Stepper nonLinear activeStep={activeStep} connector={false}>
-            {steps.map((label, index) => (
-                <Step key={label} className={classes.step}>
-                  <StepLabel completed={completed[index]}  StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
-                    <p >{label}</p>
-                  </StepLabel>
-                </Step>
-            ))}
-        </Stepper>
-      </Grid>
-      <div>
-        {allStepsCompleted() ? (
-          <div>
-            <Typography className={classes.instructions}>
-              <Redirect to="/Pay"/>
-            </Typography>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+      <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'10%'}}>
+        <Grid>
+          <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
+              {steps.map((label, index) => (
+                  <Step key={label} className={classes.step}>
+                    <StepLabel completed={completed[index]}  StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
+                      <p >{label}</p>
+                    </StepLabel>
+                  </Step>
+              ))}
+          </Stepper>
+        </Grid>
+        <div>
+          {allStepsCompleted() ? (
             <div>
-              <Button style= {{display: (activeStep === 0) ? 'none' : ''}} onClick={handleBack} className={classes.button}>
-                Back
-              </Button>
-              <Button variant="contained" className={classes.button} onClick={handleComplete}>
-                {completedSteps() ? 'Finish' : 'Complete Step'}
-              </Button>
+              <Typography className={classes.instructions}>
+                <Redirect to="/Pay"/>
+              </Typography>
             </div>
-          </div>
-        )}
-      </div>
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <div>
+                <Button style= {{display: (activeStep === 0) ? 'none' : ''}} onClick={handleBack} className={classes.button}>
+                  Back
+                </Button>
+                <Button variant="contained" className={classes.button} onClick={handleComplete}>
+                  {completedSteps() ? 'Finish' : 'Complete Step'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </Card>
     </Grid>
   );
 }
