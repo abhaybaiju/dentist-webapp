@@ -1,14 +1,12 @@
 import React from 'react';
-import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Container, Grid, makeStyles, Stepper, Step, StepButton, StepLabel, Button, Typography, StepIcon} from '@material-ui/core';
+import {Card, Container, Grid, makeStyles, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
 import Navbar from './Navbar';
 import {Redirect } from 'react-router-dom';
-import DateFnsUtils from '@date-io/date-fns';
-import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
-import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import ComponentOne from './ComponentOne';
+import ComponentTwo from './ComponentTwo';
+import ComponentThree from './ComponentThree';
 
 const Process = () => {
   const useStyles = makeStyles((theme) => ({
@@ -19,31 +17,12 @@ const Process = () => {
     marginRight: theme.spacing(1),
     backgroundColor: 'white',
     color:'#ff7a59',
-    border:'1px solid #ff7a59',
-    "&:hover": {
-      backgroundColor: "#ff7a59",
-      color:'white'
-    }
-  },
-  tablebutton: {
-    marginRight: theme.spacing(1),
-    backgroundColor: 'white',
-    color:'#027e97',
     boxShadow:'none',
-    borderRadius:'50px',
     "&:hover": {
-      backgroundColor: "#ff7a59",
-      color:'white',
-      borderRadius:'50px'
-    },
-    "&:focus": {
-      backgroundColor: "#ff7a59",
-      color:'white',
-      borderRadius:'50px'
+      backgroundColor: "white",
+      boxShadow:'none',
+      textShadow: '0 0 1px #ff7a59'
     }
-  },
-  input: {
-    color: "#ff7a59"
   },
   step: {
     textAlign:'center',
@@ -51,8 +30,6 @@ const Process = () => {
   },
   completed: {
     display: 'inline-block',
-  },
-  instructions: {
   },
   icon:{
     color: 'grey',
@@ -71,84 +48,24 @@ const Process = () => {
   completedIcon: {}
 }));
 
-const One = () => {
-  const classes = useStyles();
-  const [am, setAM] = React.useState(true);
-  const sup="AM";
-  const pm="PM";
-  const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
-  const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
-  return(
-    <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
-      <Grid container justify="space-evenly" alignItems="stretch" spacing={1}>
-        <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
-          <Card variant="outlined">
-            <CardContent style={{ marginTop:'5%'}}>
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={changeDate} InputProps={{ className: classes.input }}/>
-              </MuiPickersUtilsProvider>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
-          <Card variant="outlined">
-            <CardHeader title={(am)?"Morning":"Evening"} action={
-              <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true}>
-                <ArrowForwardIosIcon />
-              </IconButton>} avatar={
-                <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?true:false}>
-                  <ArrowBackIosIcon />
-                </IconButton>} style={{ marginTop:'5%',  textAlign:'center'}}/>
-            <CardContent>
-              <Table>
-                {(am)?morning.map((timeList,i) =>(
-                   <TableRow key={i} >
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))
-                : evening.map((timeList,i) =>(
-                   <TableRow key={i}>
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))}
-              </Table>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </Grid>
-  );
-}
-
 function getSteps() {
   return ['Confirm date and time', 'Patient Details', 'Confirm your appointment'];
 }
 
-const [date, changeDate] = React.useState(new Date());
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return (
-        <One />
+        <ComponentOne />
       );
     case 1:
       return (
-        <Grid>
-          Step 2: Select campaign settings...
-        </Grid>
+        <ComponentTwo />
       );
     case 2:
       return (
-        <Grid>
-          Step 3: Select campaign settings...
-        </Grid>
+        <ComponentThree />
       );
     default:
       return 'Unknown step';
@@ -159,14 +76,11 @@ function HorizontalNonLinearStepper() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  //const [index, setIndex] = React.useState(0);
   const steps = getSteps();
 
   const completedSteps = () => {
     return completed[2]&&completed[1]&&completed[0];
-  };
-
-  const isLastStep = () => {
-    return activeStep === 2;
   };
 
   const allStepsCompleted = () => {
@@ -178,6 +92,7 @@ function HorizontalNonLinearStepper() {
     const newCompleted = completed;
     newCompleted[activeStep] = false;
     setCompleted(newCompleted);
+    //setIndex(activeStep);
   };
 
   const handleComplete = () => {
@@ -185,49 +100,49 @@ function HorizontalNonLinearStepper() {
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     setActiveStep(prevActiveStep => (prevActiveStep+1));
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-    setCompleted(0);
+    //setIndex(activeStep);
   };
 
   return (
     <Grid>
-      <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'10%'}}>
-        <Grid>
-          <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
-              {steps.map((label, index) => (
-                  <Step key={label} className={classes.step}>
-                    <StepLabel completed={completed[index]}  StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
-                      <p >{label}</p>
-                    </StepLabel>
-                  </Step>
-              ))}
-          </Stepper>
-        </Grid>
-        <div>
-          {allStepsCompleted() ? (
-            <div>
-              <Typography className={classes.instructions}>
-                <Redirect to="/Pay"/>
-              </Typography>
-            </div>
-          ) : (
-            <div>
-              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-              <div>
-                <Button style= {{display: (activeStep === 0) ? 'none' : ''}} onClick={handleBack} className={classes.button}>
-                  Back
-                </Button>
-                <Button variant="contained" className={classes.button} onClick={handleComplete}>
-                  {completedSteps() ? 'Finish' : 'Complete Step'}
-                </Button>
-              </div>
-            </div>
-          )}
-        </div>
-      </Card>
+        <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'5%'}}>
+          <Grid>
+            <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
+                {steps.map((label, index) => (
+                    <Step key={label} className={classes.step}>
+                      <StepLabel completed={completed[index]}  StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
+                        <p style={(completed[index] || activeStep===index)?{color:'#ff7a59'}:{color:'grey'}}>{label}</p>
+                      </StepLabel>
+                    </Step>
+                ))}
+            </Stepper>
+          </Grid>
+          <Grid>
+            {allStepsCompleted() ? (
+              <Grid>
+                <Typography className={classes.instructions}>
+                  <Redirect to="/Success"/>
+                </Typography>
+              </Grid>
+            ) : (
+              <Grid>
+                <Typography>{getStepContent(activeStep)}</Typography>
+                <Grid container justify="space-between" alignItems="center" style={{marginTop:'5%', marginBottom:'1%'}}>
+                  <Grid item>
+                  <Button disabled={(activeStep === 0)?true:false} onClick={handleBack} className={classes.button} style={{marginLeft:'15%'}}>
+                    <ArrowBackIosIcon />Back
+                  </Button>
+                  </Grid>
+                  <Grid item>
+                  <Button variant="contained" className={classes.button} onClick={handleComplete}>
+                    <ArrowForwardIosIcon />{completedSteps() ? 'Finish' : 'Complete Step'}
+                  </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+            )}
+          </Grid>
+        </Card>
     </Grid>
   );
 }
@@ -259,6 +174,7 @@ const Book = () => {
         <Grid>
           {/*calendar and date picker*/}
           <Process />
+          <br /><br/>
         </Grid>
       </Grid>
     </Container>

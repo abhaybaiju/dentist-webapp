@@ -1,7 +1,6 @@
 import React from 'react';
 import {Grid, AppBar, Toolbar, Typography} from '@material-ui/core';
 import './css/Navbar.css';
-import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   return(
