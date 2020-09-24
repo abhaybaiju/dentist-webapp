@@ -11,7 +11,7 @@ const App = () => {
           <Switch>
             
             <Route exact path="/Book"><Book/></Route>
-            <Route exact path="/Success"><Success/></Route>
+            <Route exact path="/Success"><Success date="12 OCT 2020" time="11:00 AM"/></Route>
             <Route path="/"><FrontPage/></Route>
           </Switch>
       </Router>

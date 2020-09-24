@@ -69,7 +69,8 @@ const Display = () => {
               <Grid item lg={8}>
                 <p style={{lineHeight:'1.6'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
               </Grid>
-              <Button variant="outlined" className={classes.button}>Add to Google calendar</Button>
+              <Button variant="outlined" href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20200924T073000Z%2F20200924T074500Z&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&details=Appointment%20at%20Lila%20Dental%20Clinic"
+               className={classes.button}>Add to Google calendar</Button>
             </Grid>
             <Grid item lg={5}>
               <img alt="..." src={require('./images/Calendar_object.png')} height="200" width="230" className={classes.img}/>
@@ -81,7 +82,7 @@ const Display = () => {
                     <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{props.date}20 Nov, 2020&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;10:00 AM{props.time}</TableCell>
+                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{props.date}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{props.time}</TableCell>
                     <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
                   </TableRow>
                 </Table>
