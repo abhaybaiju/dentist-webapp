@@ -59,7 +59,7 @@ const One = () => {
             <CardContent style={{ marginTop:'5%'}}>
             <MuiThemeProvider theme={theme}>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={(e) => changeDate(e.value)} InputProps={{ className: classes.input }}/>
+                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={changeDate} InputProps={{ className: classes.input }}/>
               </MuiPickersUtilsProvider>
             </MuiThemeProvider>
             </CardContent>
@@ -69,9 +69,9 @@ const One = () => {
           <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
           <Card variant="outlined">
             <CardHeader title={(am)?"Morning":"Evening"} action={
-              <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true} style={{marginTop:'16%'}}>
-                <ArrowForwardIosIcon />
-              </IconButton>} avatar={
+                <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true} style={{marginTop:'16%'}}>
+                  <ArrowForwardIosIcon />
+                </IconButton>} avatar={
                 <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?true:false} style={{marginLeft:'55%'}}>
                   <ArrowBackIosIcon />
                 </IconButton>} style={{ marginTop:'8%',  textAlign:'center', marginLeft:'-10%'}}/>

@@ -1,89 +1,69 @@
-import React from 'react';
-import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, IconButton} from '@material-ui/core';
-import DateFnsUtils from '@date-io/date-fns';
-import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
+import React, {useState} from 'react';
+import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, TextField} from '@material-ui/core';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { MuiThemeProvider } from '@material-ui/core'
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const ComponentTwo = () => {
-  const useStyles = makeStyles((theme) => ({
 
-  tablebutton: {
-    width:'2vh',
-    backgroundColor: 'white',
-    color:'#027e97',
-    boxShadow:'none',
-    borderRadius:'50px',
-    "&:hover": {
-      backgroundColor: "#ff7a59",
-      color:'white',
-      borderRadius:'50px'
-    },
-    "&:focus": {
-      backgroundColor: "#ff7a59",
-      color:'white',
-      borderRadius:'50px'
+  const theme = createMuiTheme({
+    palette: {
+  		primary: {
+  			main: '#027e97',
+  		}
+  	},
+    overrides: {
+        MuiOutlinedInput: {
+            root: {
+                '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
+                borderColor: '#ff7a59',
+            },
+        },
+      }
     }
-  },
-  input: {
-    color: "#ff7a59"
+  });
+
+  const useStyles = makeStyles((theme) => ({
+  cell: {
+    "&:hover": {
+      borderColor:'#ff7a59'
+    }
   },
 }));
 
 const Two = () => {
   const classes = useStyles();
-  const [am, setAM] = React.useState(true);
-  const [date, changeDate] = React.useState(new Date());
-  const sup="AM";
-  const pm="PM";
-  const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
-  const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
+  const [name, setName] = useState('');
+  const [contact, setContact] = useState('');
+  const [gender, setGender] = useState('');
+  const [age, setAge] = useState('');
+
   return(
-    <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
-      <Grid container justify="space-evenly" alignItems="stretch" spacing={1}>
-        <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
-          <Card variant="outlined">
-            <CardContent style={{ marginTop:'5%'}}>
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={changeDate} InputProps={{ className: classes.input }}/>
-              </MuiPickersUtilsProvider>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
-          <Card variant="outlined">
-            <CardHeader title={(am)?"Morning":"Evening"} action={
-              <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true} style={{marginTop:'16%'}}>
-                <ArrowForwardIosIcon />
-              </IconButton>} avatar={
-                <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?true:false} style={{marginLeft:'55%'}}>
-                  <ArrowBackIosIcon />
-                </IconButton>} style={{ marginTop:'8%',  textAlign:'center', marginLeft:'-10%'}}/>
+    <Grid container justify="center" alignItems="stretch" >
+
+        <Grid item lg={8}>
+          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', background:'grey'}}>
+            <CardHeader title="Enter your Details" />
             <CardContent>
-              <Table style={{marginBottom:'4%'}}>
-                {(am)?morning.map((timeList,i) =>(
-                   <TableRow key={i}>
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))
-                : evening.map((timeList,i) =>(
-                   <TableRow key={i}>
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))}
-              </Table>
+              <form className={classes.root} noValidate autoComplete="off" style={{marginLeft:'5%'}}>
+                <Table>
+                  <TableRow>
+                    <MuiThemeProvider theme={theme}>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your name" variant="outlined" color="primary"/></TableCell>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your contact" variant="outlined" color="primary"/></TableCell>
+                    </MuiThemeProvider>
+                  </TableRow>
+                  <TableRow>
+                    <MuiThemeProvider theme={theme}>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your age" variant="outlined" color="primary" className={classes.cell}/></TableCell>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your gender" variant="outlined" color="primary"/></TableCell>
+                    </MuiThemeProvider>
+                  </TableRow>
+                </Table>
+              </form>
             </CardContent>
           </Card>
         </Grid>
-      </Grid>
     </Grid>
   );
 }
