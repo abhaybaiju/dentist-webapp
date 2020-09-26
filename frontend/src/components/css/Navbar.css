@@ -1,7 +1,8 @@
-.cursor {
-  cursor: pointer;
+a {
+  text-decoration: none;
+  color: grey;
 }
 
-.cursor:hover {
-    color: #027e97;
+a:hover {
+  color: #027e97;
 }

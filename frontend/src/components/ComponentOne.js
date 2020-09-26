@@ -50,6 +50,7 @@ const One = () => {
   const pm="PM";
   const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
   const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
+  const [time, setTime] = React.useState('');
   return(
     <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
       <Grid container justify="space-evenly" alignItems="stretch" spacing={1}>
@@ -80,14 +81,14 @@ const One = () => {
                 {(am)?morning.map((timeList,i) =>(
                    <TableRow key={i}>
                     {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
+                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
                     )}
                    </TableRow>
                 ))
                 : evening.map((timeList,i) =>(
                    <TableRow key={i}>
                     {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton}>{time}<sup>{pm}</sup></Button></TableCell>
+                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>{time}<sup>{pm}</sup></Button></TableCell>
                     )}
                    </TableRow>
                 ))}

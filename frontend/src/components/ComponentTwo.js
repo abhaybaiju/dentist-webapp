@@ -40,10 +40,14 @@ const Two = () => {
 
   return(
     <Grid container justify="center" alignItems="stretch" >
-
-        <Grid item lg={8}>
-          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', background:'grey'}}>
-            <CardHeader title="Enter your Details" />
+        <Grid item lg={4}>
+          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px'}}>
+            <CardContent>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item lg={6}>
+          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px'}}>
             <CardContent>
               <form className={classes.root} noValidate autoComplete="off" style={{marginLeft:'5%'}}>
                 <Table>

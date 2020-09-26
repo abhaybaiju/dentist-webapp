@@ -7,7 +7,6 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ComponentOne from './ComponentOne';
 import ComponentTwo from './ComponentTwo';
 import ComponentThree from './ComponentThree';
-import Form from './images/form.jpg';
 
 const Process = () => {
   const useStyles = makeStyles((theme) => ({
@@ -106,7 +105,7 @@ function HorizontalNonLinearStepper() {
 
   return (
     <Grid>
-        <Card variant="outlined" style={(activeStep === 1)?{width:'80%', marginLeft:'10%', marginTop:'5%', background:`url(${Form})`, backgroundSize: '1000px 550px', backgroundRepeat:'no-repeat'}:{width:'80%', marginLeft:'10%', marginTop:'5%'}}>
+        <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'5%'}}>
           <Grid>
             <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
                 {steps.map((label, index) => (
@@ -135,8 +134,8 @@ function HorizontalNonLinearStepper() {
                   </Button>
                   </Grid>
                   <Grid item>
-                  <Button variant="contained" className={classes.button} onClick={handleComplete}>
-                    <ArrowForwardIosIcon />{completedSteps() ? 'Finish' : 'Complete Step'}
+                  <Button variant="contained" style={(activeStep===2)?{display:'none'}:null} className={classes.button} onClick={handleComplete}>
+                    <ArrowForwardIosIcon />Complete Step
                   </Button>
                   </Grid>
                 </Grid>

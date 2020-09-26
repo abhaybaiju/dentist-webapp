@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Grid,Button} from '@material-ui/core';
 import Navbar from './Navbar';
+import {Link} from 'react-router-dom';
 
 const FrontPage = () => {
   return(
@@ -12,7 +13,7 @@ const FrontPage = () => {
             <Grid item lg={8}>
               <p style={{lineHeight:'1.6'}}>Hassle-free booking for you at your convenient time. Hassle-free booking for you at your convenient time.</p>
             </Grid>
-            <Button variant="outlined">Book Now</Button>
+            <Link to="/Book"><Button variant="outlined">Book Now</Button></Link>
           </Grid>
           <Grid item lg={5}>
             <img alt="..." src={require('./images/doctors.svg')} height="400"/>
