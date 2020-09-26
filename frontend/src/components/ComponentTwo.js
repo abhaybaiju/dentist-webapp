@@ -40,17 +40,18 @@ const Two = () => {
 
   return(
     <Grid container justify="center" alignItems="stretch" >
-        <Grid item lg={4}>
-          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px'}}>
+
+        <Grid item lg={8}>
+          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px', border:'20px solid #e1e2e4', background:'linear-gradient(to top left, #436375 30%, #586e80 50%, #a9b7c0 50%)', backgroundRepeat:'no-repeat'}}>
             <CardContent>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item lg={6}>
-          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px'}}>
-            <CardContent>
-              <form className={classes.root} noValidate autoComplete="off" style={{marginLeft:'5%'}}>
+              <form className={classes.root} noValidate autoComplete="off" style={{marginLeft:'5%', marginTop:'5.5%', marginBottom:'3.4%'}}>
                 <Table>
+                  <TableRow>
+                    <MuiThemeProvider theme={theme}>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your name" variant="outlined" color="primary"/></TableCell>
+                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your name" variant="outlined" color="primary"/></TableCell>
+                    </MuiThemeProvider>
+                  </TableRow>
                   <TableRow>
                     <MuiThemeProvider theme={theme}>
                       <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your name" variant="outlined" color="primary"/></TableCell>
@@ -59,8 +60,12 @@ const Two = () => {
                   </TableRow>
                   <TableRow>
                     <MuiThemeProvider theme={theme}>
-                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your age" variant="outlined" color="primary" className={classes.cell}/></TableCell>
-                      <TableCell style={{borderBottom:'none'}}><TextField id="name" label="Your gender" variant="outlined" color="primary"/></TableCell>
+                      <TableCell style={{borderBottom:'none'}}>
+                        <TextField id="name" label="Your age" variant="outlined" color="primary" className={classes.cell}/>
+                      </TableCell>
+                      <TableCell style={{borderBottom:'none'}}>
+                        <TextField id="name" label="Your gender" variant="outlined" color="primary"/>
+                      </TableCell>
                     </MuiThemeProvider>
                   </TableRow>
                 </Table>
@@ -79,3 +84,18 @@ return(
 }
 
 export default ComponentTwo;
+
+
+/*
+
+radial-gradient(100% 100% at 0% 50%, rgb(255,0,0) 49%, rgba(255,255,255) 50%)
+
+<Grid item lg={3}>
+  <Card variant="outlined" style={{marginTop:'11.8%', textAlign:'center', borderRadius:'0px', background:'#ff7a59', marginBottom:'-10%'}}>
+    <CardContent style={{marginBottom:'33.5%', marginTop:'34%'}}>
+      <p style={{color:'white', textAlign:'center', fontSize:'35px', marginTop:'10%', marginBottom:'10%'}}>Enter your details</p>
+    </CardContent>
+  </Card>
+</Grid>
+
+*/

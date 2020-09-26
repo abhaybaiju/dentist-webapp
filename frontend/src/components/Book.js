@@ -76,7 +76,6 @@ function HorizontalNonLinearStepper() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
-  //const [index, setIndex] = React.useState(0);
   const steps = getSteps();
 
   const completedSteps = () => {
@@ -92,7 +91,6 @@ function HorizontalNonLinearStepper() {
     const newCompleted = completed;
     newCompleted[activeStep] = false;
     setCompleted(newCompleted);
-    //setIndex(activeStep);
   };
 
   const handleComplete = () => {
@@ -100,7 +98,6 @@ function HorizontalNonLinearStepper() {
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     setActiveStep(prevActiveStep => (prevActiveStep+1));
-    //setIndex(activeStep);
   };
 
   return (
