@@ -45,8 +45,8 @@ const Two = () => {
   const greater = ">100";
 
   return(
-    <Grid container justify="center" alignItems="stretch">
-      <Grid item lg={5} style={{background: `url(${img})`, backgroundSize:'450px'}}>
+    <Grid container justify="center" alignItems="stretch" >
+      <Grid item lg={5} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
         <img src={require('./images/undraw_personalization_triu.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>
       </Grid>
       <Grid item lg={7}>

@@ -20,7 +20,7 @@ const Navbar = () => {
       padding: '0 20px',
     },
     appBarScrolled: {
-      backgroundColor: '#f8faf9',
+      backgroundColor: 'rgba(248,250,249,0.6)',
       boxShadow: 'none',
       transition: theme.transitions.create(['background-color'], {
         easing: theme.transitions.easing.easeOut,
