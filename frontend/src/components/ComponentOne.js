@@ -77,22 +77,61 @@ const One = () => {
                   <ArrowBackIosIcon />
                 </IconButton>} style={{ marginTop:'8%',  textAlign:'center', marginLeft:'-10%'}}/>
             <CardContent>
-              <Table style={{marginBottom:'4%'}}>
-                {(am)?morning.map((timeList,i) =>(
-                   <TableRow key={i}>
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>{time}<sup>{(time==='11:00'||time==='11:15'||time==='11:30'||time==='11:45')?sup:pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))
-                : evening.map((timeList,i) =>(
-                   <TableRow key={i}>
-                    {timeList.map((time,j)=>
-                         <TableCell key={j} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>{time}<sup>{pm}</sup></Button></TableCell>
-                    )}
-                   </TableRow>
-                ))}
-              </Table>
+              
+                {am ?
+					<Table style={{marginBottom:'4%'}}>
+						<TableRow key={0}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:00<sup>am</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:15<sup>am</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:30<sup>am</sup></Button></TableCell>
+
+						</TableRow>
+						<TableRow key={1}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:45<sup>am</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:15<sup>pm</sup></Button></TableCell>
+
+						</TableRow>
+						<TableRow key={2}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:45<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>01:00<sup>pm</sup></Button></TableCell>
+
+						</TableRow>
+					</Table> : 
+					
+					<Table style={{marginBottom:'4%'}}>
+						<TableRow key={0}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>06:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>06:45<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:00<sup>pm</sup></Button></TableCell>
+
+						</TableRow>
+						<TableRow key={1}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:15<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:45<sup>pm</sup></Button></TableCell>
+
+						</TableRow>
+						<TableRow key={2}>
+							
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:15<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:30<sup>pm</sup></Button></TableCell>
+
+						</TableRow>
+					</Table> 
+					
+					};
+			   
+                
+                
+             
             </CardContent>
           </Card>
         </Grid>
