@@ -47,7 +47,7 @@ const Two = () => {
     <Grid container justify="center" alignItems="stretch" >
 
         <Grid item lg={8}>
-          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px', border:'20px solid #e1e2e4', background:'#d3eaf0'}}>
+          <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px', border:'10px solid #e1e2e4' , background:'#f8faf9'}}>
             <CardContent>
               <form noValidate autoComplete="off" style={{marginLeft:'5%', marginTop:'5.5%', marginBottom:'3.4%', overflow:'hidden'}}>
                 <Table>
