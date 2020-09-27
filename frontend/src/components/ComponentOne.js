@@ -8,6 +8,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
+import { useStateValue } from './StateProvider.js';
 
 const ComponentOne = () => {
 
@@ -42,7 +43,7 @@ const ComponentOne = () => {
   },
 }));
 
-const One = () => {
+
   const classes = useStyles();
   const [am, setAM] = React.useState(true);
   const [date, changeDate] = React.useState(new Date());
@@ -50,12 +51,24 @@ const One = () => {
   const pm="PM";
   const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
   const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
-  const [time, setTime] = React.useState('');
+  const [time, setTime] = React.useState(2400);
+  const [{globalTime}, dispatch] = useStateValue();
+
+  const handleTimeChange = (timeval) => {
+		setTime(timeval);
+		dispatch({
+			type: 'SET_GLOBALTIME',
+			globalTime: timeval,
+		});
+
+  }
+
+
   return(
     <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
       <Grid container justify="space-evenly" alignItems="stretch" spacing={1}>
         <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
+  <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
           <Card variant="outlined">
             <CardContent style={{ marginTop:'5%'}}>
             <MuiThemeProvider theme={theme}>
@@ -67,7 +80,7 @@ const One = () => {
           </Card>
         </Grid>
         <Grid item lg={5}>
-          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
+          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>{time===2400?"Select Date":"Selected date is " + globalTime }</h3>
           <Card variant="outlined">
             <CardHeader title={(am)?"Morning":"Evening"} action={
                 <IconButton aria-label="Next" onClick={() => setAM(!am)} disabled={(am)?false:true} style={{marginTop:'16%'}}>
@@ -82,23 +95,23 @@ const One = () => {
 					<Table style={{marginBottom:'4%'}}>
 						<TableRow key={0}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:00<sup>am</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:15<sup>am</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:30<sup>am</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100)}>11:00<sup>am</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115)}>11:15<sup>am</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130)}>11:30<sup>am</sup></Button></TableCell>
 
 						</TableRow>
 						<TableRow key={1}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>11:45<sup>am</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:00<sup>pm</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:15<sup>pm</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145)}>11:45<sup>am</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200)}>12:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215)}>12:15<sup>pm</sup></Button></TableCell>
 
 						</TableRow>
 						<TableRow key={2}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:30<sup>pm</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>12:45<sup>pm</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>01:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230)}>12:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245)}>12:45<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300)}>01:00<sup>pm</sup></Button></TableCell>
 
 						</TableRow>
 					</Table> : 
@@ -106,28 +119,28 @@ const One = () => {
 					<Table style={{marginBottom:'4%'}}>
 						<TableRow key={0}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>06:30<sup>pm</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>06:45<sup>pm</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button></TableCell>
 
 						</TableRow>
 						<TableRow key={1}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:15<sup>pm</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:30<sup>pm</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>07:45<sup>pm</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button></TableCell>
 
 						</TableRow>
 						<TableRow key={2}>
 							
-								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:00<sup>pm</sup></Button></TableCell>
-								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:15<sup>pm</sup></Button></TableCell>
-								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>setTime(e.target.value)}>08:30<sup>pm</sup></Button></TableCell>
+								<TableCell key={0} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button></TableCell>
+								<TableCell key={1} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button></TableCell>
+								<TableCell key={2} style={{borderBottom:'none'}}><Button variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button></TableCell>
 
 						</TableRow>
 					</Table> 
 					
-					};
+					}
 			   
                 
                 
@@ -138,11 +151,6 @@ const One = () => {
       </Grid>
     </Grid>
   );
-}
-
-return(
-  <One />
-);
 
 }
 

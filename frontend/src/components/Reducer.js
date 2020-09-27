@@ -1,5 +1,5 @@
 export const initialState = {
-    globalTime: 11,
+    globalTime: null,
     user: null,
 };
 
@@ -16,7 +16,7 @@ const reducer = (state, action) => {
         case 'SET_GLOBALTIME':
             return {
                 ...state,
-                globalTime : action.item
+                globalTime : action.globalTime
             };
         default:
             return state;
