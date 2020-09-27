@@ -4,12 +4,14 @@ import './css/Navbar.css';
 import {Link} from 'react-router-dom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
+
+//317e96
 const Navbar = () => {
 
   const useStyles = makeStyles((theme) => ({
     appBar: {
       backgroundColor: 'transparent',
-      color:'grey', 
+      color:'grey',
       boxShadow: 'none',
       transition: theme.transitions.create(['background-color'], {
         easing: theme.transitions.easing.easeOut,
@@ -18,8 +20,7 @@ const Navbar = () => {
       padding: '0 20px',
     },
     appBarScrolled: {
-      backgroundColor: '#317e96',
-      color:'white', 
+      backgroundColor: '#f8faf9',
       boxShadow: 'none',
       transition: theme.transitions.create(['background-color'], {
         easing: theme.transitions.easing.easeOut,
