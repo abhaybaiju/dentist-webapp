@@ -46,7 +46,7 @@ const ComponentOne = () => {
 
   const classes = useStyles();
   const [am, setAM] = React.useState(true);
-  const [date, changeDate] = React.useState(new Date());
+  const [date, changeDate] = React.useState(new Date().toDateString());
   const sup="AM";
   const pm="PM";
   const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]

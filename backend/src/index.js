@@ -91,12 +91,13 @@ app.post("/book", async(req, res) => {
     var name = req.body.name;
     var contact = req.body.contact;
     var gender = req.body.gender;
-    var appointment = req.body.appointment;
+    var time = req.body.time;
+    var date = new Date(req.body.date);
     var description = req.body.description;
     const newBooking = await pool.query(
       //returning * makes it easier to check in POSTMAN!
-      "INSERT INTO bookings (patient_name, contact, gender, appointment, description) VALUES ($1 , $2 , $3 , $4 , $5) RETURNING *",
-      [name, contact, gender, appointment, description]
+      "INSERT INTO bookings (patient_name, contact, gender, time, date, description) VALUES ($1 , $2 , $3 , $4 , $5 , $6) RETURNING *",
+      [name, contact, gender, time, date, description]
     );
     res.json("Accepted"); //returns accepted status code
     //need to set start and end time from appointment
@@ -202,7 +203,29 @@ console.log("Successfully connected!");
 
 let calendar = google.calendar('v3');
 
+//time slot fetcher
+app.get('/slotfetcher', async (req, res) =>{
+  try {
+    
+    const slots = await pool.query(
 
+      "SELECT * FROM bookings WHERE user_id = 1", (err, result) => {
+        if(err){
+          console.error(err.stack);
+        }
+        console.log(result.rows)
+        res.json({
+          rowCount: result.rowCount,
+          rows: result.rows, 
+        })
+      }
+
+    );
+
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 app.get('/', (req, res) => {
   res.json({
