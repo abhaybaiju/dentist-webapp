@@ -1,6 +1,8 @@
 import React from 'react';
-import {Button, Grid} from '@material-ui/core';
+import {Button, Grid, Table, TableRow, TableCell} from '@material-ui/core';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { useStateValue } from './StateProvider.js';
+import img from './images/blue_wave.png';
 import './css/App.css';
 
 function loadScript(src) {
@@ -60,11 +62,38 @@ const Pay = () => {
   const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
 
   return (
-    <Grid>
-      <div>
-        <p>{globalName + " " + globalPhone + " " + globalGender + " " + globalAge}</p>
-        <Button id="pay" onClick={displayRazorPay}>Confirm and Pay</Button>
-      </div>
+    <Grid container justify="center" alignItems="stretch" >
+      <Grid item lg={7} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
+        <img src={require('./images/verified.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>
+      </Grid>
+      <Grid item lg={5} style={{marginLeft:'0%', marginTop:'5.5%', marginBottom:'3.4%', width:'95%'}}>
+        <Table>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', background:'#f8faf9'}}>
+              <h2 style={{color:'#027e97', textAlign:'center', marginTop:'-1%', marginBottom:'-1%'}}><VerifiedUserIcon style={{marginRight:'2%', marginBottom:'-1%'}}/>Verify your details</h2>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>NAME :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>{globalName}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>PHONE :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>{globalPhone}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>GENDER :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>{globalGender}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>AGE :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>{globalAge}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', textAlign:'center'}}><Button id="pay" onClick={displayRazorPay} style={{textAlign:'center'}}>Confirm and Pay</Button></TableCell>
+          </TableRow>
+        </Table>
+      </Grid>
     </Grid>
   );
 }

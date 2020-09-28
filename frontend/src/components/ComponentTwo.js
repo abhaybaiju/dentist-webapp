@@ -95,11 +95,11 @@ const Two = () => {
 
   return(
     <Grid container justify="center" alignItems="stretch" >
-      <Grid item lg={6} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
+      <Grid item lg={6} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat', marginLeft:'-5%'}}>
         <img src={require('./images/undraw_personalization_triu.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>
       </Grid>
-      <Grid item lg={6}>
-        <form noValidate autoComplete="off" style={{marginLeft:'-5%', marginTop:'5.5%', marginBottom:'3.4%', width:'95%'}}>
+      <Grid item lg={6} style={{marginLeft:'-5%', marginTop:'5.5%', marginBottom:'3.4%', width:'95%'}}>
+        <form noValidate autoComplete="off" >
           <Table>
             <TableRow>
               <TableCell style={{borderBottom:'none', background:'#f8faf9'}}>
