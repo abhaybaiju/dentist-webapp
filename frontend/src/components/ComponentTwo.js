@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, Button, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, FormControlLabel, RadioGroup, makeStyles, Radio} from '@material-ui/core';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import { MuiThemeProvider } from '@material-ui/core'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 import { createMuiTheme } from '@material-ui/core/styles';
 import img from './images/blue_wave.png';
 
@@ -10,17 +13,18 @@ const ComponentTwo = () => {
   const theme = createMuiTheme({
     palette: {
   		primary: {
-  			main: '#ced1d8',
+  			main: '#027e97',
   		}
   	},
     overrides: {
-        MuiOutlinedInput: {
+        MuiTextField: {
             root: {
+                borderColor:'#ff7a59',
                 '& fieldset': {
-                  borderColor:'#ced1d8',
+                  borderColor:'#ff7a59',
                 },
                 '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-                borderColor: '#ced1d8',
+                borderColor: '#ff7a59',
             },
         },
       }
@@ -31,7 +35,38 @@ const ComponentTwo = () => {
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
-    }
+    },
+    field: {
+      '&:hover': {
+        borderColor: '#ff7a59'
+      },
+      '&$focus': {
+        borderColor: '#ff7a59'
+      },
+      '&$notchedOutline': {
+        borderColor:'#ff7a59!important',
+      }
+    },
+    hover: {},
+    notchedOutline: {},
+    menu: {
+      '&:hover': {
+        backgroundColor: '#ff7a59',
+        color:'white',
+      },
+      '&$focused': {
+        backgroundColor: '#ff7a59',
+        color:'white',
+      }
+    },
+    hover: {},
+    focused: {},
+    radio: {
+      '&$checked': {
+        color: '#ff7a59'
+      }
+    },
+    checked: {}
   }));
 
 const Two = () => {
@@ -46,52 +81,71 @@ const Two = () => {
 
   return(
     <Grid container justify="center" alignItems="stretch" >
-      <Grid item lg={5} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
+      <Grid item lg={6} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
         <img src={require('./images/undraw_personalization_triu.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>
       </Grid>
-      <Grid item lg={7}>
-        <form noValidate autoComplete="off" style={{marginLeft:'5%', marginTop:'5.5%', marginBottom:'3.4%', overflow:'hidden'}}>
+      <Grid item lg={6}>
+        <form noValidate autoComplete="off" style={{marginLeft:'-5%', marginTop:'5.5%', marginBottom:'3.4%', width:'95%'}}>
           <Table>
             <TableRow>
-              <TableCell style={{borderBottom:'none'}}>
-                <img src={require('./images/people.svg')} alt="" height="50" style={{float:'left'}}/>
-                <h2 style={{color:'#027e97', marginLeft:'15%'}}>Enter your details</h2>
+              <TableCell style={{borderBottom:'none', background:'#f8faf9'}}>
+                <h2 style={{color:'#027e97', textAlign:'center', marginTop:'-1%', marginBottom:'-1%'}}><ContactMailIcon style={{marginRight:'2%', marginBottom:'-1%'}}/>Enter your details</h2>
               </TableCell>
             </TableRow>
             <TableRow>
               <MuiThemeProvider theme={theme}>
-                <TableCell style={{borderBottom:'none', width:'100%'}}><TextField id="name" label="Your name" variant="outlined" color="primary" fullWidth={true}/></TableCell>
+                <TableCell style={{borderBottom:'none', width:'100%'}}>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <AccountCircleIcon style={{color:'#ff7a59'}}/>
+                    </Grid>
+                    <Grid item lg={10}>
+                      <TextField id="name" label="Your name" color="primary" fullWidth={true}/>
+                    </Grid>
+                  </Grid>
+                </TableCell>
               </MuiThemeProvider>
             </TableRow>
             <TableRow>
               <MuiThemeProvider theme={theme}>
-                <TableCell style={{borderBottom:'none', width:'100%'}}><TextField id="name" label="Your phone number" variant="outlined" color="primary" fullWidth={true}/></TableCell>
+                <TableCell style={{borderBottom:'none', width:'100%'}}>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
+                    </Grid>
+                    <Grid item lg={10}>
+                      <TextField id="name" label="Your phone number" fullWidth={true} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                    </Grid>
+                  </Grid>
+                </TableCell>
               </MuiThemeProvider>
             </TableRow>
 
             <TableRow>
               <MuiThemeProvider theme={theme}>
                 <TableCell style={{borderBottom:'none', width:'100%'}}>
-                  <div style={{float:'left', width:'55%'}}>
-                    <FormLabel component="legend">Gender</FormLabel>
-                    <RadioGroup aria-label="gender" name="gender" value={gender} onChange={(e)=>setGender(e.target.value)} row>
-                      <FormControlLabel value="Male" control={<Radio />} label="Male" />
-                      <FormControlLabel value="Female" control={<Radio />} label="Female" />
-                      <FormControlLabel value="Others" control={<Radio />} label="Others" />
-                    </RadioGroup>
-                  </div>
-                  <div style={{float:'right', width:'45%', marginRight:'-18%', marginTop:'-2%'}}>
-                    <FormControl className={classes.formControl}>
-                    <InputLabel id="ageLabel">Age</InputLabel>
-                    <Select labelId="age" id="age" value={age} onChange={(e)=>setAge(e.target.value)}>
-                      <MenuItem value={lesser}>{lesser}</MenuItem>
-                      {array.map((key,value) => (
-                        <MenuItem value={value+1}>{value+1}</MenuItem>
-                      ))}
-                      <MenuItem value={greater}>{greater}</MenuItem>
-                    </Select>
-                    </FormControl>
-                  </div>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <FormLabel component="legend">Gender</FormLabel>
+                      <RadioGroup aria-label="gender" name="gender" value={gender} onChange={(e)=>setGender(e.target.value)} row>
+                        <FormControlLabel value="Male" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Male" />
+                        <FormControlLabel value="Female" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Female" />
+                        <FormControlLabel value="Others" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Others" />
+                      </RadioGroup>
+                    </Grid>
+                    <Grid item>
+                      <FormControl className={classes.formControl}>
+                        <InputLabel id="ageLabel">Age</InputLabel>
+                        <Select labelId="age" id="age" value={age} onChange={(e)=>setAge(e.target.value)}>
+                          <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
+                          {array.map((key,value) => (
+                            <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>
+                          ))}
+                          <MenuItem value={greater} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{greater}</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </Grid>
+                  </Grid>
                 </TableCell>
               </MuiThemeProvider>
             </TableRow>
@@ -113,27 +167,5 @@ export default ComponentTwo;
 
 /*
 
-radial-gradient(100% 100% at 0% 50%, rgb(255,0,0) 49%, rgba(255,255,255) 50%)
-
-<Grid item lg={3}>
-  <Card variant="outlined" style={{marginTop:'11.8%', textAlign:'center', borderRadius:'0px', background:'#ff7a59', marginBottom:'-10%'}}>
-    <CardContent style={{marginBottom:'33.5%', marginTop:'34%'}}>
-      <p style={{color:'white', textAlign:'center', fontSize:'35px', marginTop:'10%', marginBottom:'10%'}}>Enter your details</p>
-    </CardContent>
-  </Card>
-</Grid>
-
-
-
-
-
-
-<Grid item lg={8}>
-  <Card variant="outlined" style={{marginTop:'10%', textAlign:'center', borderRadius:'0px', border:'10px solid #e1e2e4' , background:'#f8faf9'}}>
-    <CardContent>
-
-    </CardContent>
-  </Card>
-</Grid>
 
 */

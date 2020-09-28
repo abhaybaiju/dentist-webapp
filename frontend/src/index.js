@@ -4,7 +4,7 @@ import './components/css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {StateProvider} from './components/StateProvider';
-import reducer, { initialState } from './components/reducer';
+import reducer, { initialState } from './components/Reducer';
 
 ReactDOM.render(
   <React.StrictMode>
