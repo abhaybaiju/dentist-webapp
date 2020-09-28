@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button, Grid} from '@material-ui/core';
+import { useStateValue } from './StateProvider.js';
 import './css/App.css';
 
 function loadScript(src) {
@@ -26,6 +28,8 @@ const Pay = () => {
     if(!res) {
       alert('Razorpay SDK failed to load. Are you online?')
       return
+    } else {
+      window.location = "/Success";
     }
 
     const data = await fetch('http://localhost:1337/pay', {method: 'POST' }).then((t) =>
@@ -53,14 +57,15 @@ const Pay = () => {
     paymentObject.open();
   }
 
+  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+
   return (
-    <div className="App">
-
+    <Grid>
       <div>
-        <button id="pay" onClick={displayRazorPay}>PAY</button>
+        <p>{globalName + " " + globalPhone + " " + globalGender + " " + globalAge}</p>
+        <Button id="pay" onClick={displayRazorPay}>Confirm and Pay</Button>
       </div>
-
-    </div>
+    </Grid>
   );
 }
 

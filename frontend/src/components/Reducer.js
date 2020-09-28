@@ -1,6 +1,10 @@
 export const initialState = {
     globalTime: null,
     user: null,
+    globalName: null,
+    globalPhone: null,
+    globalGender: null,
+    globalAge: null,
 };
 
 
@@ -17,6 +21,14 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 globalTime : action.globalTime
+            }
+        case 'SET_FORM':
+            return {
+                ...state,
+                globalName: action.globalName,
+                globalPhone: action.globalPhone,
+                globalGender: action.globalGender,
+                globalAge: action.globalAge
             };
         default:
             return state;

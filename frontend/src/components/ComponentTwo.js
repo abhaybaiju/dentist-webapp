@@ -5,6 +5,7 @@ import { MuiThemeProvider } from '@material-ui/core'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import { useStateValue } from './StateProvider.js';
 import { createMuiTheme } from '@material-ui/core/styles';
 import img from './images/blue_wave.png';
 
@@ -72,12 +73,25 @@ const ComponentTwo = () => {
 const Two = () => {
   const classes = useStyles();
   const [name, setName] = useState('');
-  const [contact, setContact] = useState('');
+  const [phone, setPhone] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
   let array = Array.from({length: 100}, (_, i) => i + 1)
   const lesser = "<1";
   const greater = ">100";
+
+  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+
+  const handleAgeChange = (val) => {
+    setAge(val);
+    dispatch({
+      type: 'SET_FORM',
+      globalName: name,
+      globalPhone: phone,
+      globalGender: gender,
+      globalAge: val,
+    });
+  }
 
   return(
     <Grid container justify="center" alignItems="stretch" >
@@ -100,7 +114,7 @@ const Two = () => {
                       <AccountCircleIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" label="Your name" color="primary" fullWidth={true}/>
+                      <TextField id="name" label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -114,7 +128,7 @@ const Two = () => {
                       <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" label="Your phone number" fullWidth={true} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                      <TextField id="name" label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -136,7 +150,7 @@ const Two = () => {
                     <Grid item>
                       <FormControl className={classes.formControl}>
                         <InputLabel id="ageLabel">Age</InputLabel>
-                        <Select labelId="age" id="age" value={age} onChange={(e)=>setAge(e.target.value)}>
+                        <Select labelId="age" id="age" value={age} onChange={(e)=>handleAgeChange(e.target.value)}>
                           <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
                           {array.map((key,value) => (
                             <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>
