@@ -38,7 +38,7 @@ app.post("/pay",async (req, res) => {
     amount: (amount*100).toString(),
     currency: currency,
     receipt: shortid.generate(),
-    payment_capture
+    payment_capture: 1 //1 for automatic capture and 0 for manual
   }
 
   try {
@@ -59,7 +59,6 @@ app.post('/verification', (req, res) => {
   //do a validation
   const SECRET = 'LilaDentalClinic@Vikaspuri'
   console.log(req.body)
-
 
   //RazorPay signature is the hashed value of the payload(all info on successful payment)
   //We compute this hashed value. If hashed value matches, payment validated else not.
@@ -206,7 +205,7 @@ let calendar = google.calendar('v3');
 //time slot fetcher
 app.get('/slotfetcher', async (req, res) =>{
   try {
-    
+
     const slots = await pool.query(
 
       "SELECT * FROM bookings WHERE user_id = 1", (err, result) => {
@@ -216,7 +215,7 @@ app.get('/slotfetcher', async (req, res) =>{
         console.log(result.rows)
         res.json({
           rowCount: result.rowCount,
-          rows: result.rows, 
+          rows: result.rows,
         })
       }
 

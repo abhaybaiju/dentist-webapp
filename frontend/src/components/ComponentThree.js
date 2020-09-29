@@ -24,19 +24,24 @@ const __DEV__ = document.domain === 'localhost'
 
 const Pay = () => {
 
+  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+
   async function displayRazorPay() {
 
     const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
     if(!res) {
       alert('Razorpay SDK failed to load. Are you online?')
       return
-    } else {
-      window.location = "/Success";
     }
 
     const data = await fetch('http://localhost:1337/pay', {method: 'POST' }).then((t) =>
       t.json()
     )
+
+    if (!data) {
+      alert("Server error. Are you online?");
+      return;
+    }
 
     console.log(data)
 
@@ -54,12 +59,18 @@ const Pay = () => {
             //alert(response.razorpay_order_id);
             ///alert(response.razorpay_signature)
         //}
+        "buttontext":"Pay with Razorpay",
+        "prefill.contact":globalPhone,
+        "theme.color":"#027e97"
     };
-    const paymentObject = new window.Razorpay(options);
+    const paymentObject = (new window.Razorpay(options)).open();
     paymentObject.open();
-  }
 
-  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+    if (res.status === 'ok') {
+      console.log("successful");
+      window.location = '/Success';
+    }
+  }
 
   return (
     <Grid container justify="center" alignItems="stretch" >
@@ -88,6 +99,10 @@ const Pay = () => {
           <TableRow>
             <TableCell style={{borderBottom:'none'}}>AGE :</TableCell>
             <TableCell style={{borderBottom:'none'}}>{globalAge}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>AMOUNT :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>INR 200</TableCell>
           </TableRow>
           <TableRow>
             <TableCell style={{borderBottom:'none', textAlign:'center'}}><Button id="pay" onClick={displayRazorPay} style={{textAlign:'center'}}>Confirm and Pay</Button></TableCell>
