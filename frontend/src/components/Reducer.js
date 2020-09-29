@@ -5,6 +5,7 @@ export const initialState = {
     globalPhone: null,
     globalGender: null,
     globalAge: null,
+    globalEmail: null
 };
 
 
@@ -26,6 +27,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 globalName: action.globalName,
+                globalEmail: action.globalEmail,
                 globalPhone: action.globalPhone,
                 globalGender: action.globalGender,
                 globalAge: action.globalAge

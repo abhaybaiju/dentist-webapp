@@ -54,16 +54,20 @@ const Pay = () => {
         "description": "Appointment Booking",
         "image": "http://localhost:1337/logo.png",
         "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        //"handler": function (response){
-          //  alert(response.razorpay_payment_id);
-            //alert(response.razorpay_order_id);
-            ///alert(response.razorpay_signature)
-        //}
+        "handler": (response) => {
+          var redirect_url = "/Book";
+          if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+            redirect_url = '/Fail';
+          } else {
+            redirect_url = '/Success';
+          }
+          window.location = redirect_url;
+        },
         "buttontext":"Pay with Razorpay",
         "prefill.contact":globalPhone,
         "theme.color":"#027e97"
     };
-    const paymentObject = (new window.Razorpay(options)).open();
+    const paymentObject = window.Razorpay(options).open();
     paymentObject.open();
 
     if (res.status === 'ok') {
