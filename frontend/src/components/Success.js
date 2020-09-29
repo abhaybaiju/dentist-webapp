@@ -6,7 +6,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
-const Success = (props) => {
+const Success = () => {
 
   const theme = createMuiTheme({
     overrides: {

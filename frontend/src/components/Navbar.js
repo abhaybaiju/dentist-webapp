@@ -67,7 +67,7 @@ const Navbar = () => {
               <a href="/">Services</a>
               <a href="/">Our Specialists</a>
               <a href="/">Blog</a>
-              <a href="/">Contact Us</a>
+              <a href="/Contact">Contact Us</a>
           </Grid>
         </Toolbar>
       </AppBar>
