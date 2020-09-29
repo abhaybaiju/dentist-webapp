@@ -3,6 +3,7 @@ import {Container, Grid, Table, TableRow, TableCell, Button, makeStyles} from '@
 import Navbar from './Navbar';
 import { ThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
+import { useStateValue } from './StateProvider.js';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const Success = (props) => {
@@ -56,6 +57,8 @@ const Success = (props) => {
 
 const Display = () => {
     const classes = useStyles();
+    const [{globalName}, dispatch] = useStateValue();
+    console.log(globalName);
 
     return(
       <Container>
@@ -82,7 +85,7 @@ const Display = () => {
                     <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{props.date}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{props.time}</TableCell>
+                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{globalName}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{globalName}</TableCell>
                     <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
                   </TableRow>
                 </Table>

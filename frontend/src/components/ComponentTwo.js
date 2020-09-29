@@ -5,6 +5,7 @@ import { MuiThemeProvider } from '@material-ui/core'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import EmailIcon from '@material-ui/icons/Email';
 import { useStateValue } from './StateProvider.js';
 import { createMuiTheme } from '@material-ui/core/styles';
 import img from './images/blue_wave.png';
@@ -73,6 +74,7 @@ const ComponentTwo = () => {
 const Two = () => {
   const classes = useStyles();
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [gender, setGender] = useState('');
   const [age, setAge] = useState('');
@@ -80,13 +82,14 @@ const Two = () => {
   const lesser = "<1";
   const greater = ">100";
 
-  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
 
   const handleAgeChange = (val) => {
     setAge(val);
     dispatch({
       type: 'SET_FORM',
       globalName: name,
+      globalEmail: email,
       globalPhone: phone,
       globalGender: gender,
       globalAge: val,
@@ -99,7 +102,7 @@ const Two = () => {
         <img src={require('./images/undraw_personalization_triu.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>
       </Grid>
       <Grid item lg={6} style={{marginLeft:'-5%', marginTop:'5.5%', marginBottom:'3.4%', width:'95%'}}>
-        <form noValidate autoComplete="off" >
+
           <Table>
             <TableRow>
               <TableCell style={{borderBottom:'none', background:'#f8faf9'}}>
@@ -115,6 +118,20 @@ const Two = () => {
                     </Grid>
                     <Grid item lg={10}>
                       <TextField id="name" label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
+                    </Grid>
+                  </Grid>
+                </TableCell>
+              </MuiThemeProvider>
+            </TableRow>
+            <TableRow>
+              <MuiThemeProvider theme={theme}>
+                <TableCell style={{borderBottom:'none', width:'100%'}}>
+                  <Grid container spacing={1} alignItems="flex-end">
+                    <Grid item>
+                      <EmailIcon style={{color:'#ff7a59'}}/>
+                    </Grid>
+                    <Grid item lg={10}>
+                      <TextField id="email" label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -164,7 +181,7 @@ const Two = () => {
               </MuiThemeProvider>
             </TableRow>
           </Table>
-        </form>
+
       </Grid>
     </Grid>
   );

@@ -24,7 +24,7 @@ const __DEV__ = document.domain === 'localhost'
 
 const Pay = () => {
 
-  const [{globalName, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
 
   async function displayRazorPay() {
 
@@ -55,9 +55,9 @@ const Pay = () => {
         "image": "http://localhost:1337/logo.png",
         "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "handler": (response) => {
-          var redirect_url = "/Book";
+          var redirect_url = "/";
           if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
-            redirect_url = '/Fail';
+            redirect_url = '/Book';
           } else {
             redirect_url = '/Success';
           }
@@ -65,15 +65,11 @@ const Pay = () => {
         },
         "buttontext":"Pay with Razorpay",
         "prefill.contact":globalPhone,
+        "prefill.email":globalEmail,
         "theme.color":"#027e97"
     };
     const paymentObject = window.Razorpay(options).open();
     paymentObject.open();
-
-    if (res.status === 'ok') {
-      console.log("successful");
-      window.location = '/Success';
-    }
   }
 
   return (
@@ -91,6 +87,10 @@ const Pay = () => {
           <TableRow>
             <TableCell style={{borderBottom:'none'}}>NAME :</TableCell>
             <TableCell style={{borderBottom:'none'}}>{globalName}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}>EMAIL :</TableCell>
+            <TableCell style={{borderBottom:'none'}}>{globalEmail}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell style={{borderBottom:'none'}}>PHONE :</TableCell>
