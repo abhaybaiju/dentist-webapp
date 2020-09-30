@@ -4,6 +4,11 @@ import {Container, Grid, Table, TableRow, TableCell, TextField, Button, makeStyl
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import MapView from './Map';
+//import {Map:LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet';
+//import {LeafletMap} from 'leaflet';
+//import {ReactLeaflet} from 'react-leaflet'
+//const { Map, TileLayer, Marker, Popup } = window.ReactLeaflet
 
 const Contact = () => {
 
@@ -44,6 +49,7 @@ const Contact = () => {
 });
 
   const classes=useStyles();
+  const position = [51.505, -0.09]
 
   return(
       <Grid>
@@ -59,7 +65,7 @@ const Contact = () => {
             <img alt="..." src={require('./images/contact.svg')} height="400"/>
           </Grid>
         </Grid>
-        <Grid container alignItems="center" justify="space-evenly">
+        <Grid container alignItems="center" justify="space-evenly" spacing={5}>
           <Grid item lg={6} style={{color:'#3f3d56', marginTop:'3%'}}>
             <h3 style={{marginLeft:'27%',fontSize:'30px'}}>Contact details</h3>
             <p style={{marginLeft:'27%', lineHeight:'1.6', marginRight:'2%', fontSize:'16px', marginTop:'1%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
@@ -83,7 +89,7 @@ const Contact = () => {
             </Table>
           </Grid>
           <Grid item lg={6}>
-                //MAP
+            <MapView />
           </Grid>
         </Grid>
         <Grid container alignItems="center" justify="center" style={{background:'#f7f9fa'}}>
