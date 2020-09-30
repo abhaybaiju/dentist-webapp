@@ -205,18 +205,21 @@ let calendar = google.calendar('v3');
 //time slot fetcher
 app.get('/slotfetcher', async (req, res) =>{
   try {
-
+    console.log(req.query.date)
+    var date = req.query.date;
     const slots = await pool.query(
 
-      "SELECT * FROM bookings WHERE user_id = 1", (err, result) => {
+      "SELECT * FROM bookings WHERE date = $1", [date],  (err, result) => {
         if(err){
           console.error(err.stack);
         }
+        else{
         console.log(result.rows)
         res.json({
           rowCount: result.rowCount,
           rows: result.rows,
         })
+      }
       }
 
     );
