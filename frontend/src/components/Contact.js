@@ -5,10 +5,6 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MapView from './Map';
-//import {Map:LeafletMap, Marker, Popup, TileLayer } from 'react-leaflet';
-//import {LeafletMap} from 'leaflet';
-//import {ReactLeaflet} from 'react-leaflet'
-//const { Map, TileLayer, Marker, Popup } = window.ReactLeaflet
 
 const Contact = () => {
 

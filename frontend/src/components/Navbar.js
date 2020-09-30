@@ -63,7 +63,7 @@ const Navbar = () => {
           </Grid>
           <Grid container justify="space-evenly" spacing={3}>
               <a href="/">Home</a>
-              <a href="/">About Us</a>
+              <a href="/About">About Us</a>
               <a href="/">Services</a>
               <a href="/">Our Specialists</a>
               <a href="/">Blog</a>
