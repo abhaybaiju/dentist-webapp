@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
-import {Container, Grid, Table, TableRow, TableCell, TextField, Button, makeStyles} from '@material-ui/core';
+import {Grid, Table, TableRow, TableCell, TextField, Button, makeStyles} from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -46,7 +46,6 @@ const Contact = () => {
 });
 
   const classes=useStyles();
-  const position = [51.505, -0.09]
 
   return(
       <Grid style={{overflowX:'hidden'}}>

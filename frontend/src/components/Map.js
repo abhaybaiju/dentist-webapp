@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Map, Marker,TileLayer } from "react-leaflet";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { divIcon } from 'leaflet';
