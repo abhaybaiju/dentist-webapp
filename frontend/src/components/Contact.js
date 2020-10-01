@@ -84,7 +84,7 @@ const Contact = () => {
               </TableRow>
             </Table>
           </Grid>
-          <Grid item lg={6}>
+          <Grid item lg={6} md={8} sm={12} xs = {12} >
             <MapView />
           </Grid>
         </Grid>
