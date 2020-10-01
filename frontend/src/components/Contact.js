@@ -5,6 +5,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MapView from './Map';
+import Footer from './Footer';
 
 const Contact = () => {
 
@@ -48,7 +49,7 @@ const Contact = () => {
   const position = [51.505, -0.09]
 
   return(
-      <Grid>
+      <Grid style={{overflowX:'hidden'}}>
         <Grid>
           <Navbar/>
         </Grid>
@@ -105,6 +106,7 @@ const Contact = () => {
             <Button className={classes.buttonSubmit}>Submit</Button>
           </Grid>
         </Grid>
+        <Footer top="2%" bottom="2%" left="15%" right="-20%"/>
       </Grid>
   );
 }

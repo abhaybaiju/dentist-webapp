@@ -1,0 +1,12 @@
+.a {
+  color: #027e97;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.a:hover {
+  color: #233dd2;
+  cursor: pointer;
+  text-decoration: none;
+}
