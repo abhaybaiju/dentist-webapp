@@ -78,7 +78,6 @@ const ComponentOne = () => {
 
   const handleTimeChange = (timeval, text) => {
 		setTime(timeval);
-    console.log(text);
 		dispatch({
 			type: 'SET_GLOBALTIME',
 			globalTime: timeval,
@@ -180,10 +179,16 @@ const ComponentOne = () => {
   }
 
   const handleDateChange = (changedDate) => {
-    console.log("Date is ",changedDate);
+    dispatch({
+			type: 'SET_GLOBALDATE',
+			globalDate: changedDate
+		});
     changeDate(changedDate);
-    console.log("Date is ",changedDate);
     fetchAppointments(changedDate); 
+  }
+
+  const disableSundays = (date) => {
+    return date.getDay() === 0;
   }
 
   React.useEffect(() => {
@@ -201,7 +206,7 @@ const ComponentOne = () => {
             <CardContent style={{ marginTop:'5%'}}>
             <MuiThemeProvider theme={theme}>
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker disableToolbar disablePast autoOk variant="static" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
+                <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
               </MuiPickersUtilsProvider>
             </MuiThemeProvider>
             </CardContent>

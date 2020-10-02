@@ -1,5 +1,6 @@
 export const initialState = {
     globalTime: null,
+    globalDate: null,
     user: null,
     globalName: null,
     globalPhone: null,
@@ -24,6 +25,11 @@ const reducer = (state, action) => {
                 ...state,
                 globalTime : action.globalTime,
                 globalTimeText : action.globalTimeText
+            }
+        case 'SET_GLOBALDATE':
+            return {
+                ...state,
+                globalDate : action.globalDate,
             }
         case 'SET_FORM':
             return {
