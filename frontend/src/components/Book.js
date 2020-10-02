@@ -156,8 +156,8 @@ const Book = () => {
         <Grid>
           <Navbar/>
         </Grid>
-        <Grid container alignItems="center" justify="space-evenly" style={{background:'#d3eaf0', marginTop:'8%'}}>
-          <Grid item lg={3} style={{color:'#027e97'}}>
+        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'8%'}}>
+          <Grid item lg={3} style={{color:'#2f2b4f'}}>
             <h1 style={{lineHeight:'1.3'}}>Booking appointments made easy</h1><br/>
             <Grid item lg={12}>
               <p style={{lineHeight:'1.6'}}>Hassle-free booking for you at your convenient time. Hassle-free booking for you at your convenient time.</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
+import {Grid, Card, CardContent} from '@material-ui/core';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import './css/AboutUs.css';
@@ -26,26 +26,26 @@ const AboutUs = () => {
           <h1>Are you getting the right treatment?</h1>
           <p style={{lineHeight:'1.6'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
-        <Grid item lg={6} style={{marginTop:'-2%', marginLeft:'15%', marginRight:'-18%'}}>
-          <img src={require('./images/dentist.png')} alt="" height="550"/>
+        <Grid item lg={6} style={{marginTop:'5%', marginLeft:'15%', marginRight:'-18%'}}>
+          <img src={require('./images/about.svg')} alt="" height="350"/>
         </Grid>
       </Grid>
-      <Grid container justify="space-evenly" alignItems="flex-start" style={{marginTop:'10%'}} spacing={0}>
+      <Grid container justify="space-evenly" alignItems="flex-start" style={{marginTop:'15%', marginBottom:'-62%'}} spacing={0}>
         <Grid item lg={2} style={{marginLeft:'-10%'}}>
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="1600" width="1000">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="1620" width="1000">
             <defs>
               <linearGradient id="grad2" x1="0" y1="0" x2="11" y2="0">
                 <stop offset="0%" className="style2"/>
                 <stop offset="10%" className="style1"/>
               </linearGradient>
             </defs>
-            <rect fill="url(#grad2)" width="80" height="80" rx="8" style={{transform:'rotate(-45deg)'}}/>
+            <rect fill="url(#grad2)" width="90" height="90" rx="8" style={{transform:'rotate(-45deg)'}}/>
           </svg>
         </Grid>
         <Grid item lg={5} style={{marginTop:'10%'}}>
           <img src={require('./images/people.svg')} alt="" height="300" width="450" style={{background:'white', border:'10px solid #e6e6e6', borderRadius:'20px'}}/>
         </Grid>
-        <Grid item lg={4} style={{marginTop:'2%'}}>
+        <Grid item lg={4} style={{marginTop:'1%'}}>
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
           <h1 style={{color:'#ff7a59', marginBottom:'5%', marginTop:'-1%'}}>Our journey</h1>
           <ul style={{marginRight:'10%'}}>
@@ -55,7 +55,37 @@ const AboutUs = () => {
           </ul>
         </Grid>
       </Grid>
-      <Footer top="20%" bottom="2%" left="15%" right="-25%"/>
+      <Grid container justify="center" alignItems="stretch">
+        <Grid item lg={12} style={{textAlign:'center', marginBottom:'5%'}}>
+          <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
+          <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
+        </Grid>
+        <Grid item lg={5} >
+          <p style={{marginLeft:'10%', marginRight:'19%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+        </Grid>
+        <Grid item lg={5}>
+          <Card style={{width:'80%', marginLeft:'20%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
+            <CardContent style={{background:'#efeef6', marginTop:'3%'}}> {/*e0deed*/}
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
+                <circle fill="#e0deed" cx="-170" cy="-200" r="400"/>
+              </svg>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item lg={5} style={{marginTop:'2%'}}>
+          <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none'}}>
+            <CardContent style={{background:'#ffebe6', marginTop:'3%'}}>{/*ffd6cc*/}
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
+                <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
+              </svg>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item lg={5} style={{marginTop:'2%'}}>
+          <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+        </Grid>
+      </Grid>
+      <Footer top="5%" bottom="2%" left="15%" right="-25%"/>
     </Grid>
   );
 }
