@@ -1,9 +1,30 @@
 import React from 'react';
-import {Button, Grid, Table, TableRow, TableCell} from '@material-ui/core';
+import {Button, Grid, Table, TableRow, TableCell, makeStyles} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { useStateValue } from './StateProvider.js';
 import img from './images/blue_wave.png';
 import './css/App.css';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
+    color: 'white',
+    transition: '0.5s',
+    boxShadow: '0 0 20px #eee',
+    borderRadius: '10px',
+    padding: '10px 60px',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    backgroundSize: '200% auto',
+    display: 'block',
+    "&:hover": {
+      backgroundPosition: 'right center', /* change the direction of the change here */
+      color: '#fff',
+      textDecoration:'none'
+    }
+  }
+}));
+
 
 function loadScript(src) {
   return new Promise((resolve) => {
@@ -24,7 +45,7 @@ const __DEV__ = document.domain === 'localhost'
 
 const Pay = () => {
 
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalDate}, dispatch] = useStateValue();
 
   async function displayRazorPay() {
 
@@ -57,8 +78,12 @@ const Pay = () => {
         "handler": (response) => {
           var redirect_url = "/";
           if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
+            localStorage.setItem('payment',"failure");
             redirect_url = '/Book';
           } else {
+            localStorage.setItem('payment',"success");
+            localStorage.setItem("globalTime", globalTime);
+            localStorage.setItem("globalDate",globalDate);
             redirect_url = '/Success';
           }
           window.location = redirect_url;
@@ -71,6 +96,7 @@ const Pay = () => {
     const paymentObject = window.Razorpay(options).open();
     paymentObject.open();
   }
+  const classes = useStyles();
 
   return (
     <Grid container justify="center" alignItems="stretch" >
@@ -109,7 +135,7 @@ const Pay = () => {
             <TableCell style={{borderBottom:'none'}}>INR 200</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{borderBottom:'none', textAlign:'center'}}><Button id="pay" onClick={displayRazorPay} style={{textAlign:'center'}}>Confirm and Pay</Button></TableCell>
+            <TableCell style={{borderBottom:'none', textAlign:'center'}}><Button id="pay" onClick={displayRazorPay} className={classes.button}  >Confirm and Pay</Button></TableCell>
           </TableRow>
         </Table>
       </Grid>

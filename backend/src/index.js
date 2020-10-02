@@ -101,21 +101,22 @@ app.post("/book", async(req, res) => {
     res.json("Accepted"); //returns accepted status code
     //need to set start and end time from appointment
     // Can also change appointment structure into month day and hour fields
+    date.setHours(time/100,time%100,0);
+    var endDate =  new Date(date.getTime() + 15*60000);
     var event = {
       'summary': name,
       'description': description,
       'start': {
-        'dateTime': '2020-08-25T09:00:00',
+        'dateTime': date.toISOString(),
         'timeZone': 'Asia/Kolkata',
       },
       'end': {
-        'dateTime': '2020-08-25T09:30:00',
+        'dateTime': endDate.toISOString(),
         'timeZone': 'Asia/Kolkata',
       },
       'reminders': {
         'useDefault': false,
         'overrides': [
-          {'method': 'email', 'minutes': 24 * 60},
           {'method': 'popup', 'minutes': 10},
         ],
       },

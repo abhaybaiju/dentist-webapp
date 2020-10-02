@@ -58,7 +58,6 @@ const Success = () => {
 const Display = () => {
     const classes = useStyles();
     const [{globalName}, dispatch] = useStateValue();
-    console.log(globalName);
 
     return(
       <Container>
@@ -85,7 +84,7 @@ const Display = () => {
                     <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{globalName}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{globalName}</TableCell>
+                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{localStorage.getItem('globalDate')}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{localStorage.getItem('globalDate')}</TableCell>
                     <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
                   </TableRow>
                 </Table>
