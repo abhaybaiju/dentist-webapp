@@ -23,12 +23,12 @@ const Success = () => {
     width: '100%',
   },
   button: {
-    background: 'linear-gradient(to right, #7474BF 0%, #348AC7  51%, #7474BF 100%)',
+    background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
     color: 'white',
     transition: '0.5s',
     boxShadow: '0 0 20px #eee',
     borderRadius: '10px',
-    padding: '15px 45px',
+    padding: '10px 60px',
     textAlign: 'center',
     textTransform: 'uppercase',
     backgroundSize: '200% auto',
@@ -57,8 +57,17 @@ const Success = () => {
 
 const Display = () => {
     const classes = useStyles();
-    const [{globalName}, dispatch] = useStateValue();
-
+    const date = new Date(localStorage.getItem('globalDate'));
+    const time = localStorage.getItem('globalTime');
+    console.log(date.toDateString());
+    const hours = parseInt(parseInt(time)/100);
+    const minutes = parseInt(parseInt(time)%100);
+    console.log(hours,minutes);
+    date.setHours(hours,minutes,0);
+    const startDate = date.toISOString();
+    date.setHours(hours,minutes+15,0);
+    const endDate = date.toISOString();
+    const string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + "%2F" + endDate + "&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&details=Appointment%20at%20Lila%20Dental%20Clinic";
     return(
       <Container>
         <Grid>

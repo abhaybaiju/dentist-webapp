@@ -181,7 +181,7 @@ const ComponentOne = () => {
   const handleDateChange = (changedDate) => {
     dispatch({
 			type: 'SET_GLOBALDATE',
-			globalDate: changedDate
+			globalDate: changedDate.toDateString()
 		});
     changeDate(changedDate);
     fetchAppointments(changedDate); 
