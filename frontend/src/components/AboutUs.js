@@ -30,7 +30,7 @@ const AboutUs = () => {
           <img src={require('./images/dentist.png')} alt="" height="550"/>
         </Grid>
       </Grid>
-      <Footer top="40%" bottom="0%" left="25%" right="0%"/>
+      <Footer top="20%" bottom="2%" left="15%" right="0%"/>
     </Grid>
   );
 }

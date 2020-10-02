@@ -102,7 +102,7 @@ function HorizontalNonLinearStepper() {
   };
 
   return (
-    <Grid style={{overflowX:'hidden'}}>
+    <Grid style={{overflowX:'hidden', marginLeft:'5%', marginRight:'5%'}}>
         <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'5%'}}>
           <Grid>
             <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
@@ -141,42 +141,38 @@ function HorizontalNonLinearStepper() {
             )}
           </Grid>
         </Card>
-    </Grid>
+      </Grid>
+    );
+  }
+
+  return(
+    <HorizontalNonLinearStepper />
   );
-}
-
-
-return(
-  <HorizontalNonLinearStepper />
-);
 }
 
 const Book = () => {
   return(
-    <Container style={{overflowX:'hidden'}}>
-      <Grid>
+    <Grid style={{overflowX:'hidden'}}>
         <Grid>
           <Navbar/>
         </Grid>
-        <Grid container alignItems="center" justify="space-evenly" style={{background:'#d3eaf0', marginTop:'8%', borderRadius:'50px'}}>
-          <Grid item lg={4} style={{color:'#027e97'}}>
+        <Grid container alignItems="center" justify="space-evenly" style={{background:'#d3eaf0', marginTop:'8%'}}>
+          <Grid item lg={3} style={{color:'#027e97'}}>
             <h1 style={{lineHeight:'1.3'}}>Booking appointments made easy</h1><br/>
-            <Grid item lg={8}>
+            <Grid item lg={12}>
               <p style={{lineHeight:'1.6'}}>Hassle-free booking for you at your convenient time. Hassle-free booking for you at your convenient time.</p>
             </Grid>
           </Grid>
-          <Grid item lg={5}>
+          <Grid item lg={4}>
             <img alt="..." src={require('./images/booking_illustration.svg')} height="400"/>
           </Grid>
         </Grid>
         <Grid>
-          {/*calendar and date picker*/}
           <Process />
           <br /><br/>
         </Grid>
-      </Grid>
       <Footer top="0%" bottom="2%" left="5%" right="-45%"/>
-    </Container>
+    </Grid>
   );
 }
 
