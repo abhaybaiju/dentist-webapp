@@ -30,6 +30,10 @@ const AboutUs = () => {
           <img src={require('./images/dentist.png')} alt="" height="550"/>
         </Grid>
       </Grid>
+      <Grid>
+        <p style={{textTransform:'uppercase', textAlign:'center'}}>Our Mission</p>
+        <h2></h2>
+      </Grid>
       <Footer top="20%" bottom="2%" left="15%" right="0%"/>
     </Grid>
   );
