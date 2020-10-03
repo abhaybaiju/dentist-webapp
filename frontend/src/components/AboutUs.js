@@ -26,8 +26,8 @@ const AboutUs = () => {
           <h1>Are you getting the right treatment?</h1>
           <p style={{lineHeight:'1.6'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
-        <Grid item lg={6} style={{marginTop:'5%', marginLeft:'15%', marginRight:'-18%'}}>
-          <img src={require('./images/about.svg')} alt="" height="350"/>
+        <Grid item lg={6} style={{marginTop:'5%', marginLeft:'12%', marginRight:'-18%'}}>
+          <img src={require('./images/about.svg')} alt="" height="400"/>
         </Grid>
       </Grid>
       <Grid container justify="space-evenly" alignItems="flex-start" style={{marginTop:'15%', marginBottom:'-62%'}} spacing={0}>
@@ -84,6 +84,8 @@ const AboutUs = () => {
         <Grid item lg={5} style={{marginTop:'2%'}}>
           <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
+      </Grid>
+      <Grid>
       </Grid>
       <Footer top="5%" bottom="2%" left="15%" right="-25%"/>
     </Grid>
