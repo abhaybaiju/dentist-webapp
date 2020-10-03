@@ -12,7 +12,7 @@ const Success = () => {
     width: '100%',
   },
   button: {
-    background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
+    background: 'linear-gradient(to right, #3f3d56 0%, #9997b5 51%, #3f3d56 100%)',
     color: 'white',
     transition: '0.5s',
     boxShadow: '0 0 20px #eee',
@@ -58,7 +58,7 @@ const Display = () => {
             <Navbar/>
           </Grid>
           <Grid container alignItems="center" justify="space-evenly" style={{marginTop:'-12%', marginBottom:'2%', marginLeft:'-5%'}} spacing={2}>
-            <Grid item lg={4} style={{color:'#027e97', marginTop:'15%', marginLeft:'5%'}}>
+            <Grid item lg={4} style={{color:'#3f3d56', marginTop:'15%', marginLeft:'5%'}}>
               <h1 style={{lineHeight:'1.3', marginLeft:'2%'}}>Appointment booked successfully!</h1>
               <Grid item lg={8}>
                 <p style={{lineHeight:'1.6', marginLeft:'2%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>

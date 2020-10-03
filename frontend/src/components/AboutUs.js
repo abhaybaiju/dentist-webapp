@@ -85,7 +85,12 @@ const AboutUs = () => {
           <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
       </Grid>
-      <Grid>
+      <Grid container justify="center" alignItems="center">
+        <Grid item lg={10}>
+          <Card>
+            
+          </Card>
+        </Grid>
       </Grid>
       <Footer top="5%" bottom="2%" left="15%" right="-25%"/>
     </Grid>
