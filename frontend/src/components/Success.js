@@ -1,25 +1,12 @@
 import React from 'react';
-import {Container, Grid, Table, TableRow, TableCell, Button, makeStyles} from '@material-ui/core';
+import {Container, Grid, Button, makeStyles} from '@material-ui/core';
 import Navbar from './Navbar';
-import { ThemeProvider } from '@material-ui/core'
-import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Footer from './Footer';
 import moment from 'moment';
+import ImageSVG from './image';
 
 const Success = () => {
-
-  const theme = createMuiTheme({
-    overrides: {
-        MuiTableCell: {
-            root: {  //This can be referred from Material UI API documentation.
-                padding: '10px 8px',
-            },
-        },
-    },
-  });
-
   const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -40,16 +27,6 @@ const Success = () => {
       color: '#fff',
       textDecoration:'none'
     }
-  },
-  table: {
-    position:'sticky',
-    backgroundColor:'#f1f4f7',
-    border: '1px solid #027e97',
-    width:'100%',
-    color: '#027e97',
-  },
-  tableRow: {
-    border:'none'
   }
 }));
 
@@ -80,8 +57,8 @@ const Display = () => {
           <Grid>
             <Navbar/>
           </Grid>
-          <Grid container alignItems="center" justify="space-evenly" style={{marginTop:'-12%', marginBottom:'2%', marginLeft:'-5%'}}>
-            <Grid item lg={4} style={{color:'#027e97', marginTop:'15%', marginLeft:'-15%'}}>
+          <Grid container alignItems="center" justify="space-evenly" style={{marginTop:'-12%', marginBottom:'2%', marginLeft:'-5%'}} spacing={2}>
+            <Grid item lg={4} style={{color:'#027e97', marginTop:'15%', marginLeft:'5%'}}>
               <h1 style={{lineHeight:'1.3', marginLeft:'2%'}}>Appointment booked successfully!</h1>
               <Grid item lg={8}>
                 <p style={{lineHeight:'1.6', marginLeft:'2%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
@@ -89,12 +66,11 @@ const Display = () => {
               <Button variant="outlined" href={string}
                className={classes.button}>Add to Google calendar</Button>
             </Grid>
-            <Grid item lg={1} style={{marginTop:'30%', marginLeft:'-20%'}}>
+            <Grid item lg={1} style={{marginTop:'30%', marginLeft:'-10%'}}>
               <img alt="..." src={require('./images/calendar.svg')} height="400" style={{marginTop:'0%'}}/>
             </Grid>
-
-            <Grid item lg={1} style={{marginTop:'10%', marginLeft:'-60%'}}>
-              <img alt="..." src={require('./images/woman.svg')} height="800" style={{marginTop:'0%'}}/>
+            <Grid item lg={4} style={{marginLeft:'-20%', marginTop:'12%'}}>
+              <ImageSVG />
             </Grid>
           </Grid>
           <Footer top="0%" bottom="2%" left="12%" right="-30%"/>
@@ -108,25 +84,3 @@ const Display = () => {
 }
 
 export default Success;
-
-
-/*
-<<<<<<< HEAD
-
-=======
-<Grid item lg={3} style={{marginLeft:'-40%', marginTop:'-12.5%'}}>
-  <ThemeProvider theme={theme}>
-    <Table className={classes.table}>
-      <TableRow>
-        <TableCell style={{border:'none', fontSize:'13px', height:'1%', width: '55%', color:'#787878'}}>Appointment Details</TableCell>
-        <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{localStorage.getItem('globalDate')}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{localStorage.getItem('globalDate')}</TableCell>
-        <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
-      </TableRow>
-    </Table>
-  </ThemeProvider>
-</Grid>
->>>>>>> d713c9a8d8cb590ca0ce5b68693ce06ba94a9cd8
-*/
