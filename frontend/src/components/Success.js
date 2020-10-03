@@ -92,20 +92,7 @@ const Display = () => {
             <Grid item lg={1} style={{marginTop:'30%', marginLeft:'-20%'}}>
               <img alt="..." src={require('./images/calendar.svg')} height="400" style={{marginTop:'0%'}}/>
             </Grid>
-            <Grid item lg={3} style={{marginLeft:'-40%', marginTop:'-12.5%'}}>
-              <ThemeProvider theme={theme}>
-                <Table className={classes.table}>
-                  <TableRow>
-                    <TableCell style={{border:'none', fontSize:'13px', height:'1%', width: '55%', color:'#787878'}}>Appointment Details</TableCell>
-                    <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{localStorage.getItem('globalDate')}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{localStorage.getItem('globalDate')}</TableCell>
-                    <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
-                  </TableRow>
-                </Table>
-              </ThemeProvider>
-            </Grid>
+
             <Grid item lg={1} style={{marginTop:'10%', marginLeft:'-60%'}}>
               <img alt="..." src={require('./images/woman.svg')} height="800" style={{marginTop:'0%'}}/>
             </Grid>
@@ -124,5 +111,22 @@ export default Success;
 
 
 /*
+<<<<<<< HEAD
 
+=======
+<Grid item lg={3} style={{marginLeft:'-40%', marginTop:'-12.5%'}}>
+  <ThemeProvider theme={theme}>
+    <Table className={classes.table}>
+      <TableRow>
+        <TableCell style={{border:'none', fontSize:'13px', height:'1%', width: '55%', color:'#787878'}}>Appointment Details</TableCell>
+        <TableCell style={{border:'none', fontSize:'13px', height:'1%', color:'#787878'}}>Service</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{border:'none', fontSize:'15px', paddingTop:'-2%', fontWeight:'bold'}} component="td" scope="row">{localStorage.getItem('globalDate')}&nbsp;&nbsp;<FiberManualRecordIcon style={{fontSize:'12px'}}/>&nbsp;&nbsp;{localStorage.getItem('globalDate')}</TableCell>
+        <TableCell style={{border:'none', fontSize:'15px', fontWeight:'bold'}}>Dental Booking</TableCell>
+      </TableRow>
+    </Table>
+  </ThemeProvider>
+</Grid>
+>>>>>>> d713c9a8d8cb590ca0ce5b68693ce06ba94a9cd8
 */
