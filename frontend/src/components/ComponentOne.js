@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, IconButton} from '@material-ui/core';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
@@ -51,11 +49,11 @@ const ComponentOne = () => {
   const [am, setAM] = React.useState(true);
   const [date, changeDate] = React.useState(new Date().toDateString());
   const sup="AM";
-  const pm="PM";
-  const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
-  const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
+  //const pm="PM";
+  //const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
+  //const evening = [['06:30', '06:45', '07:00'], ['07:15', '07:30', '07:45'], ['08:00', '08:15', '08:30']]
   const [time, setTime] = React.useState(2400);
-  const [timeText, setTimeText] = React.useState('null');
+  //const [timeText, setTimeText] = React.useState('null');
   const [b1100,setb1100] = React.useState(false);
   const [b1115,setb1115] = React.useState(false);
   const [b1130,setb1130] = React.useState(false);
@@ -191,7 +189,7 @@ const ComponentOne = () => {
     return date.getDay() === 0;
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log("inside useeffect");
     handleDateChange(new Date());
   },[]);

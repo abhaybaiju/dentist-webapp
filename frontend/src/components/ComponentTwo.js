@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, Button, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, FormControlLabel, RadioGroup, makeStyles, Radio} from '@material-ui/core';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import {Table, TableRow, TableCell, Grid, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, FormControlLabel, RadioGroup, makeStyles, Radio} from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
@@ -61,7 +60,6 @@ const ComponentTwo = () => {
         color:'white',
       }
     },
-    hover: {},
     focused: {},
     radio: {
       '&$checked': {

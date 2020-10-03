@@ -1,7 +1,6 @@
 import React from 'react';
-import {Container, Grid, Button, makeStyles} from '@material-ui/core';
+import {Grid, Button, makeStyles} from '@material-ui/core';
 import Navbar from './Navbar';
-import { useStateValue } from './StateProvider.js';
 import Footer from './Footer';
 import moment from 'moment';
 import ImageSVG from './image';
@@ -41,11 +40,11 @@ const Display = () => {
     const endHour = date.getHours();
     const endMins = date.getMinutes();
     var string;
-    if(minutes == 0){
+    if(minutes === 0){
       string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString()  + "0000%2F" + startDate + endHour.toString() + endMins.toString() + "00&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
     }
     else{
-      if(endMins == 0){
+      if(endMins === 0){
         string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString() + minutes.toString() + "00%2F" + startDate + endHour.toString() + "0000&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
       }
       else{

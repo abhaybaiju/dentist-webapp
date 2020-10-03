@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Container, Grid, makeStyles, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
+import {Card, Grid, makeStyles, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
 import Navbar from './Navbar';
 import {Redirect } from 'react-router-dom';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';

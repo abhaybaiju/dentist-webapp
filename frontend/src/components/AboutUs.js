@@ -1,7 +1,8 @@
 import React from 'react';
-import {Grid, Card, CardContent} from '@material-ui/core';
+import {Grid, Card, CardContent, Table, TableRow, TableCell} from '@material-ui/core';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import CountUp from 'react-countup';
 import './css/AboutUs.css';
 
 const AboutUs = () => {
@@ -85,12 +86,27 @@ const AboutUs = () => {
           <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
       </Grid>
-      <Grid container justify="center" alignItems="center">
-        <Grid item lg={10}>
-          <Card>
-            
-          </Card>
-        </Grid>
+      <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #a5d8f3, #d2ebf9, #a5d8f3)', padding:'5% 0%', marginTop:'8%'}}>
+        <Card style={{width:'75%', boxShadow:'none'}} className="card">
+          <CardContent style={{padding:'5%', marginBottom:'0%'}}>
+            <Grid item lg={12} style={{padding:'5% 2%'}}>
+              <img src={require('./images/speaker.svg')} alt="" height="160" style={{float:'left', marginRight:'7.4%', marginTop:'-5%', marginBottom:'-8%'}}/>
+              <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-3%'}}>Hiring? Candidates are working for you</p>
+              <Table style={{marginLeft:'29.5%', marginBottom:'-5%'}}>
+                <TableRow>
+                  <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={4} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
+                  <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
+                  <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', padding:'4px 8px'}}>20</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 13px'}}>Customers</TableCell>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px'}}>Doctors</TableCell>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px'}}>Years of Experience</TableCell>
+                </TableRow>
+              </Table>
+            </Grid>
+          </CardContent>
+        </Card>
       </Grid>
       <Footer top="5%" bottom="2%" left="15%" right="-25%"/>
     </Grid>

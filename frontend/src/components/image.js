@@ -1,5 +1,4 @@
 import React from 'react';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 const ImageSVG = () => {
   return(
