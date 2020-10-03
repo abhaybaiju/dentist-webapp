@@ -56,15 +56,24 @@ const Display = () => {
     const classes = useStyles();
     const date = new Date(localStorage.getItem('globalDate'));
     const time = localStorage.getItem('globalTime');
-    console.log(date.toDateString());
     const hours = parseInt(parseInt(time)/100);
     const minutes = parseInt(parseInt(time)%100);
-    console.log(hours,minutes);
-    date.setHours(hours,minutes,0);
-    const startDate = date.toISOString();
-    date.setHours(hours,minutes+15,0);
-    const endDate = date.toISOString();
-    const string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + "%2F" + endDate + "&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&details=Appointment%20at%20Lila%20Dental%20Clinic";
+    var date1 = date.setHours(hours,minutes,0);
+    const startDate = moment(date1).format("YYYYMMDDT");
+    const endHour = date.getHours();
+    const endMins = date.getMinutes();
+    var string;
+    if(minutes == 0){
+      string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString()  + "0000%2F" + startDate + endHour.toString() + endMins.toString() + "00&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+    }
+    else{
+      if(endMins == 0){
+        string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString() + minutes.toString() + "00%2F" + startDate + endHour.toString() + "0000&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+      }
+      else{
+        string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString() + minutes.toString() + "00%2F" + startDate + endHour.toString() + endMins.toString() + "00&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+      }
+    }
     return(
         <Grid style={{overflowX:'hidden'}}>
           <Grid>
@@ -76,7 +85,7 @@ const Display = () => {
               <Grid item lg={8}>
                 <p style={{lineHeight:'1.6', marginLeft:'2%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
               </Grid>
-              <Button variant="outlined" href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20200924T073000Z%2F20200924T074500Z&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&details=Appointment%20at%20Lila%20Dental%20Clinic"
+              <Button variant="outlined" href={string}
                className={classes.button}>Add to Google calendar</Button>
             </Grid>
             <Grid item lg={1} style={{marginTop:'30%', marginLeft:'-20%'}}>
