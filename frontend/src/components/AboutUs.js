@@ -99,9 +99,9 @@ const AboutUs = () => {
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', padding:'4px 8px'}}>20</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 13px'}}>Customers</TableCell>
-                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px'}}>Doctors</TableCell>
-                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px'}}>Years of Experience</TableCell>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 13px', color:'#808080', fontWeight:'500'}}>Satisfied customers</TableCell>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Doctors</TableCell>
+                  <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Years of Experience</TableCell>
                 </TableRow>
               </Table>
             </Grid>
