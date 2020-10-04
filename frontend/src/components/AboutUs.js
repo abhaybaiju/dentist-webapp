@@ -24,8 +24,10 @@ const AboutUs = () => {
       </Grid>
       <Grid container justify="space-evenly" alignItems="center" style={{marginTop:'8%', position:'sticky'}}>
         <Grid item lg={5} style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-15%'}}>
-          <h1>Are you getting the right treatment?</h1>
-          <p style={{lineHeight:'1.6'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <h1>Want to know more ?</h1>
+          <p style={{lineHeight:'1.6'}}>
+          Curiosity may have killed the cat but our story will make you smile.<br>
+          </br> Keep scrolling to find out.</p>
         </Grid>
         <Grid item lg={6} style={{marginTop:'5%', marginLeft:'12%', marginRight:'-18%'}}>
           <img src={require('./images/about.svg')} alt="" height="400"/>
@@ -50,9 +52,8 @@ const AboutUs = () => {
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
           <h1 style={{color:'#ff7a59', marginBottom:'5%', marginTop:'-1%'}}>Our journey</h1>
           <ul style={{marginRight:'10%'}}>
-            <li>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</li>
-            <li>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</li>
-            <li>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</li>
+            <li>It’s 1998 and Lila Dental Clinic is being established by a young couple with heads full of dreams and minds full of knowledge. The only weapons in their arsenal are welcoming smiles and honest work. </li>
+            <li>Cut to the present, the humble clinic has grown into one of the premier and leading establishments in New Delhi and beyond. The couple has earned a few greys and the patients have grown in number but the welcoming smiles and the urge to deliver the best in dentistry remains as strong as ever.</li>
           </ul>
         </Grid>
       </Grid>
@@ -62,7 +63,10 @@ const AboutUs = () => {
           <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
         </Grid>
         <Grid item lg={5} >
-          <p style={{marginLeft:'10%', marginRight:'19%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <p style={{marginLeft:'10%', marginRight:'19%', marginTop:'12%', lineHeight:'1.5'}}>Dr C.S Baiju 
+<br></br>
+Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal. 
+</p>
         </Grid>
         <Grid item lg={5}>
           <Card style={{width:'80%', marginLeft:'20%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
@@ -83,7 +87,10 @@ const AboutUs = () => {
           </Card>
         </Grid>
         <Grid item lg={5} style={{marginTop:'2%'}}>
-          <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Dr Anuradha Baiju 
+<br></br>
+Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows. 
+</p>
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #a5d8f3, #d2ebf9, #a5d8f3)', padding:'5% 0%', marginTop:'8%'}}>
@@ -91,10 +98,10 @@ const AboutUs = () => {
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
             <Grid item lg={12} style={{padding:'5% 2%'}}>
               <img src={require('./images/speaker.svg')} alt="" height="160" style={{float:'left', marginRight:'7.4%', marginTop:'-5%', marginBottom:'-8%'}}/>
-              <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-3%'}}>Hiring? Candidates are working for you</p>
+              <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-3%'}}>Still not sure? Let us change your mind</p>
               <Table style={{marginLeft:'29.5%', marginBottom:'-5%'}}>
                 <TableRow>
-                  <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={4} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
+                  <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', padding:'4px 8px'}}>20</TableCell>
                 </TableRow>

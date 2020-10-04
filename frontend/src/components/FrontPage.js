@@ -41,10 +41,10 @@ const FrontPage = () => {
         </div>
         <Navbar />
         <Grid spacing={7} direction="row" container alignItems="center" justify="center" style={{ minHeight: '100vh'}}>
-            <Grid item lg={4} style={{color:'#027e97'}}>
-              <h1 style={{lineHeight:'1.3'}}>Booking appointments made easy</h1><br/>
-              <Grid item lg={8}>
-                <p style={{lineHeight:'1.6'}}>Hassle-free booking for you at your convenient time. Hassle-free booking for you at your convenient time.</p>
+            <Grid item lg={5} style={{color:'#027e97'}}>
+              <h1 style={{lineHeight:'1.3'}}>Scared of dental treatments?</h1><br/>
+              <Grid item lg={10}>
+                <p style={{lineHeight:'1.6'}}>With our experienced staff and patient-friendly atmosphere, you’ll be nothing but smiles.</p>
               </Grid>
               <Link to="/Book"><Button className={classes.button} variant="outlined">Book Now</Button></Link>
             </Grid>
