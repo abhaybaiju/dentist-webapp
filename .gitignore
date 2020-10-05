@@ -1,3 +1,4 @@
 backend/node_modules/
 .DS_Store
 backend/src/privatekey.json
+backend/src/config.js

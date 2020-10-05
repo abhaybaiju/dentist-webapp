@@ -10,7 +10,8 @@ const Razorpay = require('razorpay')
 const shortid = require('shortid')
 const path = require('path')
 const bodyParser = require('body-parser')
-
+const sesClient = require('./ses-client')
+const Mailgen = require('mailgen')
 const app = express();
 
 //var serviceAccount = require("./service_account.json");
@@ -98,9 +99,53 @@ app.post("/book", async(req, res) => {
       "INSERT INTO bookings (patient_name, contact, gender, time, date, description) VALUES ($1 , $2 , $3 , $4 , $5 , $6) RETURNING *",
       [name, contact, gender, time, date, description]
     );
-    res.json("Accepted"); //returns accepted status code
-    //need to set start and end time from appointment
-    // Can also change appointment structure into month day and hour fields
+    res.json("Accepted");
+    
+    //create email
+    var mailGenerator = new Mailgen({
+      theme: 'salted',
+      product: {
+          // Appears in header & footer of e-mails
+          name: 'Lila Dental Clinic',
+          link: 'https://mailgen.js/'
+          // Optional product logo
+          // logo: 'https://mailgen.js/img/logo.png'
+      }
+    });
+    var email = {
+      body: {
+          name: 'Shambhavi Sarin',
+          intro: 'Your appointment at Lila Dental Clinic has been booked successfully.',
+          table: {
+            data: [
+                {
+                    date: 'Oct 10 2020',
+                    name: 'Shambhavi Sarin',
+                    time: '11:00 AM'
+                }
+            ],
+            columns: {
+                // Optionally, customize the column widths
+            }
+        },
+          action: {
+              instructions: 'To add your appointment to your calendar, please click here:',
+              button: {
+                  color: '#1c92d2', // Optional action button color
+                  text: 'Add to Google Calendar',
+                  link: 'https://mailgen.js/confirm?s=d9729feb74992cc3482b350163a1a010'
+              }
+          },
+          outro: 'Need help, or have questions? Contact us below.'
+      }
+  };
+  
+  // Generate an HTML email with the provided contents
+  var emailBody = mailGenerator.generate(email);
+
+    //Send Email
+    sesClient.sendEmail('sarin.shambhavi@gmail.com', "Your appointment is confirmed", emailBody);
+
     date.setHours(time/100,time%100,0);
     var endDate =  new Date(date.getTime() + 15*60000);
     var event = {
