@@ -7,7 +7,7 @@ const Service = () => {
   return(
     <Grid>
       <Navbar />
-      <Grid container justify="center" alignItems="center">
+      <Grid container justify="center" alignItems="center" >
       </Grid>
       <Footer top="0" bottom="2" left="20" right="-20"/>
     </Grid>

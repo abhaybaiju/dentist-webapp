@@ -44,9 +44,9 @@ const FrontPage = () => {
             <Grid item lg={5} style={{color:'#027e97'}}>
               <h1 style={{lineHeight:'1.3'}}>Scared of dental treatments?</h1><br/>
               <Grid item lg={10}>
-                <p style={{lineHeight:'1.6'}}>With our experienced staff and patient-friendly atmosphere, you’ll be nothing but smiles.</p>
+                <p style={{lineHeight:'1.6', marginTop:'-5%', marginBottom:'10%'}}>With our experienced staff and patient-friendly atmosphere, you’ll be nothing but smiles.</p>
               </Grid>
-              <Link to="/Book"><Button className={classes.button} variant="outlined">Book Now</Button></Link>
+              <Link to="/Book" style={{textDecoration:'none'}}><Button className={classes.button} variant="outlined">Book Now</Button></Link>
             </Grid>
             <Grid item lg={5}>
               <img alt="..." src={require('./images/doctors.svg')} height="400"/>

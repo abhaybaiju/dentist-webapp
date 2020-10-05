@@ -153,10 +153,10 @@ function HorizontalNonLinearStepper() {
 const Book = () => {
   return(
     <Grid style={{overflowX:'hidden'}}>
-        <Grid>
-          <Navbar/>
-        </Grid>
-        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'8%'}}>
+        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'0%'}}>
+          <Grid item lg={12} style={{marginBottom:'8%'}}>
+            <Navbar/>
+          </Grid>
           <Grid item lg={3} style={{color:'#2f2b4f'}}>
             <h1 style={{lineHeight:'1.3'}}>Booking appointments made easy</h1><br/>
             <Grid item lg={12}>

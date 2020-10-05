@@ -49,10 +49,8 @@ const Contact = () => {
 
   return(
       <Grid style={{overflowX:'hidden'}}>
-        <Grid>
-          <Navbar/>
-        </Grid>
-        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'6.5%'}}>
+        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'0%'}}>
+          <Navbar />
           <Grid item lg={5} style={{color:'#3f3d56'}}>
             <h1 style={{textAlign:'center', marginLeft:'5%', fontSize:'40px'}}>CONTACT US</h1>
             <p style={{marginLeft:'32%', lineHeight:'1.4', fontSize:'20px'}}>We are founded by a leading academic and researcher in the field of Industrial Systems Engineering.</p>

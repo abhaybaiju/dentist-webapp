@@ -1,5 +1,6 @@
 import React from 'react';
-import {Grid, Card, CardContent, Table, TableRow, TableCell} from '@material-ui/core';
+import {Grid, Card, CardContent, Table, TableRow, TableCell, Button} from '@material-ui/core';
+import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import CountUp from 'react-countup';
@@ -24,8 +25,8 @@ const AboutUs = () => {
       </Grid>
       <Grid container justify="space-evenly" alignItems="center" style={{marginTop:'8%', position:'sticky'}}>
         <Grid item lg={5} style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-15%'}}>
-          <h1>Want to know more ?</h1>
-          <p style={{lineHeight:'1.6'}}>
+          <p style={{fontSize:'40px', fontWeight:'600'}}>Want to know more ?</p>
+          <p style={{lineHeight:'1.6', fontSize:'20px'}}>
           Curiosity may have killed the cat but our story will make you smile.<br>
           </br> Keep scrolling to find out.</p>
         </Grid>
@@ -50,8 +51,8 @@ const AboutUs = () => {
         </Grid>
         <Grid item lg={4} style={{marginTop:'1%'}}>
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
-          <h1 style={{color:'#ff7a59', marginBottom:'5%', marginTop:'-1%'}}>Our journey</h1>
-          <ul style={{marginRight:'10%'}}>
+          <h1 style={{color:'#ff7a59', marginBottom:'10%'}}>Our journey</h1>
+          <ul style={{marginRight:'10%', textAlign:'justify'}}>
             <li>It’s 1998 and Lila Dental Clinic is being established by a young couple with heads full of dreams and minds full of knowledge. The only weapons in their arsenal are welcoming smiles and honest work. </li>
             <li>Cut to the present, the humble clinic has grown into one of the premier and leading establishments in New Delhi and beyond. The couple has earned a few greys and the patients have grown in number but the welcoming smiles and the urge to deliver the best in dentistry remains as strong as ever.</li>
           </ul>
@@ -60,16 +61,17 @@ const AboutUs = () => {
       <Grid container justify="center" alignItems="stretch">
         <Grid item lg={12} style={{textAlign:'center', marginBottom:'5%'}}>
           <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
-          <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
+          <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.8'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
         </Grid>
         <Grid item lg={5} >
-          <p style={{marginLeft:'10%', marginRight:'19%', marginTop:'12%', lineHeight:'1.5'}}>Dr C.S Baiju 
-<br></br>
-Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal. 
-</p>
+          <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify'}}>
+            <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
+            <br></br>
+            Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal.
+          </p>
         </Grid>
         <Grid item lg={5}>
-          <Card style={{width:'80%', marginLeft:'20%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
+          <Card style={{width:'80%', marginLeft:'10%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
             <CardContent style={{background:'#efeef6', marginTop:'3%'}}> {/*e0deed*/}
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
                 <circle fill="#e0deed" cx="-170" cy="-200" r="400"/>
@@ -77,8 +79,8 @@ Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading perio
             </CardContent>
           </Card>
         </Grid>
-        <Grid item lg={5} style={{marginTop:'2%'}}>
-          <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none'}}>
+        <Grid item lg={5} style={{marginTop:'4%'}}>
+          <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none', marginLeft:'15%'}}>
             <CardContent style={{background:'#ffebe6', marginTop:'3%'}}>{/*ffd6cc*/}
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
                 <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
@@ -87,19 +89,20 @@ Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading perio
           </Card>
         </Grid>
         <Grid item lg={5} style={{marginTop:'2%'}}>
-          <p style={{marginLeft:'20%', marginRight:'10%', marginTop:'12%', lineHeight:'1.5'}}>Dr Anuradha Baiju 
-<br></br>
-Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows. 
-</p>
+          <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify'}}>
+            <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
+            <br></br>
+            Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows.
+          </p>
         </Grid>
       </Grid>
-      <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #a5d8f3, #d2ebf9, #a5d8f3)', padding:'5% 0%', marginTop:'8%'}}>
+      <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #8fcef0, #d2ebf9 20%, #e9f5fc 50%, #d2ebf9 80%, #8fcef0)', padding:'5% 0%', marginTop:'8%'}}>
         <Card style={{width:'75%', boxShadow:'none'}} className="card">
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
             <Grid item lg={12} style={{padding:'5% 2%'}}>
               <img src={require('./images/speaker.svg')} alt="" height="160" style={{float:'left', marginRight:'7.4%', marginTop:'-5%', marginBottom:'-8%'}}/>
               <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-3%'}}>Still not sure? Let us change your mind</p>
-              <Table style={{marginLeft:'29.5%', marginBottom:'-5%'}}>
+              <Table style={{marginLeft:'29.5%'}}>
                 <TableRow>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
@@ -111,6 +114,7 @@ Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patie
                   <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Years of Experience</TableCell>
                 </TableRow>
               </Table>
+              <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'3%', marginBottom:'-5.5%',background:'#645ba4', padding:'1.2% 3%'}}>Book now</Button></Link>
             </Grid>
           </CardContent>
         </Card>
