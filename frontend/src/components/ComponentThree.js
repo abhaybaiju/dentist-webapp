@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Grid, Table, TableRow, TableCell, makeStyles} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import axios from 'axios';
 import { useStateValue } from './StateProvider.js';
 import img from './images/blue_wave.png';
 import './css/App.css';
@@ -39,6 +40,15 @@ function loadScript(src) {
     document.body.appendChild(script);
   })
 
+}
+
+const sendPostRequest = async (postData) => {
+try{
+    const resp = await axios.post("http://localhost:1337/book",postData);
+    console.log(resp);
+} catch (err) {
+    console.error(err);
+}
 }
 
 const __DEV__ = document.domain === 'localhost'
@@ -84,6 +94,15 @@ const Pay = () => {
             localStorage.setItem('payment',"success");
             localStorage.setItem("globalTime", globalTime);
             localStorage.setItem("globalDate",globalDate);
+            const requestData = {
+              "name": globalName,
+              "contact": globalPhone,
+              "gender": globalGender,
+              "date": globalDate,
+              "time": globalTime,
+              "email": globalEmail
+          }
+            sendPostRequest(requestData);
             redirect_url = '/Success';
           }
           window.location = redirect_url;

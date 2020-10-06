@@ -157,9 +157,9 @@ const Two = () => {
                     <Grid item>
                       <FormLabel component="legend">Gender</FormLabel>
                       <RadioGroup aria-label="gender" name="gender" value={gender} onChange={(e)=>setGender(e.target.value)} row>
-                        <FormControlLabel value="Male" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Male" />
-                        <FormControlLabel value="Female" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Female" />
-                        <FormControlLabel value="Others" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Others" />
+                        <FormControlLabel value="M" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Male" />
+                        <FormControlLabel value="F" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Female" />
+                        <FormControlLabel value="O" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Others" />
                       </RadioGroup>
                     </Grid>
                     <Grid item>

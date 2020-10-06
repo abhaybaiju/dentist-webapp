@@ -18,6 +18,7 @@ const app = express();
 
 app.use(morgan('common'));
 app.use(helmet());
+
 app.use(cors());
 app.use(bodyParser.json())
 app.use(express.json()); //Let's us access the object req.body which contains data from client side for adding a booking
@@ -93,11 +94,11 @@ app.post("/book", async(req, res) => {
     var gender = req.body.gender;
     var time = req.body.time;
     var date = new Date(req.body.date);
-    var description = req.body.description;
+    var email = req.body.email;
     const newBooking = await pool.query(
       //returning * makes it easier to check in POSTMAN!
-      "INSERT INTO bookings (patient_name, contact, gender, time, date, description) VALUES ($1 , $2 , $3 , $4 , $5 , $6) RETURNING *",
-      [name, contact, gender, time, date, description]
+      "INSERT INTO bookings (patient_name, contact, gender, time, date, email) VALUES ($1 , $2 , $3 , $4 , $5 , $6) RETURNING *",
+      [name, contact, gender, time, date, email]
     );
     res.json("Accepted");
     
@@ -112,16 +113,16 @@ app.post("/book", async(req, res) => {
           // logo: 'https://mailgen.js/img/logo.png'
       }
     });
-    var email = {
+    var emailContent = {
       body: {
-          name: 'Shambhavi Sarin',
+          name: name,
           intro: 'Your appointment at Lila Dental Clinic has been booked successfully.',
           table: {
             data: [
                 {
-                    date: 'Oct 10 2020',
-                    name: 'Shambhavi Sarin',
-                    time: '11:00 AM'
+                    name: name,
+                    date: date.toDateString(),
+                    time: time
                 }
             ],
             columns: {
@@ -141,16 +142,16 @@ app.post("/book", async(req, res) => {
   };
   
   // Generate an HTML email with the provided contents
-  var emailBody = mailGenerator.generate(email);
+  var emailBody = mailGenerator.generate(emailContent);
 
     //Send Email
-    sesClient.sendEmail('sarin.shambhavi@gmail.com', "Your appointment is confirmed", emailBody);
+    sesClient.sendEmail(email, "Your appointment is confirmed", emailBody);
 
     date.setHours(time/100,time%100,0);
     var endDate =  new Date(date.getTime() + 15*60000);
     var event = {
       'summary': name,
-      'description': description,
+      'description': contact,
       'start': {
         'dateTime': date.toISOString(),
         'timeZone': 'Asia/Kolkata',
