@@ -187,7 +187,7 @@ const Book = () => {
           <Process />
           <br /><br/>
         </Grid>
-      <Footer top="0%" bottom="2%" left="5%" right="-45%"/>
+      <Footer top="0%" bottom="2%" left="12%" right="-25%"/>
     </Grid>
   );
 }

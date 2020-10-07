@@ -100,9 +100,9 @@ const AboutUs = () => {
         <Card style={{width:'75%', boxShadow:'none'}} className="card">
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
             <Grid item lg={12} style={{padding:'5% 2%'}}>
-              <img src={require('./images/speaker.svg')} alt="" height="160" style={{float:'left', marginRight:'7.4%', marginTop:'-5%', marginBottom:'-8%'}}/>
-              <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-3%'}}>Still not sure? Let us change your mind</p>
-              <Table style={{marginLeft:'29.5%'}}>
+              <img src={require('./images/speaker.svg')} alt="" height="180" style={{float:'left', marginRight:'7.4%', marginTop:'-3%', marginBottom:'-8%'}}/>
+              <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-1%'}}>Still not sure? Let us change your mind</p>
+              <Table style={{marginLeft:'32.5%'}}>
                 <TableRow>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
                   <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
@@ -114,12 +114,12 @@ const AboutUs = () => {
                   <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Years of Experience</TableCell>
                 </TableRow>
               </Table>
-              <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'3%', marginBottom:'-5.5%',background:'#645ba4', padding:'1.2% 3%'}}>Book now</Button></Link>
+              <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'4%', marginBottom:'-5.5%',background:'#645ba4', padding:'1.2% 3%'}}>Book now</Button></Link>
             </Grid>
           </CardContent>
         </Card>
       </Grid>
-      <Footer top="5%" bottom="2%" left="15%" right="-25%"/>
+      <Footer top="5%" bottom="2%" left="12%" right="-25%"/>
     </Grid>
   );
 }

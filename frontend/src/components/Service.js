@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import img from './images/bg.svg';
@@ -9,15 +9,17 @@ import './css/Services.css';
 const Service = () => {
   return(
     <Grid style={{overflowX:'hidden'}}>
-      <Grid container justify="center" alignItems="center" style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
-        <Grid item lg={12} style={{marginBottom:'8%'}}>
+      <Grid container justify="center" alignItems="center" style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}} spacing={0}>
+        <Grid item lg={12}>
           <Navbar />
         </Grid>
-        <Grid item lg={6} style={{marginBottom:'20%', textAlign:'center'}}>
-          <h1>Services</h1>
+        <Grid item lg={6} style={{marginBottom:'20%', marginTop:'-15%', marginRight:'0%'}}>
+          <h1>What can you expect?</h1>
+          <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <Button style={{marginLeft:'10%', marginTop:'5%'}}>Book now</Button>
         </Grid>
-        <Grid item lg={6} style={{marginBottom:'15%', marginTop:'5%', background:'transparent'}}>
-          <img src={require('./images/features.svg')} alt="" height="300"/>
+        <Grid item lg={6} style={{marginBottom:'50%', marginTop:'15%', background:'transparent', marginRight:'-10%'}}>
+          <img src={require('./images/features.svg')} alt="" height="350"/>
         </Grid>
       </Grid>
       <Footer top="100%" bottom="2%" left="10%" right="-30%"/>

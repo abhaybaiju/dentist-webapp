@@ -13,12 +13,10 @@ const Footer = (props) => {
             </a>
         </Grid>
         <Grid item lg={6}>
-            <a href="/" className="a" style={{fontWeight:'600', marginLeft:'5%'}}>
+            <a href="/" className="a" style={{fontWeight:'600', marginLeft:'5%', marginRight:'5%'}}>
               Lila Dental Clinic
             </a>
-            <a href="/About" className="a" style={{fontWeight:'600', marginLeft:'5%'}}>
-              About Us
-            </a>
+            All Rights Reserved.
         </Grid>
       </Grid>
     </footer>

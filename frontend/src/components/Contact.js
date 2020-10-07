@@ -89,7 +89,7 @@ const Contact = () => {
         <Grid container alignItems="center" justify="center" style={{background:'#f7f9fa'}}>
           <Grid item lg={9} style={{color:'#2f2b4f', textAlign:'center', marginTop:'4%'}}>
             <p style={{fontSize:'35px', fontWeight:'600'}}> Can't find the answer you need? </p>
-            <p style={{lineHeight:'1.3'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <p style={{lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
           </Grid>
           <Grid item lg={5} style={{color:'#3f3d56', textAlign:'left'}}>
             <h4>Fullname</h4>
@@ -103,7 +103,7 @@ const Contact = () => {
             <Button className={classes.buttonSubmit}>Submit</Button>
           </Grid>
         </Grid>
-        <Footer top="2%" bottom="2%" left="15%" right="-20%"/>
+        <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
       </Grid>
   );
 }
