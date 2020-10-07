@@ -39,7 +39,7 @@ const reducer = (state, action) => {
                 globalPhone: action.globalPhone,
                 globalGender: action.globalGender,
                 globalAge: action.globalAge
-            };
+            }
         default:
             return state;
     }

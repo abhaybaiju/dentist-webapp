@@ -8,6 +8,7 @@ import ComponentOne from './ComponentOne';
 import ComponentTwo from './ComponentTwo';
 import ComponentThree from './ComponentThree';
 import Footer from './Footer';
+import { useStateValue } from './StateProvider.js';
 
 const Process = () => {
   const useStyles = makeStyles((theme) => ({
@@ -78,6 +79,7 @@ function HorizontalNonLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
 
   const completedSteps = () => {
     return completed[2]&&completed[1]&&completed[0];
@@ -96,9 +98,23 @@ function HorizontalNonLinearStepper() {
 
   const handleComplete = () => {
     const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    setActiveStep(prevActiveStep => (prevActiveStep+1));
+    if(activeStep === 1){
+      console.log(activeStep);
+      if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null){
+        alert("Please fill all required fields");
+      }
+      else{
+        console.log("All filled out");
+        newCompleted[activeStep] = true;
+        setCompleted(newCompleted);
+        setActiveStep(prevActiveStep => (prevActiveStep+1));
+      }
+    }
+    else{
+      newCompleted[activeStep] = true;
+      setCompleted(newCompleted);
+      setActiveStep(prevActiveStep => (prevActiveStep+1));
+    }
   };
 
   return (

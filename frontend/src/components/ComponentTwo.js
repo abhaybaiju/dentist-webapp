@@ -84,6 +84,10 @@ const Two = () => {
 
   const handleAgeChange = (val) => {
     setAge(val);
+    if(name ==="" || email===""|| phone===""|| gender===""|| age===""){
+      console.log("Fields are empty");
+      return;
+    }
     dispatch({
       type: 'SET_FORM',
       globalName: name,
