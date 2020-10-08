@@ -248,7 +248,8 @@ app.post("/query", async(req, res) => {
               button: {
                   color: '#1c92d2', // Optional action button color
                   text: 'Reply to query',
-                  link: `mailto:${email}`
+                  link: `mailto:${email}?subject=Response%20to%20query%20email
+                  &body=Hi%20${name},%0D%0A%0D%0A%0D%0A%0D%0ARegards%0D%0ADr%20C%20S%20Baiju`
               }
           },
           outro: 'Need help, or have questions? Contact us below.'
