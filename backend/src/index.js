@@ -209,7 +209,92 @@ app.post("/book", async(req, res) => {
 //How much calendar should be visible?
 //login through contact w/0 password? So that user can view previous appointments?
 
-//get all payments
+
+app.post("/query", async(req, res) => {
+  try {
+    var name = req.body.name;
+    var message = req.body.message;
+    var email = req.body.email;
+    
+    //create email
+    var mailGenerator = new Mailgen({
+      theme: 'salted',
+      product: {
+          // Appears in header & footer of e-mails
+          name: 'Lila Dental Clinic',
+          link: 'https://mailgen.js/'
+          // Optional product logo
+          // logo: 'https://mailgen.js/img/logo.png'
+      }
+    });
+    var emailContent = {
+      body: {
+          name: "C S Baiju",
+          intro: `You have a new query from ${name}.`,
+          table: {
+            data: [
+                {
+                    name: name,
+                    email: email,
+                    message: message
+                }
+            ],
+            columns: {
+                // Optionally, customize the column widths
+            }
+        },
+          action: {
+              instructions: 'To reply to this query, please click here:',
+              button: {
+                  color: '#1c92d2', // Optional action button color
+                  text: 'Reply to query',
+                  link: `mailto:${email}`
+              }
+          },
+          outro: 'Need help, or have questions? Contact us below.'
+      }
+  };
+
+  var emailContentUser = {
+    body: {
+        name: name,
+        intro: `You query has been sent.`,
+        table: {
+          data: [
+              {
+                  name: name,
+                  email: email,
+                  message: message
+              }
+          ],
+          columns: {
+              // Optionally, customize the column widths
+          }
+      },
+        action: {
+            instructions: 'To book an appointment, please click here:',
+            button: {
+                color: '#1c92d2', // Optional action button color
+                text: 'Book Appointment',
+                link: "https://liladentalclinic.com"
+            }
+        },
+        outro: 'Need help, or have questions? Contact us below.'
+    }
+};
+  
+  // Generate an HTML email with the provided contents
+  var emailBody = mailGenerator.generate(emailContent);
+  var emailBodyUser = mailGenerator.generate(emailContentUser);
+  //Send Email
+  sesClient.sendEmail("abhay0198@gmail.com", "You have a new query", emailBody);
+  sesClient.sendEmail(email, "Your query has been sent", emailBodyUser);
+  res.send("Query Sent");
+
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 app.get('/logo.png', (req, res) => {
   res.sendFile(path.join(__dirname, 'logo.png'))

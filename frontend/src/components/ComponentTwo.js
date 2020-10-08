@@ -84,8 +84,9 @@ const Two = () => {
 
   const handleAgeChange = (val) => {
     setAge(val);
-    if(name ==="" || email===""|| phone===""|| gender===""|| age===""){
+    if(name ==="" || email===""|| phone===""|| gender===""){
       console.log("Fields are empty");
+      console.log(name,email,phone,gender,"hello");
       return;
     }
     dispatch({
@@ -119,7 +120,7 @@ const Two = () => {
                       <AccountCircleIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
+                      <TextField id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -133,7 +134,7 @@ const Two = () => {
                       <EmailIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="email" label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
+                      <TextField id="email" value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -147,7 +148,7 @@ const Two = () => {
                       <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                      <TextField id="name" value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -160,7 +161,7 @@ const Two = () => {
                   <Grid container spacing={1} alignItems="flex-end">
                     <Grid item>
                       <FormLabel component="legend">Gender</FormLabel>
-                      <RadioGroup aria-label="gender" name="gender" value={gender} onChange={(e)=>setGender(e.target.value)} row>
+                      <RadioGroup aria-label="gender" name="gender" value={gender?gender: globalGender} onChange={(e)=>setGender(e.target.value)} row>
                         <FormControlLabel value="M" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Male" />
                         <FormControlLabel value="F" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Female" />
                         <FormControlLabel value="O" control={<Radio classes={{root: classes.radio, checked: classes.checked}}/>} label="Others" />
@@ -169,7 +170,7 @@ const Two = () => {
                     <Grid item>
                       <FormControl className={classes.formControl}>
                         <InputLabel id="ageLabel">Age</InputLabel>
-                        <Select labelId="age" id="age" value={age} onChange={(e)=>handleAgeChange(e.target.value)}>
+                        <Select labelId="age" id="age" value={age?age: globalAge} onChange={(e)=>handleAgeChange(e.target.value)}>
                           <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
                           {array.map((key,value) => (
                             <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>

@@ -6,9 +6,12 @@ import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MapView from './Map';
 import Footer from './Footer';
+import axios from 'axios';
 
 const Contact = () => {
-
+  const [name,setName] = React.useState("");
+  const [email,setEmail] = React.useState("");
+  const [message,setMessage] = React.useState("");
   const useStyles = makeStyles({
     label: {
       fontSize:'21px',
@@ -28,15 +31,16 @@ const Contact = () => {
       backgroundColor:'white'
     },
     buttonSubmit: {
-      background: 'linear-gradient(to right, #614385 0%, #516395  51%, #614385  100%)',
+      background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
       color: 'white',
       transition: '0.5s',
       boxShadow: '0 0 20px #eee',
       borderRadius: '10px',
       padding: '10px 60px',
       textAlign: 'center',
+      textTransform: 'uppercase',
       backgroundSize: '200% auto',
-      fontSize:'15px',
+      display: 'block',
       "&:hover": {
         backgroundPosition: 'right center', /* change the direction of the change here */
         color: '#fff',
@@ -46,6 +50,23 @@ const Contact = () => {
 });
 
   const classes=useStyles();
+
+  const handleSubmit = () => {
+    const postData = {
+      "name": name,
+      "email": email,
+      "message": message
+  }
+    try{
+      const resp = axios.post("http://localhost:1337/query",postData);
+      console.log(resp);
+      setName("");
+      setEmail("")
+      setMessage("");
+  } catch (err) {
+      console.error(err);
+  }
+  }
 
   return(
       <Grid style={{overflowX:'hidden'}}>
@@ -93,14 +114,14 @@ const Contact = () => {
           </Grid>
           <Grid item lg={5} style={{color:'#3f3d56', textAlign:'left'}}>
             <h4>Fullname</h4>
-            <TextField id="fullname" placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
+            <TextField id="fullname" value={name} onChange={(e)=> {setName(e.target.value)}} placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>E-mail</h4>
-            <TextField id="fullname" placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
+            <TextField id="fullname" value={email} onChange={(e)=> {setEmail(e.target.value)}} placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>Message</h4>
-            <TextField id="fullname" placeholder="Your question about our services" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
+            <TextField id="fullname" value={message} onChange={(e)=> {setMessage(e.target.value)}} placeholder="Your question about our services" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
           </Grid>
           <Grid item lg={10} style={{textAlign:'center', marginTop:'2%', marginBottom:'4%'}}>
-            <Button className={classes.buttonSubmit}>Submit</Button>
+            <Button className={classes.buttonSubmit} onClick={handleSubmit}>Submit</Button>
           </Grid>
         </Grid>
         <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
