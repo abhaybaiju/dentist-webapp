@@ -26,7 +26,7 @@ const AboutUs = () => {
       <Grid container justify="space-evenly" alignItems="center" style={{marginTop:'8%', position:'sticky'}}>
         <Grid item lg={5} style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-15%'}}>
           <p style={{fontSize:'40px', fontWeight:'600'}}>Want to know more ?</p>
-          <p style={{lineHeight:'1.6', fontSize:'20px'}}>
+          <p style={{lineHeight:'1.6', fontSize:'20px', color:'#4d4d4d'}}>
           Curiosity may have killed the cat but our story will make you smile.<br>
           </br> Keep scrolling to find out.</p>
         </Grid>
@@ -52,7 +52,7 @@ const AboutUs = () => {
         <Grid item lg={4} style={{marginTop:'1%'}}>
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
           <h1 style={{color:'#ff7a59', marginBottom:'10%'}}>Our journey</h1>
-          <ul style={{marginRight:'10%', textAlign:'justify'}}>
+          <ul style={{marginRight:'10%', textAlign:'justify', color:'#404040'}}>
             <li>It’s 1998 and Lila Dental Clinic is being established by a young couple with heads full of dreams and minds full of knowledge. The only weapons in their arsenal are welcoming smiles and honest work. </li>
             <li>Cut to the present, the humble clinic has grown into one of the premier and leading establishments in New Delhi and beyond. The couple has earned a few greys and the patients have grown in number but the welcoming smiles and the urge to deliver the best in dentistry remains as strong as ever.</li>
           </ul>
@@ -61,11 +61,11 @@ const AboutUs = () => {
       <Grid container justify="center" alignItems="stretch">
         <Grid item lg={12} style={{textAlign:'center', marginBottom:'5%'}}>
           <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
-          <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.8'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
+          <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.8', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
         </Grid>
         <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
           <Grid item xs={6} lg={5} >
-            <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify'}}>
+            <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify', color:'#404040'}}>
               <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
               <br></br>
               Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal.
@@ -92,7 +92,7 @@ const AboutUs = () => {
             </Card>
           </Grid>
           <Grid item xs={6} lg={5} style={{marginTop:'2%'}}>
-            <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify'}}>
+            <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify', color:'#404040'}}>
               <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
               <br></br>
               Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows.

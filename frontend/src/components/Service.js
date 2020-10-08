@@ -47,11 +47,38 @@ const Service = () => {
         </Grid>
         <Grid item lg={6} style={{marginTop:'-2%'}}>
           <h1>What can you expect?</h1>
-          <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
           <Button style={{marginLeft:'10%', marginTop:'5%'}}>Book now</Button>
         </Grid>
         <Grid item lg={6} style={{marginBottom:'21%', marginTop:'17%', background:'transparent', marginRight:'-10%'}}>
           <img src={require('./images/features.svg')} alt="" height="350"/>
+        </Grid>
+      </Grid>
+      <Grid container justify="space-evenly" alignItems="center" spacing={2}>
+        <Grid item lg={12}>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Services We Offer</h1>
+          <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+        </Grid>
+        <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
+          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+        </Grid>
+        <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 1</h1>
+          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+        </Grid>
+        <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 2</h1>
+          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+        </Grid>
+        <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
+          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+        </Grid>
+        <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
+          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+        </Grid>
+        <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 3</h1>
+          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
       </Grid>
       <Grid container justify="space-evenly" alignItems="stretch" style={{background:`url(${img1})`, backgroundSize:'cover', marginTop:'-5%'}}>

@@ -12,6 +12,7 @@ const Contact = () => {
   const [name,setName] = React.useState("");
   const [email,setEmail] = React.useState("");
   const [message,setMessage] = React.useState("");
+
   const useStyles = makeStyles({
     label: {
       fontSize:'21px',
@@ -25,7 +26,8 @@ const Contact = () => {
     focusedLabel: {},
     erroredLabel: {},
     resize: {
-      fontSize: '16px'
+      fontSize: '16px',
+      color:'#404040'
     },
     backColor: {
       backgroundColor:'white'
