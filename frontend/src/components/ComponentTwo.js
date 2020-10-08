@@ -71,16 +71,17 @@ const ComponentTwo = () => {
 
 const Two = () => {
   const classes = useStyles();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [gender, setGender] = useState('');
-  const [age, setAge] = useState('');
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+
+  const [name, setName] = useState(globalName);
+  const [email, setEmail] = useState(globalEmail);
+  const [phone, setPhone] = useState(globalPhone);
+  const [gender, setGender] = useState(globalGender);
+  const [age, setAge] = useState(globalAge);
   let array = Array.from({length: 100}, (_, i) => i + 1)
   const lesser = "<1";
   const greater = ">100";
 
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
 
   const handleAgeChange = (val) => {
     setAge(val);
