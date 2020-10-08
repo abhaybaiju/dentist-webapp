@@ -63,37 +63,41 @@ const AboutUs = () => {
           <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
           <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.8'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
         </Grid>
-        <Grid item lg={5} >
-          <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify'}}>
-            <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
-            <br></br>
-            Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal.
-          </p>
+        <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
+          <Grid item xs={6} lg={5} >
+            <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify'}}>
+              <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
+              <br></br>
+              Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal.
+            </p>
+          </Grid>
+          <Grid item xs={6} lg={5}>
+            <Card style={{width:'80%', marginLeft:'10%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
+              <CardContent style={{background:'#efeef6', marginTop:'3%'}}> {/*e0deed*/}
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
+                  <circle fill="#e0deed" cx="-170" cy="-200" r="400"/>
+                </svg>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-        <Grid item lg={5}>
-          <Card style={{width:'80%', marginLeft:'10%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
-            <CardContent style={{background:'#efeef6', marginTop:'3%'}}> {/*e0deed*/}
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
-                <circle fill="#e0deed" cx="-170" cy="-200" r="400"/>
-              </svg>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item lg={5} style={{marginTop:'4%'}}>
-          <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none', marginLeft:'15%'}}>
-            <CardContent style={{background:'#ffebe6', marginTop:'3%'}}>{/*ffd6cc*/}
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
-                <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
-              </svg>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item lg={5} style={{marginTop:'2%'}}>
-          <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify'}}>
-            <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
-            <br></br>
-            Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows.
-          </p>
+        <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
+          <Grid item xs={6} lg={5} style={{marginTop:'4%'}}>
+            <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none', marginLeft:'15%'}}>
+              <CardContent style={{background:'#ffebe6', marginTop:'3%'}}>{/*ffd6cc*/}
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
+                  <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
+                </svg>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6} lg={5} style={{marginTop:'2%'}}>
+            <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify'}}>
+              <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
+              <br></br>
+              Dr Anuradha graduated in 1994 with a B.D.S degree and is now known for her patient-centric yet highly professional brand of dentistry. Her optimism is contagious and compliments her vast repertoire of dental knowledge. When not in her clinic, she can be found bonding with her two sons or bingeing on her favourite shows.
+            </p>
+          </Grid>
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #8fcef0, #d2ebf9 20%, #e9f5fc 50%, #d2ebf9 80%, #8fcef0)', padding:'5% 0%', marginTop:'8%'}}>
