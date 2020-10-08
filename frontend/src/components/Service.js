@@ -1,5 +1,8 @@
 import React from 'react';
-import {Grid, Button, Card, CardMedia, CardContent, makeStyles} from '@material-ui/core';
+import {Grid, Button, Card, CardContent, makeStyles, Paper} from '@material-ui/core';
+import Carousel from 'react-material-ui-carousel';
+//import Carousel from 'react-responsive-carousel';
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import img from './images/bg.svg';
@@ -7,6 +10,7 @@ import img1 from './images/patterns-bg.svg';
 import img2 from './images/blob1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faPaperPlane, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import './css/Services.css';
 
 const Service = () => {
@@ -39,6 +43,29 @@ const Service = () => {
 
   const classes = useStyles();
 
+  var reviews = [
+        {
+            name: "Random Name #1",
+            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            img: "./images/calendar.svg"
+        },
+        {
+            name: "Random Name #2",
+            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            img: "./images/calendar.svg"
+        },
+        {
+            name: "Random Name #3",
+            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            img: "./images/calendar.svg"
+        },
+        {
+            name: "Random Name #4",
+            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            img: "./images/calendar.svg"
+        }
+  ]
+
   return(
     <Grid style={{overflowX:'hidden'}}>
       <Grid container justify="center" alignItems="center" style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}} spacing={0}>
@@ -56,7 +83,8 @@ const Service = () => {
       </Grid>
       <Grid container justify="space-evenly" alignItems="center" spacing={2}>
         <Grid item lg={12}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Services We Offer</h1>
+          <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600', textAlign:'center'}}>Our Services</p>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>What We Bring To You</h1>
           <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
         </Grid>
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
@@ -73,10 +101,10 @@ const Service = () => {
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
           <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
         </Grid>
-        <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
+        <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'15%'}}>
           <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
         </Grid>
-        <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
+        <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>
           <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 3</h1>
           <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
         </Grid>
@@ -120,7 +148,32 @@ const Service = () => {
           </Card>
         </Grid>
       </Grid>
-      <Footer top="100%" bottom="2%" left="10%" right="-30%"/>
+      <Grid container justify="space-evenly" alignItems="stretch" style={{marginTop:'10%'}}>
+        <Grid item lg={12}>
+          <h1 style={{color:'#3f3d56', textAlign:'center'}}>{/*What Our Customers Say About Us */}Take a look at what our customers say</h1>
+          <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+        </Grid>
+        <Grid item lg={5}>
+          <img src={require('./images/customer_review.svg')} alt="" height="300" style={{marginLeft:'20%', marginTop:'10%'}}/>
+        </Grid>
+        <Grid item lg={4}>
+          <Carousel autoPlay={false} indicators={false} animation="slide" navButtonsAlwaysVisible={true}>
+            {reviews.map( (review, i) =>
+              <Card style={{marginLeft:'-2.5%', marginRight:'-2.5%'}}>
+                <CardContent>
+                  <Paper style={{textAlign:'center', height:300, padding:'10%'}}>
+                    <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'40px', color:'#3f3d56'}}/></p>
+                    <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}>{review.description}</p>
+                    <img src={img2} alt="" height="30" style={{border:'1px solid #3f3d56', borderRadius:'50px', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
+                    <p style={{color:'#404040'}}>{review.name}</p>
+                  </Paper>
+                </CardContent>
+              </Card>
+             )}
+          </Carousel>
+        </Grid>
+      </Grid>
+      <Footer top="8%" bottom="2%" left="7%" right="-35%"/>
     </Grid>
   );
 }
