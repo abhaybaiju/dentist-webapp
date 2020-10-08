@@ -37,10 +37,10 @@ const Contact = () => {
       boxShadow: '0 0 20px #eee',
       borderRadius: '10px',
       padding: '10px 60px',
+      width: '20vw',
       textAlign: 'center',
       textTransform: 'uppercase',
       backgroundSize: '200% auto',
-      display: 'block',
       "&:hover": {
         backgroundPosition: 'right center', /* change the direction of the change here */
         color: '#fff',
