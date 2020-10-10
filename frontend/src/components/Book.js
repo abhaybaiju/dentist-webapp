@@ -1,16 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Card, Grid, makeStyles, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
 import Navbar from './Navbar';
+import InputForm from './InputForm.js';
+import DateTime from './DateTime.js';
+import Footer from './Footer';
+
 import {Redirect } from 'react-router-dom';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
+/*import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ComponentOne from './ComponentOne';
-import ComponentTwo from './ComponentTwo';
+import ComponentTwo from './ComponentTwo';*/
 import ComponentThree from './ComponentThree';
-import Footer from './Footer';
+
 import { useStateValue } from './StateProvider.js';
 
-const Process = () => {
+
+
+/*const Process1 = () => {
   const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -164,12 +171,49 @@ function HorizontalNonLinearStepper() {
   return(
     <HorizontalNonLinearStepper />
   );
+}*/
+
+const Process = () => {
+
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime}, dispatch] = useStateValue();
+  const [valid, setValid] = useState(false);
+
+  const handleComplete = () => {
+    if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null){
+      alert("Please fill all required fields");
+    } else if (globalTime === null) {
+      alert("Please select a valid time slot");
+    } else {
+      setValid(true);
+    }
+  }
+
+  return(
+    <Grid container justify="space-evenly" alignItems="center">
+    { valid ? (
+        <ComponentThree />
+      ):
+      (
+        <>
+        <Grid item lg={6}>
+          <InputForm />
+          <Button onClick={handleComplete}>Book my appointment</Button>
+        </Grid>
+        <Grid item lg={6}>
+          <DateTime />
+        </Grid>
+        </>
+      )
+    }
+
+    </Grid>
+  )
 }
 
 const Book = () => {
   return(
     <Grid style={{overflowX:'hidden'}}>
-        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'0%'}}>
+        <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', paddingBottom:'15%'}}>
           <Grid item lg={12} style={{marginBottom:'8%'}}>
             <Navbar/>
           </Grid>

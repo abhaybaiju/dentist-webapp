@@ -1,5 +1,5 @@
 //Success, FrontPage colors
-//Bg about and place ----COUNTER
+//Counter placement?
 //Pics about
 //Leftover Content---Decide services and illustrations/images accordingly.
 //Gridding
