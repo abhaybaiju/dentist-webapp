@@ -8,7 +8,6 @@ import Footer from './Footer';
 import img from './images/bg.svg';
 import img1 from './images/patterns-bg.svg';
 import img2 from './images/blob1.svg';
-import ss from './images/Shambhavi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faPaperPlane, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
@@ -48,22 +47,27 @@ const Service = () => {
         {
             name: "Random Name #1",
             description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: "./images/calendar.svg"
+            img: require('./images/Shambhavi.png')
         },
         {
             name: "Random Name #2",
             description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: "./images/calendar.svg"
+            img: require('./images/Shambhavi.png')
         },
         {
             name: "Random Name #3",
             description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: "./images/calendar.svg"
+            img: require('./images/Shambhavi.png')
         },
         {
             name: "Random Name #4",
             description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: "./images/calendar.svg"
+            img: require('./images/Shambhavi.png')
+        },
+        {
+            name: "Random Name #5",
+            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            img: require('./images/Shambhavi.png')
         }
   ]
 
@@ -158,14 +162,14 @@ const Service = () => {
           <img src={require('./images/customer_review.svg')} alt="" height="300" style={{marginLeft:'20%', marginTop:'10%'}}/>
         </Grid>
         <Grid item lg={4}>
-          <Carousel autoPlay={false} indicators={false} animation="slide" navButtonsAlwaysVisible={true}>
+          <Carousel interval={3000} indicators={false} animation="slide" navButtonsAlwaysVisible={true}>
             {reviews.map( (review, i) =>
               <Card style={{marginLeft:'-2.5%', marginRight:'-2.5%'}}>
                 <CardContent>
                   <Paper style={{textAlign:'center', height:300, padding:'10%'}}>
                     <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'40px', color:'#3f3d56'}}/></p>
                     <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}>{review.description}</p>
-                    <img src={ss} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
+                    <img src={review.img} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
                     <p style={{color:'#404040'}}>{review.name}</p>
                   </Paper>
                 </CardContent>

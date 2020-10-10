@@ -1,21 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1254" height="278" viewBox="0 0 1254 278">
     <defs>
-        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" style="stop-color:#f2fcfe;stop-opacity:0.8;"/>
-          <stop offset="0%" style="stop-color:#1c92d2;stop-opacity:0.7;"/>
+        <linearGradient id="grad1">
+          <stop stop-color='#62baea'/>
+          <stop offset='.125' stop-color='#a5d6f3'/>
+          <stop offset='.25' stop-color='#a2e5f6'/>
+          <stop offset='.425' stop-color='#a5d6f3'/>
+          <stop offset='.6' stop-color='#62baea'/>
         </linearGradient>
-        <rect id="prefix__a" width="1254" height="278" x="0" y="0"/>
+        <rect id="prefix__a" width="100%" height="100%"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
         <mask id="prefix__b" fill="#fff">
             <use xlink:href="#prefix__a"/>
         </mask>
-        <use fill="#1c92d2" xlink:href="#prefix__a"/>
-        <circle cx="990.5" cy="-37.5" r="129.5" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
-        <circle cx="346.5" cy="338.5" r="129.5" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
-        <circle cx="1098" cy="-18" r="80" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
-        <circle cx="468" cy="330" r="80" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
-        <circle cx="848.5" cy="-52.5" r="114.5" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
-        <circle cx="191.5" cy="364.5" r="114.5" fill="#FFF" mask="url(#prefix__b)" opacity=".15"/>
+        <use fill="url(#grad1)" xlink:href="#prefix__a"/>
+        <circle cx="590.5" cy="-37.5" r="129.5" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
+        <circle cx="226.5" cy="338.5" r="129.5" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
+        <circle cx="698" cy="-18" r="80" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
+        <circle cx="348" cy="330" r="80" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
+        <circle cx="448.5" cy="-52.5" r="114.5" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
+        <circle cx="71.5" cy="364.5" r="114.5" fill="#fff" mask="url(#prefix__b)" opacity=".25"/>
     </g>
 </svg>
+
+
+<!-- linear-gradient(to right, #8fcef0, #d2ebf9 20%, #e9f5fc 50%, #d2ebf9 80%, #8fcef0) -->

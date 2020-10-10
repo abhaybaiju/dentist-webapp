@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import CountUp from 'react-countup';
 import bg2 from './images/bg2.svg';
+import bg from './images/circled-background.svg';
 import './css/AboutUs.css';
 
 const AboutUs = () => {
@@ -90,7 +91,7 @@ const AboutUs = () => {
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
                   <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
                 </svg>
-                <img src={require('./images/AnuradhaBaiju.png')} alt="" height="297" style={{float:'right', marginTop:'-62%', position:'sticky', marginRight:'-5%'}}/>
+                <img src={require('./images/AnuradhaBaiju.png')} alt="" height="298" style={{float:'right', marginTop:'-62.5%', position:'sticky', marginRight:'-5%'}}/>
               </CardContent>
             </Card>
           </Grid>
@@ -103,8 +104,8 @@ const AboutUs = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container justify="center" alignItems="center" style={{background:'linear-gradient(to right, #8fcef0, #d2ebf9 20%, #e9f5fc 50%, #d2ebf9 80%, #8fcef0)', padding:'5% 0%', marginTop:'8%'}}>
-        <Card style={{width:'75%', boxShadow:'none'}} className="card">
+      <Grid container justify="center" alignItems="center" style={{background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', padding:'5% 0%', marginTop:'8%'}}>
+        <Card style={{width:'75%', boxShadow:'none'}}>
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
             <Grid item lg={12} style={{padding:'5% 2%'}}>
               <img src={require('./images/speaker.svg')} alt="" height="180" style={{float:'left', marginRight:'7.4%', marginTop:'-3%', marginBottom:'-8%'}}/>
@@ -132,5 +133,6 @@ const AboutUs = () => {
 }
 
 export default AboutUs;
+
 
 //<path fill="url(#grad2)" d="M56.5,-65.3C70.9,-55.3,78.6,-35.2,82.2,-14.6C85.7,6.1,85,27.4,75.7,43.7C66.3,60,48.2,71.3,28.8,77.8C9.4,84.3,-11.2,86,-27.1,78.5C-43,71,-54.2,54.3,-63.1,37.2C-71.9,20.1,-78.6,2.6,-77.6,-15.5C-76.6,-33.6,-68,-52.2,-53.8,-62.3C-39.6,-72.4,-19.8,-74,0.6,-74.7C21.1,-75.5,42.1,-75.4,56.5,-65.3Z" transform="translate(100 100)" />
