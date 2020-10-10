@@ -8,6 +8,7 @@ import Footer from './Footer';
 import img from './images/bg.svg';
 import img1 from './images/patterns-bg.svg';
 import img2 from './images/blob1.svg';
+import ss from './images/Shambhavi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faPaperPlane, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
@@ -73,7 +74,7 @@ const Service = () => {
           <Navbar />
         </Grid>
         <Grid item lg={6} style={{marginTop:'-2%'}}>
-          <h1>What can you expect?</h1>
+          <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
           <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
           <Button style={{marginLeft:'10%', marginTop:'5%'}}>Book now</Button>
         </Grid>
@@ -84,7 +85,7 @@ const Service = () => {
       <Grid container justify="space-evenly" alignItems="center" spacing={2}>
         <Grid item lg={12}>
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600', textAlign:'center'}}>Our Services</p>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>What We Bring To You</h1>
+          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>What We Bring To You</h1>
           <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
         </Grid>
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
@@ -111,7 +112,7 @@ const Service = () => {
       </Grid>
       <Grid container justify="space-evenly" alignItems="stretch" style={{background:`url(${img1})`, backgroundSize:'cover', marginTop:'-5%'}}>
         <Grid item lg={12}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Features</h1>
+          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>Features</h1>
           <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
         </Grid>
         <Grid item lg={3} style={{marginRight:'-10%'}}>
@@ -142,7 +143,7 @@ const Service = () => {
               <Grid className={classes.cardMedia}>
                 <FontAwesomeIcon icon={faHeart} className={classes.cardIcon}/>
               </Grid>
-              <h3 style={{textAlign:'left', color:'#3f3d56'}}>Providing excellent customer service</h3>
+              <h3 style={{textAlign:'left', color:'#3f3d56'}}>Providing excellent customer experience</h3>
               We are passionate about what we do and we take pride in achieving the personalised results that you have in mind.
             </CardContent>
           </Card>
@@ -150,7 +151,7 @@ const Service = () => {
       </Grid>
       <Grid container justify="space-evenly" alignItems="stretch" style={{marginTop:'10%'}}>
         <Grid item lg={12}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>{/*What Our Customers Say About Us */}Take a look at what our customers say</h1>
+          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>{/*What Our Customers Say About Us */}Take a look at what our customers say</h1>
           <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
         </Grid>
         <Grid item lg={5}>
@@ -164,7 +165,7 @@ const Service = () => {
                   <Paper style={{textAlign:'center', height:300, padding:'10%'}}>
                     <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'40px', color:'#3f3d56'}}/></p>
                     <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}>{review.description}</p>
-                    <img src={img2} alt="" height="30" style={{border:'1px solid #3f3d56', borderRadius:'50px', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
+                    <img src={ss} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
                     <p style={{color:'#404040'}}>{review.name}</p>
                   </Paper>
                 </CardContent>

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import CountUp from 'react-countup';
+import bg2 from './images/bg2.svg';
 import './css/AboutUs.css';
 
 const AboutUs = () => {
@@ -77,6 +78,7 @@ const AboutUs = () => {
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
                   <circle fill="#e0deed" cx="-170" cy="-200" r="400"/>
                 </svg>
+                <img src={require('./images/CSBaiju.png')} alt="" height="245" style={{float:'left', marginTop:'-51%', position:'sticky', marginLeft:'-3%'}}/>
               </CardContent>
             </Card>
           </Grid>
@@ -88,6 +90,7 @@ const AboutUs = () => {
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
                   <circle fill="#ffd6cc" cx="250" cy="-200" r="400"/>
                 </svg>
+                <img src={require('./images/AnuradhaBaiju.png')} alt="" height="297" style={{float:'right', marginTop:'-62%', position:'sticky', marginRight:'-5%'}}/>
               </CardContent>
             </Card>
           </Grid>
