@@ -7,6 +7,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MapView from './Map';
 import Footer from './Footer';
 import axios from 'axios';
+import Fade from 'react-reveal/Fade';
 
 const Contact = () => {
   const [name,setName] = React.useState("");
@@ -71,7 +72,8 @@ const Contact = () => {
   }
 
   return(
-      <Grid style={{overflowX:'hidden'}}>
+      <Grid style={{overflowX:'hidden', overflow: "hidden"}}>
+        <Fade duration={1500} bottom>
         <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'0%'}}>
           <Navbar />
           <Grid item lg={5} style={{color:'#3f3d56'}}>
@@ -127,6 +129,7 @@ const Contact = () => {
           </Grid>
         </Grid>
         <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
+        </Fade>
       </Grid>
   );
 }
