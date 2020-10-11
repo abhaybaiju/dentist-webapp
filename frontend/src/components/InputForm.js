@@ -37,6 +37,11 @@ const InputForm = () => {
       margin: theme.spacing(1),
       minWidth: 120,
     },
+    input: {
+      "&:invalid": {
+        border: "red solid 1px"
+      }
+    },
     field: {
       '&:hover': {
         borderColor: '#ff7a59'
@@ -117,7 +122,7 @@ const InputForm = () => {
                       <AccountCircleIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
+                      <TextField inputProps={{ className: classes.input, pattern: "[a-zA-Z ]{1,15}" }} id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -131,7 +136,7 @@ const InputForm = () => {
                       <EmailIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="email" value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
+                      <TextField type="email" id="email" inputProps={{ className: classes.input, pattern: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" }} value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -145,7 +150,7 @@ const InputForm = () => {
                       <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="name" value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                      <TextField id="phone" inputProps={{ className: classes.input, pattern: "^[0-9]{10}" }} value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
                     </Grid>
                   </Grid>
                 </TableCell>
