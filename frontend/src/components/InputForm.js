@@ -7,9 +7,8 @@ import ContactMailIcon from '@material-ui/icons/ContactMail';
 import EmailIcon from '@material-ui/icons/Email';
 import { useStateValue } from './StateProvider.js';
 import { createMuiTheme } from '@material-ui/core/styles';
-import img from './images/blue_wave.png';
-import check from'./images/check.svg';
-import error from'./images/error.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 const InputForm = () => {
@@ -39,21 +38,6 @@ const InputForm = () => {
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
-    },
-    input: {
-      padding: '2% 2%',
-      "&:invalid": {
-        
-      },
-      "&:focus:invalid": {
-        background: `url(${error}) no-repeat 97% 50% #FFCCCC`,
-      },
-      "&:required:valid": {
-        background: `url(${check}) no-repeat 97% 50% `,
-      },
-      "&:required:focus:valid": {
-        background: `url(${check}) no-repeat 97% 50% `,
-      }
     },
     field: {
       '&:hover': {
@@ -96,6 +80,10 @@ const InputForm = () => {
   const [phone, setPhone] = useState(globalPhone);
   const [gender, setGender] = useState(globalGender);
   const [age, setAge] = useState(globalAge);
+  const [validname, setValidName] = useState("");
+  const [validemail, setValidEmail] = useState("");
+  const [validphone, setValidPhone] = useState("");
+
   let array = Array.from({length: 100}, (_, i) => i + 1)
   const lesser = "<1";
   const greater = ">100";
@@ -103,7 +91,7 @@ const InputForm = () => {
 
   const handleAgeChange = (val) => {
     setAge(val);
-    if(name ==="" || email===""|| phone===""|| gender===""){
+    if(name ==="" || email===""|| phone===""|| gender==="" || validname!=true || validemail!=true || validphone!=true){
       console.log("Fields are empty");
       console.log(name,email,phone,gender,"hello");
       return;
@@ -134,8 +122,12 @@ const InputForm = () => {
                     <Grid item>
                       <AccountCircleIcon style={{color:'#ff7a59'}}/>
                     </Grid>
-                    <Grid item lg={10}>
-                      <TextField required inputProps={{ className: classes.input, pattern: "[a-zA-Z ]{1,15}" }} id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
+                    <Grid item lg={10} alignItems="center" justify="center">
+                      <TextField required id="name" value={name?name: globalName} label="Your name" color="primary"  onChange={(e)=>{
+                        setName(e.target.value);
+                        e.target.value.match("^[a-zA-Z ]*$")===null? setValidName(false) : setValidName(true);
+                        }}/>
+                        <FontAwesomeIcon icon={validname===""? "": validname ? faCheck: faTimes} color={validname===""? "": validname ? "green": "red"} size="lg"/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -149,7 +141,12 @@ const InputForm = () => {
                       <EmailIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField required type="email" id="email" inputProps={{ className: classes.input, pattern: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" }} value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
+                      <TextField required type="email" id="email" inputProps={{ className: classes.input, pattern: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" }} value={email?email: globalEmail} label="Your email id" color="primary"
+                      onChange={(e)=>{
+                        setEmail(e.target.value);
+                        e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")===null? setValidEmail(false) : setValidEmail(true);
+                        }}/>
+                        <FontAwesomeIcon icon={validemail===""? "": validemail ? faCheck: faTimes} color={validemail===""? "": validemail ? "green": "red"} size="lg"/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -163,7 +160,13 @@ const InputForm = () => {
                       <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField required id="phone" inputProps={{ className: classes.input, pattern: "^[0-9]{10}" }} value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                      <TextField required id="phone" value={phone?phone: globalPhone} label="Your phone number" 
+                      classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}
+                      onChange={(e)=>{
+                        setPhone(e.target.value);
+                        e.target.value.match("^[0-9]{10}$")===null? setValidPhone(false) : setValidPhone(true);
+                        }}/>
+                        <FontAwesomeIcon icon={validphone===""? "": validphone ? faCheck: faTimes} color={validphone===""? "": validphone ? "green": "red"} size="lg"/>
                     </Grid>
                   </Grid>
                 </TableCell>
