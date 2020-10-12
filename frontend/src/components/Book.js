@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import {Card, Grid, makeStyles, Stepper, Step, StepLabel, Button, Typography} from '@material-ui/core';
+import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide} from '@material-ui/core';
 import Navbar from './Navbar';
 import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
 import Footer from './Footer';
 
 import {Redirect } from 'react-router-dom';
-
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 /*import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'; */
 import ComponentOne from './ComponentOne';
-import ComponentTwo from './ComponentTwo';*/
+import ComponentTwo from './ComponentTwo';
 import ComponentThree from './ComponentThree';
 
 import { useStateValue } from './StateProvider.js';
@@ -189,25 +189,114 @@ const Process = () => {
   }
 
   return(
-    <Grid container justify="space-evenly" alignItems="center">
-    { valid ? (
-        <ComponentThree />
-      ):
-      (
-        <>
-        <Grid item lg={6}>
-          <InputForm />
-          <Button onClick={handleComplete}>Book my appointment</Button>
-        </Grid>
-        <Grid item lg={6}>
-          <DateTime />
-        </Grid>
-        </>
-      )
-    }
-
+    <Grid container justify="space-evenly" alignItems="center" style={{marginLeft:'1%', marginRight:'10%'}}>
+      { valid ? (
+          <>
+          <Grid item lg={12}>
+            <p>Verify your details</p>
+          </Grid>
+          <ComponentThree />
+          </>
+        ):
+        (
+          <>
+          <Grid item lg={12}>
+            <p style={{textAlign:'center', fontWeight:'600', color:'#3f3d56', background:'#ececed'}}>Book your appointment</p>
+          </Grid>
+          <Grid item lg={5}>
+            <InputForm />
+            <Button onClick={handleComplete}>Book my appointment</Button>
+          </Grid>
+          <Grid item lg={5}>
+            <DateTime />
+          </Grid>
+          </>
+        )
+      }
     </Grid>
   )
+}
+
+const VerticalStepper = () => {
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+    },
+    button: {
+      marginTop: theme.spacing(2),
+      marginRight: theme.spacing(1),
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
+    actionsContainer: {
+      marginBottom: theme.spacing(2),
+    },
+    resetContainer: {
+      padding: theme.spacing(3),
+    },
+  }));
+
+  //const [check, setCheck] = useState(true);
+
+  function getSteps() {
+    return ['Select date and time', 'Patient Details', 'Review your appointment'];
+  }
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return (<DateTime />);
+      case 1:
+        return (<InputForm />);
+      case 2:
+        return (<ComponentThree />);
+      default:
+        return 'Unknown step';
+    }
+  }
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps = getSteps();
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  return (
+    <Grid container alignItems="stretch" justify="center" style={{border:'1px solid black', marginLeft:'5%', marginRight:'5%', width:'90%'}}>
+      <Grid item lg={3} style={{background:'grey'}}>
+        <Stepper activeStep={activeStep} orientation="vertical" style={{margin:'20% 0%', background:'transparent'}}>
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Grid>
+      <Grid item lg={8}>
+        <Slide direction="left" in={true} mountOnEnter unmountOnExit timeout={{appear: 500, enter: 300, exit: 500,}}>
+          <div>
+            <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
+            <div className={classes.actionsContainer}>
+              <div style={{textAlign:'center'}}>
+                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button} style={{float:'left', display:'none'}}>
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleNext} className={classes.button} style={(activeStep === steps.length - 1)?{display:'none'}:{borderRadius:'50%'}}>
+                  <ExpandMoreIcon style={{fontSize:'30px', margin:'0'}}/>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Slide>
+      </Grid>
+    </Grid>
+  );
 }
 
 const Book = () => {
@@ -227,11 +316,11 @@ const Book = () => {
             <img alt="..." src={require('./images/booking_illustration.svg')} height="400"/>
           </Grid>
         </Grid>
-        <Grid>
-          <Process />
+        <Grid style={{marginTop:'5%'}}>
+          <VerticalStepper />
           <br /><br/>
         </Grid>
-      <Footer top="0%" bottom="2%" left="12%" right="-25%"/>
+      <Footer top="2%" bottom="2%" left="12%" right="-25%"/>
     </Grid>
   );
 }

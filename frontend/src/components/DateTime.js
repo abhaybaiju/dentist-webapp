@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, IconButton, FormControl, Select, MenuItem} from '@material-ui/core';
+import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, IconButton} from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
@@ -15,42 +15,41 @@ const DateTime = () => {
 
   const theme = createMuiTheme({
     palette: {
-    	primary: {
-    		main: '#ff7a59',
-    	}
-    }
+  		primary: {
+  			main: '#ff7a59',
+  		}
+  	}
   });
 
   const useStyles = makeStyles((theme) => ({
-    tablebutton: {
-      width:'2vh',
-      backgroundColor: 'white',
-      color:'#027e97',
-      boxShadow:'none',
-      borderRadius:'50px',
-      "&:hover": {
-        backgroundColor: "#ff7a59",
-        color:'white',
-        borderRadius:'50px'
-      },
-      "&:focus": {
-        backgroundColor: "#ff7a59",
-        color:'white',
-        borderRadius:'50px'
-      }
+  tablebutton: {
+    margin:'2% 2%',
+    width:'2vh',
+    backgroundColor: 'white',
+    color:'#027e97',
+    boxShadow:'none',
+    borderRadius:'5px',
+    borderColor:'#027e97',
+    "&:hover": {
+      backgroundColor: "#ff7a59",
+      color:'white',
+      borderRadius:'5px',
+      borderColor:'#ff7a59',
     },
-    input: {
-      color: "#ff7a59"
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: '100%',
+    "&:focus": {
+      backgroundColor: "#ff7a59",
+      color:'white',
+      borderRadius:'50px'
     }
-  }));
+  },
+  input: {
+    color: "#ff7a59",
+  },
+}));
 
 
   const classes = useStyles();
-  const [slot, setSlot] = React.useState("Morning");
+  const [am, setAM] = React.useState(true);
   const [date, changeDate] = React.useState(new Date().toDateString());
   const sup="AM";
   //const pm="PM";
@@ -200,62 +199,41 @@ const DateTime = () => {
 
 
   return(
-    <Grid style={{marginRight:'8%', marginLeft:'8%'}}>
-      <Grid container justify="center" alignItems="center" spacing={1} style={{textAlign:'center'}}>
-        <Grid item lg={12}>
-          <h3 style={{color:'#027e97'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
-          <MuiThemeProvider theme={theme}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
-            </MuiPickersUtilsProvider>
-          </MuiThemeProvider>
-        </Grid>
-        <Grid item lg={12}>
-          <h3 style={{color:'#027e97'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
-          <FormControl variant="filled" className={classes.formControl}>
-            <Select labelId="slot" id="slot" value={slot} onChange={(e) => setSlot(e.target.value)}>
-              <MenuItem value="Morning">Morning</MenuItem>
-              <MenuItem value="Evening">Evening</MenuItem>
-            </Select>
-          </FormControl>
-          {slot==="Morning" ?
-            <Table style={{marginBottom:'4%'}}>
-              <TableRow key={0}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b1100} id="1100" variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b1115} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b1130} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button></TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b1145} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145, e.currentTarget.value)}>11:45<sup>am</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b1200} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200, e.currentTarget.value)}>12:00<sup>pm</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b1215} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215, e.currentTarget.value)}>12:15<sup>pm</sup></Button></TableCell>
-              </TableRow>
-              <TableRow key={2}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b1230} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b1245} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b1300} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button></TableCell>
-              </TableRow>
-            </Table>
-            :
-            <Table style={{marginBottom:'4%'}}>
-              <TableRow key={0}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b1830} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b1845} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b1900} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button></TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b1915} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b1930} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b1945} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button></TableCell>
-              </TableRow>
-              <TableRow key={2}>
-                  <TableCell key={0} style={{borderBottom:'none'}}><Button disabled={b2000} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button></TableCell>
-                  <TableCell key={1} style={{borderBottom:'none'}}><Button disabled={b2015} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button></TableCell>
-                  <TableCell key={2} style={{borderBottom:'none'}}><Button disabled={b2030} variant="contained" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button></TableCell>
-              </TableRow>
-            </Table>
-          }
-        </Grid>
+    <Grid container justify="space-evenly" alignItems="stretch" spacing={2}>
+      <Grid item lg={5}>
+        <h3 style={{color:'#027e97', textAlign:'center', marginLeft:'-7%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
+      </Grid>
+      <Grid item lg={5}>
+        <h3 style={{color:'#027e97', textAlign:'center', marginLeft:'-10%'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
+      </Grid>
+      <Grid item lg={4} style={{marginTop:'2%'}}>
+        <MuiThemeProvider theme={theme}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
+          </MuiPickersUtilsProvider>
+        </MuiThemeProvider>
+      </Grid>
+      <Grid item lg={6} style={{float:'right', marginRight:'-5%'}}>
+        <p style={{fontWeight:'600', fontSize:'15px'}}>AM</p>
+        <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
+        <Button disabled={b1115} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
+        <Button disabled={b1130} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>
+        <Button disabled={b1145} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145, e.currentTarget.value)}>11:45<sup>am</sup></Button>
+        <Button disabled={b1200} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200, e.currentTarget.value)}>12:00<sup>pm</sup></Button>
+        <Button disabled={b1215} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215, e.currentTarget.value)}>12:15<sup>pm</sup></Button>
+        <Button disabled={b1230} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button>
+        <Button disabled={b1245} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button>
+        <Button disabled={b1300} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button>
+        <p style={{fontWeight:'600', fontSize:'15px'}}>PM</p>
+        <Button disabled={b1830} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button>
+        <Button disabled={b1845} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button>
+        <Button disabled={b1900} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button>
+        <Button disabled={b1915} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button>
+        <Button disabled={b1930} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button>
+        <Button disabled={b1945} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button>
+        <Button disabled={b2000} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button>
+        <Button disabled={b2015} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button>
+        <Button disabled={b2030} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button>
       </Grid>
     </Grid>
   );
@@ -263,3 +241,9 @@ const DateTime = () => {
 }
 
 export default DateTime;
+
+/*
+
+
+
+*/
