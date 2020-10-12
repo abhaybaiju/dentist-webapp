@@ -8,6 +8,9 @@ import EmailIcon from '@material-ui/icons/Email';
 import { useStateValue } from './StateProvider.js';
 import { createMuiTheme } from '@material-ui/core/styles';
 import img from './images/blue_wave.png';
+import check from'./images/check.svg';
+import error from'./images/error.svg';
+
 
 const InputForm = () => {
 
@@ -38,8 +41,18 @@ const InputForm = () => {
       minWidth: 120,
     },
     input: {
+      padding: '2% 2%',
       "&:invalid": {
-        border: "red solid 1px"
+        
+      },
+      "&:focus:invalid": {
+        background: `url(${error}) no-repeat 97% 50% #FFCCCC`,
+      },
+      "&:required:valid": {
+        background: `url(${check}) no-repeat 97% 50% `,
+      },
+      "&:required:focus:valid": {
+        background: `url(${check}) no-repeat 97% 50% `,
       }
     },
     field: {
@@ -122,7 +135,7 @@ const InputForm = () => {
                       <AccountCircleIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField inputProps={{ className: classes.input, pattern: "[a-zA-Z ]{1,15}" }} id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
+                      <TextField required inputProps={{ className: classes.input, pattern: "[a-zA-Z ]{1,15}" }} id="name" value={name?name: globalName} label="Your name" color="primary" fullWidth={true} onChange={(e)=>setName(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -136,7 +149,7 @@ const InputForm = () => {
                       <EmailIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField type="email" id="email" inputProps={{ className: classes.input, pattern: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" }} value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
+                      <TextField required type="email" id="email" inputProps={{ className: classes.input, pattern: "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" }} value={email?email: globalEmail} label="Your email id" color="primary" fullWidth={true} onChange={(e)=>setEmail(e.target.value)}/>
                     </Grid>
                   </Grid>
                 </TableCell>
@@ -150,7 +163,7 @@ const InputForm = () => {
                       <PhoneEnabledIcon style={{color:'#ff7a59'}}/>
                     </Grid>
                     <Grid item lg={10}>
-                      <TextField id="phone" inputProps={{ className: classes.input, pattern: "^[0-9]{10}" }} value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
+                      <TextField required id="phone" inputProps={{ className: classes.input, pattern: "^[0-9]{10}" }} value={phone?phone: globalPhone}label="Your phone number" fullWidth={true} onChange={(e)=>setPhone(e.target.value)} classes={{root: classes.field, hover:classes.hover, notchedOutline: classes.notchedOutline}}/>
                     </Grid>
                   </Grid>
                 </TableCell>
