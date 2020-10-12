@@ -22,30 +22,30 @@ const DateTime = () => {
   });
 
   const useStyles = makeStyles((theme) => ({
-  tablebutton: {
-    margin:'2% 2%',
-    width:'2vh',
-    backgroundColor: 'white',
-    color:'#027e97',
-    boxShadow:'none',
-    borderRadius:'5px',
-    borderColor:'#027e97',
-    "&:hover": {
-      backgroundColor: "#ff7a59",
-      color:'white',
+    tablebutton: {
+      margin:'2% 2%',
+      padding:'1%',
+      backgroundColor: 'white',
+      color:'#027e97',
+      boxShadow:'none',
       borderRadius:'5px',
-      borderColor:'#ff7a59',
+      borderColor:'#027e97',
+      "&:hover": {
+        backgroundColor: "#ff7a59",
+        color:'white',
+        borderRadius:'5px',
+        borderColor:'#ff7a59',
+      },
+      "&:focus": {
+        backgroundColor: "#ff7a59",
+        color:'white',
+        borderRadius:'50px'
+      }
     },
-    "&:focus": {
-      backgroundColor: "#ff7a59",
-      color:'white',
-      borderRadius:'50px'
-    }
-  },
-  input: {
-    color: "#ff7a59",
-  },
-}));
+    input: {
+      color: "#ff7a59",
+    },
+  }));
 
 
   const classes = useStyles();
@@ -201,10 +201,10 @@ const DateTime = () => {
   return(
     <Grid container justify="space-evenly" alignItems="stretch" spacing={2}>
       <Grid item lg={5}>
-        <h3 style={{color:'#027e97', textAlign:'center', marginLeft:'-7%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
+        <h3 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-7%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h3>
       </Grid>
       <Grid item lg={5}>
-        <h3 style={{color:'#027e97', textAlign:'center', marginLeft:'-10%'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
+        <h3 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-10%'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h3>
       </Grid>
       <Grid item lg={4} style={{marginTop:'2%'}}>
         <MuiThemeProvider theme={theme}>
@@ -214,7 +214,7 @@ const DateTime = () => {
         </MuiThemeProvider>
       </Grid>
       <Grid item lg={6} style={{float:'right', marginRight:'-5%'}}>
-        <p style={{fontWeight:'600', fontSize:'15px'}}>AM</p>
+        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56'}}>AM</p>
         <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
         <Button disabled={b1115} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
         <Button disabled={b1130} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>
@@ -224,7 +224,7 @@ const DateTime = () => {
         <Button disabled={b1230} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button>
         <Button disabled={b1245} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button>
         <Button disabled={b1300} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button>
-        <p style={{fontWeight:'600', fontSize:'15px'}}>PM</p>
+        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56'}}>PM</p>
         <Button disabled={b1830} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button>
         <Button disabled={b1845} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button>
         <Button disabled={b1900} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide} from '@material-ui/core';
+import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide, StepConnector} from '@material-ui/core';
 import Navbar from './Navbar';
 import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
@@ -232,9 +232,32 @@ const VerticalStepper = () => {
     actionsContainer: {
       marginBottom: theme.spacing(2),
     },
-    resetContainer: {
-      padding: theme.spacing(3),
-    },
+    connectorActive: {
+     '& $line': {
+       animation:`$mymove 1.5s ${theme.transitions.easing.easeIn}`,
+       animationFillMode:'forwards',
+       // animationDelay:'3s'
+     },
+   },
+   connectorCompleted: {
+     '& $line': {
+       borderLeft:'3px solid white',
+       // animationDelay:'3s'
+     },
+   },
+   line: {
+     height:120,
+     marginLeft:'20%',
+     borderLeft:'2px solid rgba(0, 0, 0, 0.3)'
+   },
+   "@keyframes mymove": {
+     "0%": {
+       borderLeft:'2px solid rgba(0, 0, 0, 0.3)'
+     },
+     "100%": {
+       borderLeft:'3px solid white'
+     }
+   }
   }));
 
   //const [check, setCheck] = useState(true);
@@ -268,9 +291,9 @@ const VerticalStepper = () => {
   };
 
   return (
-    <Grid container alignItems="stretch" justify="center" style={{border:'1px solid black', marginLeft:'5%', marginRight:'5%', width:'90%'}}>
-      <Grid item lg={3} style={{background:'grey'}}>
-        <Stepper activeStep={activeStep} orientation="vertical" style={{margin:'20% 0%', background:'transparent'}}>
+    <Grid container alignItems="stretch" justify="center" style={{ marginLeft:'5%', marginRight:'5%', width:'90%'}}>
+      <Grid item lg={3} style={{background:'linear-gradient(to right, #1c92d2, #a5d6f3 70%, #d0f4fb 90%)', border:'1px solid #1c92d2'}}>
+        <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{margin:'20% 5%', background:'transparent', height:200}}>
           {steps.map((label, index) => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
@@ -278,7 +301,7 @@ const VerticalStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item lg={8}>
+      <Grid item lg={8} style={{border:'1px solid #3f3d56', borderLeft:'none'}}>
         <Slide direction="left" in={true} mountOnEnter unmountOnExit timeout={{appear: 500, enter: 300, exit: 500,}}>
           <div>
             <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
