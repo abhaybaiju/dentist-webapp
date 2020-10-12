@@ -73,7 +73,7 @@ const Contact = () => {
 
   return(
       <Grid style={{overflowX:'hidden', overflow: "hidden"}}>
-        <Fade duration={1500} bottom>
+        
         <Grid container alignItems="center" justify="space-evenly" style={{background:'linear-gradient(to right, #f2fcfe, #1c92d2)', marginTop:'0%'}}>
           <Navbar />
           <Grid item lg={5} style={{color:'#3f3d56'}}>
@@ -85,7 +85,9 @@ const Contact = () => {
           </Grid>
         </Grid>
         <Grid container alignItems="center" justify="space-evenly" spacing={5}>
+        
           <Grid item lg={6} style={{color:'#3f3d56', marginTop:'3%'}}>
+          <Fade duration={1000} bottom>
             <h3 style={{marginLeft:'27%',fontSize:'30px'}}>Contact details</h3>
             <p style={{marginLeft:'27%', lineHeight:'1.6', marginRight:'2%', fontSize:'16px', marginTop:'1%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
             <Table style={{marginLeft:'25%', marginBottom:'-7%'}}>
@@ -106,30 +108,37 @@ const Contact = () => {
                 <TableCell style={{borderBottom:'none'}}><TextField id="phone" label="Address" defaultValue="DG-II, 57-A, Vikaspuri, New Delhi-110018" fullWidth={true} InputProps={{readOnly: true, disableUnderline:true, classes:{input:classes.resize}}} InputLabelProps={{classes:{root:classes.label, focused: classes.focusedLabel, error: classes.erroredLabel}}}/></TableCell>
               </TableRow>
             </Table>
+            </Fade>
           </Grid>
+          
           <Grid item lg={6} md={8} sm={12} xs = {12} >
             <MapView />
           </Grid>
         </Grid>
         <Grid container alignItems="center" justify="center" style={{background:'#f7f9fa'}}>
           <Grid item lg={9} style={{color:'#2f2b4f', textAlign:'center', marginTop:'4%'}}>
+          <Fade duration={1000} bottom>
             <p style={{fontSize:'35px', fontWeight:'600'}}> Can't find the answer you need? </p>
             <p style={{lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          </Fade>
           </Grid>
           <Grid item lg={5} style={{color:'#3f3d56', textAlign:'left'}}>
+          <Fade duration={1000} bottom>
             <h4>Fullname</h4>
             <TextField id="fullname" value={name} onChange={(e)=> {setName(e.target.value)}} placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>E-mail</h4>
             <TextField id="fullname" value={email} onChange={(e)=> {setEmail(e.target.value)}} placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>Message</h4>
             <TextField id="fullname" value={message} onChange={(e)=> {setMessage(e.target.value)}} placeholder="Your question about our services" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
+          </Fade>
           </Grid>
           <Grid item lg={10} style={{textAlign:'center', marginTop:'2%', marginBottom:'4%'}}>
+          <Fade duration={1000} bottom>
             <Button className={classes.buttonSubmit} onClick={handleSubmit}>Submit</Button>
+          </Fade>
           </Grid>
         </Grid>
         <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
-        </Fade>
       </Grid>
   );
 }

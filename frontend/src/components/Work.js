@@ -9,4 +9,4 @@
 //Animations
 //Datepicker color
 //SES Live Mode
-//Validation Regex
+//Validation Regex ✅
