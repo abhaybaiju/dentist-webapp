@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Button, makeStyles} from '@material-ui/core';
+import {Grid, Button, makeStyles, Fade} from '@material-ui/core';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import moment from 'moment';
@@ -52,6 +52,7 @@ const Display = () => {
       }
     }
     return(
+      <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1500 } : {})}>
         <Grid style={{overflowX:'hidden'}}>
           <Grid>
             <Navbar/>
@@ -74,6 +75,7 @@ const Display = () => {
           </Grid>
           <Footer top="0%" bottom="2%" left="12%" right="-30%"/>
         </Grid>
+      </Fade>
     );
   }
 

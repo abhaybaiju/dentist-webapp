@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faPaperPlane, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import './css/Services.css';
+import Fade from 'react-reveal/Fade';
+
 
 const Service = () => {
 
@@ -78,90 +80,121 @@ const Service = () => {
           <Navbar />
         </Grid>
         <Grid item lg={6} style={{marginTop:'-2%'}}>
-          <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
-          <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
-          <Button style={{marginLeft:'10%', marginTop:'5%'}}>Book now</Button>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
+            <p style={{lineHeight:'2.5', marginRight:'45%', textAlign:'justify', marginTop:'10%', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <Button style={{marginLeft:'10%', marginTop:'5%'}}>Book now</Button>
+          </Fade>
         </Grid>
         <Grid item lg={6} style={{marginBottom:'21%', marginTop:'17%', background:'transparent', marginRight:'-10%'}}>
-          <img src={require('./images/features.svg')} alt="" height="350"/>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/features.svg')} alt="" height="350"/>
+          </Fade>
         </Grid>
       </Grid>
       <Grid container justify="space-evenly" alignItems="center" spacing={2}>
         <Grid item lg={12}>
-          <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600', textAlign:'center'}}>Our Services</p>
-          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>What We Bring To You</h1>
-          <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          <Fade duration={1000} bottom>
+            <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600', textAlign:'center'}}>Our Services</p>
+            <h1 style={{color:'#2f2b4f', textAlign:'center'}}>What We Bring To You</h1>
+            <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
-          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 1</h1>
-          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 1</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 2</h1>
-          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 2</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'10%'}}>
-          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginLeft:'5%', marginBottom:'15%'}}>
-          <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+          </Fade>
         </Grid>
         <Grid item lg={5} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>
-          <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 3</h1>
-          <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 3</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+          </Fade>
         </Grid>
       </Grid>
       <Grid container justify="space-evenly" alignItems="stretch" style={{background:`url(${img1})`, backgroundSize:'cover', marginTop:'-5%'}}>
         <Grid item lg={12}>
-          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>Features</h1>
-          <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#2f2b4f', textAlign:'center'}}>Features</h1>
+            <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          </Fade>
         </Grid>
         <Grid item lg={3} style={{marginRight:'-10%'}}>
-          <Card style={{marginRight:'5%'}}>
-            <CardContent className={classes.cardContent}>
-              <Grid className={classes.cardMedia}>
-                <FontAwesomeIcon icon={faComment} className={classes.cardIcon}/>
-              </Grid>
-              <h3 style={{textAlign:'left', color:'#3f3d56'}}>Ensuring clear communication</h3>
-              We keep you in the loop every step of the way. You can rely on a transparent, comprehensible flow of information.
-            </CardContent>
-          </Card>
+          <Fade duration={1000} bottom>
+            <Card style={{marginRight:'5%'}}>
+              <CardContent className={classes.cardContent}>
+                <Grid className={classes.cardMedia}>
+                  <FontAwesomeIcon icon={faComment} className={classes.cardIcon}/>
+                </Grid>
+                <h3 style={{textAlign:'left', color:'#3f3d56'}}>Ensuring clear communication</h3>
+                We keep you in the loop every step of the way. You can rely on a transparent, comprehensible flow of information.
+              </CardContent>
+            </Card>
+          </Fade>
         </Grid>
         <Grid item lg={3} style={{marginRight:'-10%'}}>
-          <Card style={{marginRight:'5%'}}>
-            <CardContent className={classes.cardContent}>
-              <Grid className={classes.cardMedia}>
-                <FontAwesomeIcon icon={faPaperPlane} className={classes.cardIcon}/>
-              </Grid>
-              <h3 style={{textAlign:'left', color:'#3f3d56'}}>Making the most of technology</h3>
-              Time is precious. We guarantee a high degree of efficiency and a premium level of service by using the right tools.
-            </CardContent>
-          </Card>
+          <Fade duration={1000} delay={150} bottom>
+            <Card style={{marginRight:'5%'}}>
+              <CardContent className={classes.cardContent}>
+                <Grid className={classes.cardMedia}>
+                  <FontAwesomeIcon icon={faPaperPlane} className={classes.cardIcon}/>
+                </Grid>
+                <h3 style={{textAlign:'left', color:'#3f3d56'}}>Making the most of technology</h3>
+                Time is precious. We guarantee a high degree of efficiency and a premium level of service by using the right tools.
+              </CardContent>
+            </Card>
+          </Fade>
         </Grid>
         <Grid item lg={3}>
-          <Card style={{marginRight:'5%'}}>
-            <CardContent className={classes.cardContent}>
-              <Grid className={classes.cardMedia}>
-                <FontAwesomeIcon icon={faHeart} className={classes.cardIcon}/>
-              </Grid>
-              <h3 style={{textAlign:'left', color:'#3f3d56'}}>Providing excellent customer experience</h3>
-              We are passionate about what we do and we take pride in achieving the personalised results that you have in mind.
-            </CardContent>
-          </Card>
+          <Fade duration={1000} delay={300} bottom>
+            <Card style={{marginRight:'5%'}}>
+              <CardContent className={classes.cardContent}>
+                <Grid className={classes.cardMedia}>
+                  <FontAwesomeIcon icon={faHeart} className={classes.cardIcon}/>
+                </Grid>
+                <h3 style={{textAlign:'left', color:'#3f3d56'}}>Providing excellent customer experience</h3>
+                We are passionate about what we do and we take pride in achieving the personalised results that you have in mind.
+              </CardContent>
+            </Card>
+          </Fade>
         </Grid>
       </Grid>
       <Grid container justify="space-evenly" alignItems="stretch" style={{marginTop:'10%'}}>
         <Grid item lg={12}>
-          <h1 style={{color:'#2f2b4f', textAlign:'center'}}>{/*What Our Customers Say About Us */}Take a look at what our customers say</h1>
-          <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#2f2b4f', textAlign:'center'}}>{/*What Our Customers Say About Us */}Take a look at what our customers say</h1>
+            <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
+          </Fade>
         </Grid>
         <Grid item lg={5}>
-          <img src={require('./images/customer_review.svg')} alt="" height="300" style={{marginLeft:'20%', marginTop:'10%'}}/>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/customer_review.svg')} alt="" height="300" style={{marginLeft:'20%', marginTop:'10%'}}/>
+          </Fade>
         </Grid>
         <Grid item lg={4}>
+        <Fade duration={1000} bottom>
           <Carousel interval={3000} indicators={false} animation="slide" navButtonsAlwaysVisible={true}>
             {reviews.map( (review, i) =>
               <Card style={{marginLeft:'-2.5%', marginRight:'-2.5%'}}>
@@ -176,6 +209,7 @@ const Service = () => {
               </Card>
              )}
           </Carousel>
+          </Fade>
         </Grid>
       </Grid>
       <Footer top="8%" bottom="2%" left="7%" right="-35%"/>

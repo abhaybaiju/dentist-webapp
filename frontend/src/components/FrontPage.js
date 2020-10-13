@@ -32,7 +32,7 @@ const FrontPage = () => {
   const classes = useStyles();
 
   return(
-    <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 900 } : {})}>
+    <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1500 } : {})}>
       <Container>
         <div class="custom-shape-divider-bottom-1601099806">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
