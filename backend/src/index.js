@@ -13,7 +13,8 @@ const bodyParser = require('body-parser')
 const sesClient = require('./ses-client')
 const Mailgen = require('mailgen')
 const app = express();
-
+const dotenv= require('dotenv');
+dotenv.config();
 //var serviceAccount = require("./service_account.json");
 
 app.use(morgan('common'));
@@ -24,8 +25,8 @@ app.use(bodyParser.json())
 app.use(express.json()); //Let's us access the object req.body which contains data from client side for adding a booking
 
 const razorpay = new Razorpay({
-  key_id: 'rzp_test_KOxIh7UxMQOrbR',
-  key_secret: 'vu0uISENcLZPDFPvuKIWx4f6',
+  key_id: process.env.RAZORPAY_TEST_ID,
+  key_secret: process.env.RAZORPAY_TEST_SECRET,
 });
 
 //ROUTES//

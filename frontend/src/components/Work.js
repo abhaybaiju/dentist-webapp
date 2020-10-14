@@ -1,5 +1,5 @@
 //Success, FrontPage colors
-//Counter placement?
+//Counter placement?✅
 //Pics about
 //Leftover Content---Decide services and illustrations/images accordingly.
 //Gridding
@@ -10,3 +10,4 @@
 //Datepicker color
 //SES Live Mode
 //Validation Regex ✅
+//Configure env file✅
