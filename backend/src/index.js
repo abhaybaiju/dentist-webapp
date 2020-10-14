@@ -102,7 +102,7 @@ app.post("/book", async(req, res) => {
       [name, contact, gender, time, date, email]
     );
     res.json("Accepted");
-    
+
     //create email
     var mailGenerator = new Mailgen({
       theme: 'salted',
@@ -141,7 +141,7 @@ app.post("/book", async(req, res) => {
           outro: 'Need help, or have questions? Contact us below.'
       }
   };
-  
+
   // Generate an HTML email with the provided contents
   var emailBody = mailGenerator.generate(emailContent);
 
@@ -205,18 +205,13 @@ app.post("/book", async(req, res) => {
   }
 });
 
-//edit(update) bookings?
-//Also how about reschedule appointment option?
-//How much calendar should be visible?
-//login through contact w/0 password? So that user can view previous appointments?
-
 
 app.post("/query", async(req, res) => {
   try {
     var name = req.body.name;
     var message = req.body.message;
     var email = req.body.email;
-    
+
     //create email
     var mailGenerator = new Mailgen({
       theme: 'salted',
@@ -284,7 +279,7 @@ app.post("/query", async(req, res) => {
         outro: 'Need help, or have questions? Contact us below.'
     }
 };
-  
+
   // Generate an HTML email with the provided contents
   var emailBody = mailGenerator.generate(emailContent);
   var emailBodyUser = mailGenerator.generate(emailContentUser);

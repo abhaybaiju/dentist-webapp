@@ -16,7 +16,8 @@ const DateTime = () => {
   const theme = createMuiTheme({
     palette: {
   		primary: {
-  			main: '#ff7a59',
+  			main: '#3f3d56',
+        contrastText: "#FFFFFF",
   		}
   	}
   });
@@ -31,19 +32,19 @@ const DateTime = () => {
       borderRadius:'5px',
       borderColor:'#027e97',
       "&:hover": {
-        backgroundColor: "#ff7a59",
+        backgroundColor: "#3f3d56",
         color:'white',
         borderRadius:'5px',
-        borderColor:'#ff7a59',
+        borderColor:'#3f3d56',
       },
       "&:focus": {
-        backgroundColor: "#ff7a59",
+        backgroundColor: "#3f3d56",
         color:'white',
-        borderColor:'#ff7a59',
+        borderColor:'#3f3d56',
       }
     },
     input: {
-      color: "#ff7a59",
+      color: "#3f3d56",
     },
   }));
 
@@ -209,7 +210,7 @@ const DateTime = () => {
       <Grid item lg={4} style={{marginTop:'2%'}}>
         <MuiThemeProvider theme={theme}>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
+            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" inputVariant="outlined" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
           </MuiPickersUtilsProvider>
         </MuiThemeProvider>
       </Grid>
