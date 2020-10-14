@@ -3,6 +3,7 @@ import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepContent, StepLab
 import Navbar from './Navbar';
 import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
+import Pay from './Pay.js';
 import Footer from './Footer';
 
 import {Redirect } from 'react-router-dom';
@@ -280,7 +281,7 @@ const VerticalStepper = () => {
       case 1:
         return (<InputForm />);
       case 2:
-        return (<ComponentThree />);
+        return (<Pay />);
       default:
         return 'Unknown step';
     }
@@ -335,7 +336,7 @@ const VerticalStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item lg={8} style={{border:'1px solid #3f3d56', borderLeft:'none', height:570}}>
+      <Grid item lg={8} style={{border:'2px solid #2f2b4f', borderLeft:'none', height:570}}>
         <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
         <div style={{textAlign:'center', marginBottom:'2%'}}>
         <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center'}}>

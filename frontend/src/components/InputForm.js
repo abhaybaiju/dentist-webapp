@@ -39,6 +39,8 @@ const InputForm = () => {
     focused: {}
   }));
 
+  //<TextField id="description" label="Description" value={description?description:globalDescription} onChange={(e)=> {setDescription(e.target.value)}} placeholder="Why would you like to visit us?" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
+
 
   const classes = useStyles();
   const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
@@ -170,7 +172,7 @@ const InputForm = () => {
       <Grid item lg={5} style={{textAlign:'center'}}>
         <FormControl variant="outlined" style={{margin:'2% 0%', width:'35%'}}>
           <InputLabel htmlFor="age">Age</InputLabel>
-          <Select value={age?age: globalAge} onChange={(e)=>handleAgeChange(e.target.value)} label="Age" id="age">
+          <Select value={age?age: globalAge} onChange={(e)=>handleAgeChange(e.target.value)} label="Age" id="age" style={{textAlign:'left'}}>
             <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
             {array.map((key,value) => (
               <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>
