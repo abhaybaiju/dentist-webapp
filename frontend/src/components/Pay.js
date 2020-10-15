@@ -5,10 +5,13 @@ import axios from 'axios';
 import { useStateValue } from './StateProvider.js';
 import img from './images/blue_wave.png';
 import './css/App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRupeeSign, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin:'2% 0%',
+    marginTop:'5%',
+    marginBottom:'2%',
     padding:'1%',
     width:'100%',
     backgroundColor: 'white',
@@ -122,18 +125,60 @@ const Pay = () => {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" alignItems="center" spacing={1}>
-      <Grid item lg={5}>
-        <div style={{border:' 2px solid #2f2b4f', borderRadius:'20px', width:'70%', borderTop:'70px solid #2f2b4f'}}>
-          <p style={{padding:'10%', textAlign:'center', fontSize:'25px', fontWeight:'400', color:'#3f3d56'}}>{globalDate}<br/>{globalTime}</p>
-        </div>
-
+    <Grid container justify="center" alignItems="stretch" spacing={2}>
+      <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'1%'}}>
+        <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
       </Grid>
-      <Grid item lg={5}>
-        <h2 style={{color:'#2f2b4f', textAlign:'center'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>Order Summary</h2>
+      <Grid item lg={5} style={{borderRight:'0.5px solid #cccccc'}}>
+      <Table>
+        <TableRow>
+          <TableCell style={{borderBottom:'none'}}><p style={{color:'#3f3d56', fontSize:'20px', textAlign:'left', marginTop:'0%', marginBottom:'0%', fontWeight:'500'}}>Billing Summary</p></TableCell>
+        </TableRow>
+      </Table>
+        <Table>
+          <TableRow>
+            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Dental Consultation</p></TableCell>
+            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 164.00</p></TableCell>
+          </TableRow>
+        </Table>
+        <Table>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}>Subtotal</p></TableCell>
+            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{float:'right', marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 169.50</p></TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>SGST (9%)</p></TableCell>
+            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p></TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>CGST (9%)</p></TableCell>
+            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p></TableCell>
+          </TableRow>
+        </Table>
+        <Table>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}>Total</h3></TableCell>
+            <TableCell style={{borderBottom:'none'}}><h3 style={{float:'right', marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#3f3d56'}}/> 200.00</h3></TableCell>
+          </TableRow>
+        </Table>
+      </Grid>
+      <Grid item lg={5} >
+        <Table style={{paddingLeft:'0%'}}>
+          <TableRow>
+            <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', paddingTop:'0%', paddingBottom:'0%', color:'#3f3d56'}}>{globalName}</h3></TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{marginTop:'0%', paddingTop:'0%'}}>{globalEmail}</p></TableCell>
+            <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{float:'right', marginTop:'0%', paddingTop:'0%'}}>{globalPhone}</p></TableCell>
+          </TableRow>
+        </Table>
+        <div style={{border:' 2px solid #2f2b4f', borderRadius:'20px', width:'55%', borderTop:'50px solid #2f2b4f', marginLeft:'5%'}}>
+          <p style={{padding:'6%', textAlign:'center', fontSize:'20px', fontWeight:'400', color:'#3f3d56'}}>{globalDate}<br/>{globalTime}</p>
+        </div>
       </Grid>
       <Grid item lg={10}>
-        <Button className={classes.button}>Pay Now</Button>
+        <Button className={classes.button} onClick={displayRazorPay}>Pay Now</Button>
+        <p style={{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
       </Grid>
     </Grid>
   );
@@ -143,6 +188,10 @@ export default Pay;
 
 
 /*
+
+<Grid item lg={10}>
+  <h2 style={{color:'#2f2b4f', textAlign:'center'}}>You're almost there!</h2>
+</Grid>
 
 <Grid item lg={7} style={{background: `url(${img})`, backgroundSize:'450px', backgroundRepeat:'no-repeat'}}>
   <img src={require('./images/verified.svg')} alt="" height="200" style={{marginTop:'20%', marginLeft:'30%'}}/>

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {Grid, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, RadioGroup, makeStyles, Radio, Input, OutlinedInput, InputAdornment, IconButton, FormControlLabel} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import {Grid, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, RadioGroup, makeStyles, Radio, Input, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Checkbox} from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
 import EmailIcon from '@material-ui/icons/Email';
@@ -25,6 +26,16 @@ const InputForm = () => {
         color:'white',
       }
     },
+    check: {
+      color:'#3f3d56',
+      '&&:hover': {
+        backgroundColor: 'rgba(63, 61, 86, 0.1)',
+        color:'#3f3d56',
+      },
+      '&$checked': {
+        color:'#3f3d56',
+      }
+    },
     radio: {
       color:'#3f3d56',
       '&&:hover': {
@@ -43,13 +54,14 @@ const InputForm = () => {
 
 
   const classes = useStyles();
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalChecked}, dispatch] = useStateValue();
 
   const [name, setName] = useState(globalName);
   const [email, setEmail] = useState(globalEmail);
   const [phone, setPhone] = useState(globalPhone);
   const [gender, setGender] = useState(globalGender);
   const [age, setAge] = useState(globalAge);
+  const [check, setCheck] = useState(false);
   const [validname, setValidName] = useState("");
   const [validemail, setValidEmail] = useState("");
   const [validphone, setValidPhone] = useState("");
@@ -58,11 +70,10 @@ const InputForm = () => {
   const lesser = "<1";
   const greater = ">100";
 
-
-  const handleAgeChange = (val) => {
-    setAge(val);
+  const handleCheckChange = () => {
+    setCheck(true);
     if(name ==="" || email===""|| phone===""|| gender==="" || validname!=true || validemail!=true || validphone!=true){
-      console.log("Fields are empty");
+      console.log("Fields are empty or incorrectly filled.");
       console.log(name,email,phone,gender,"hello");
       return;
     }
@@ -72,14 +83,15 @@ const InputForm = () => {
       globalEmail: email,
       globalPhone: phone,
       globalGender: gender,
-      globalAge: val,
+      globalAge: age,
+      globalChecked: true
     });
   }
 
   return(
     <Grid container justify="center" alignItems="center">
       <Grid item lg={12}>
-        <h2 style={{color:'#2f2b4f', textAlign:'center'}}><PersonPinIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>Personal Details</h2>
+        <h2 style={{color:'#2f2b4f', textAlign:'center', marginTop:'-1%'}}><PersonPinIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>Personal Details</h2>
       </Grid>
       <Grid item lg={10}>
         <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
@@ -162,7 +174,7 @@ const InputForm = () => {
       <Grid item lg={5} style={{textAlign:'center'}}>
         <FormControl component="fieldset" style={{margin:'2% 0%'}}>
           <FormLabel component="legend" style={{color:'grey', textAlign:'left'}}>Gender</FormLabel>
-          <RadioGroup row aria-label="gender" name="gender" value={gender?gender: globalGender} onChange={(e)=>setGender(e.target.value)}>
+          <RadioGroup row aria-label="gender" name="gender" value={gender?gender: globalGender} onChange={(e)=>setGender(e.target.value)} style={{color:'#404040'}}>
             <FormControlLabel value="Male" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Male" />
             <FormControlLabel value="Female" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Female" />
             <FormControlLabel value="Others" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Others" />
@@ -172,13 +184,35 @@ const InputForm = () => {
       <Grid item lg={5} style={{textAlign:'center'}}>
         <FormControl variant="outlined" style={{margin:'2% 0%', width:'35%'}}>
           <InputLabel htmlFor="age">Age</InputLabel>
-          <Select value={age?age: globalAge} onChange={(e)=>handleAgeChange(e.target.value)} label="Age" id="age" style={{textAlign:'left'}}>
+          <Select value={age?age: globalAge} onChange={(e)=>setAge(e.target.value)} label="Age" id="age" style={{textAlign:'left'}}>
             <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
             {array.map((key,value) => (
               <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>
             ))}
             <MenuItem value={greater} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{greater}</MenuItem>
           </Select>
+        </FormControl>
+      </Grid>
+      <Grid item lg={10}>
+        <FormControl component="fieldset" style={{marginTop:'2%', marginBottom:'-2%', marginLeft:'1%'}}>
+          <FormControlLabel control={
+            <Checkbox
+              checked={check}
+              onChange={handleCheckChange}
+              name="checked"
+              classes={{root:classes.check, hover: classes.hover,checked: classes.checked}}
+            />
+            }
+            label={
+              <div style={{color:'#666666', fontStyle:'italic'}}>
+                <span>I understand and accept the </span>
+                <Link to={'/terms'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Terms Of Use</Link>
+                <span> and </span>
+                <Link to={'/privacy'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Privacy Policy</Link>
+                <span>of Lila Dental Clinic.</span>
+              </div>
+            }
+          />
         </FormControl>
       </Grid>
     </Grid>

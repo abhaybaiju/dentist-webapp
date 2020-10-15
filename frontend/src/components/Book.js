@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide, StepConnector} from '@material-ui/core';
+import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepButton, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide, StepConnector} from '@material-ui/core';
 import Navbar from './Navbar';
 import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
@@ -172,7 +172,7 @@ function HorizontalNonLinearStepper() {
   return(
     <HorizontalNonLinearStepper />
   );
-}*/
+}
 
 const Process = () => {
 
@@ -216,7 +216,7 @@ const Process = () => {
       }
     </Grid>
   )
-}
+}*/
 
 const VerticalStepper = () => {
 
@@ -242,13 +242,20 @@ const VerticalStepper = () => {
      marginLeft:'20%',
      borderLeft:'2px solid rgba(0, 0, 0, 0.3)'
    },
-   "@keyframes mymove": {
-     "0%": {
-       borderLeft:'2px solid rgba(0, 0, 0, 0.3)'
-     },
-     "100%": {
-       borderLeft:'3px solid white'
-     }
+   label:{
+     fontSize:'16px'
+   },
+   labelActive: {
+     animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
+     animationFillMode:'forwards',
+     //color:'white',
+     fontSize:'17px'
+   },
+   labelCompleted: {
+     //animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
+     //animationFillMode:'forwards',
+     color:'white',
+     fontSize:'17px'
    },
    icon:{
      // color: '#3f3d56',
@@ -261,11 +268,39 @@ const VerticalStepper = () => {
        },
      },
      "&$completedIcon": {
-       color: 'white'
+       animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
+       animationFillMode:'forwards',
+     },
+     "&$completedIconPast": {
+       color:'white'
      }
    },
    activeIcon: {},
-   completedIcon: {}
+   completedIcon: {},
+   completedIconPast: {},
+   "@keyframes mymove": {
+     "0%": {
+       borderLeft:'2px solid rgba(0, 0, 0, 0.3)'
+     },
+     "100%": {
+       borderLeft:'3px solid white'
+     }
+   },
+   "@keyframes myicon": {
+     "0%": {
+       color:'#3f3d56'
+     },
+     "100%": {
+       color:'white'
+     }
+   },
+   nextButton: {
+     fontSize:'40px',
+     border:'1px solid #3f3d56',
+     color:'white',
+     background:'#3f3d56',
+     borderRadius:'50%',
+   }
   }));
 
   //const [check, setCheck] = useState(true);
@@ -287,7 +322,7 @@ const VerticalStepper = () => {
     }
   }
   const classes = useStyles();
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime}, dispatch] = useStateValue();
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalChecked}, dispatch] = useStateValue();
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
@@ -305,9 +340,20 @@ const VerticalStepper = () => {
 
   const handleNext = () => {
     const newCompleted = completed;
-    if(activeStep === 1){
+    if(activeStep === 0){
       console.log(activeStep);
-      if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null){
+      if(globalTime === null){
+        alert("Please select a valid time slot.");
+      }
+      else{
+        console.log("All filled out");
+        newCompleted[activeStep] = true;
+        setCompleted(newCompleted);
+        setActiveStep(prevActiveStep => (prevActiveStep+1));
+      }
+    } else if(activeStep === 1){
+      console.log(activeStep);
+      if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null || globalChecked === false){
         alert("Please fill all required fields");
       }
       else{
@@ -316,11 +362,16 @@ const VerticalStepper = () => {
         setCompleted(newCompleted);
         setActiveStep(prevActiveStep => (prevActiveStep+1));
       }
-    } else{
+    } else {
       newCompleted[activeStep] = true;
       setCompleted(newCompleted);
       setActiveStep(prevActiveStep => (prevActiveStep+1));
     }
+  };
+
+  const handleStep = (step) => () => {
+    if(completed[step])
+      setActiveStep(step);
   };
 
   return (
@@ -329,9 +380,11 @@ const VerticalStepper = () => {
         <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{margin:'10% 5%', background:'transparent', height:200}}>
           {steps.map((label, index) => (
             <Step key={label}>
-              <StepLabel StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
-                <p style={(completed[index] || activeStep===index)?{color:'white', fontSize:'18px'}:{fontSize:'17px'}}>{label}</p>
-              </StepLabel>
+              <StepButton onClick={handleStep(index)}>
+                <StepLabel StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed:(activeStep === index+1)? classes.completedIcon : classes.completedIconPast } }}>
+                  <p className={(activeStep===index)?classes.labelActive:(completed[index]?classes.labelCompleted:classes.label)}>{label}</p>
+                </StepLabel>
+              </StepButton>
             </Step>
           ))}
         </Stepper>
@@ -339,8 +392,8 @@ const VerticalStepper = () => {
       <Grid item lg={8} style={{border:'2px solid #2f2b4f', borderLeft:'none', height:570}}>
         <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
         <div style={{textAlign:'center', marginBottom:'2%'}}>
-        <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center'}}>
-          <ExpandMoreIcon style={{fontSize:'40px', border:'1px solid #3f3d56', color:'white', background:'#3f3d56', borderRadius:'50%'}}/>
+        <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center', borderRadius:'50%'}}>
+          <ExpandMoreIcon className={classes.nextButton}/>
         </Button>
         </div>
       </Grid>
