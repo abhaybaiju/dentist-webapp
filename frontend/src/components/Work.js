@@ -10,7 +10,7 @@
 //Whatsapp
 //Navbar media query------done??
 //Razorpay live mode
-//Animations-----------done? Cards hover animation??
+//Animations for book and about counter-----------done? Cards hover animation??
 //SES Live Mode
 //Validation Regex ✅------separate dispatch?
 //Configure env file✅------mail it to me!!!!!!!!

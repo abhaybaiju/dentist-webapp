@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Card, CardContent, Table, TableRow, TableCell, Button} from '@material-ui/core';
+import {Grid, Card, CardContent, Table, TableRow, TableCell, Button, Hidden} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -8,6 +8,7 @@ import bg2 from './images/bg2.svg';
 import bg from './images/circled-background.svg';
 import './css/AboutUs.css';
 import Fade from 'react-reveal/Fade';
+import about from './images/about.svg';
 
 const AboutUs = () => {
   return(
@@ -25,21 +26,22 @@ const AboutUs = () => {
       </div>
         <Navbar/>
       <Grid container justify="space-evenly" alignItems="center" style={{marginTop:'8%', position:'sticky'}}>
-        <Grid item lg={5} style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-15%'}}>
+        <Grid item lg={6} md={5} sm={12} xs={12}style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-2%'}}>
           <Fade duration={1000} bottom>
-            <p style={{fontSize:'40px', fontWeight:'600'}}>Want to know more ?</p>
-            <p style={{lineHeight:'1.6', fontSize:'20px', color:'#4d4d4d'}}>
+            <p style={{fontSize:'8vh', fontWeight:'600'}}>Want to know more ?</p>
+            <p style={{lineHeight:'1.6', fontSize:'3vh', color:'#4d4d4d'}}>
             Curiosity may have killed the cat but our story will make you smile.<br>
             </br> Keep scrolling to find out.</p>
           </Fade>
         </Grid>
-        <Grid item lg={6} style={{marginTop:'5%', marginLeft:'12%', marginRight:'-18%'}}>
+        <Grid item lg={6} md={6} sm={12} xs={12} style={{marginTop:'5%', marginLeft:'8%', marginRight:'-17%'}}>
         <Fade duration={1000} bottom>
-          <img src={require('./images/about.svg')} alt="" height="400"/>
+          <img src={about} alt="" style={{width: "70%"}}/>
           </Fade>
         </Grid>
       </Grid>
-      <Grid container justify="space-evenly" alignItems="flex-start" style={{marginTop:'15%', marginBottom:'-62%'}} spacing={0}>
+      <Grid container justify="space-evenly" alignItems="flex-start" style={{marginTop:'15%', marginBottom:'0%'}} spacing={0}>
+        <Hidden mdDown>
         <Grid item lg={2} style={{marginLeft:'-10%'}}>
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="1620" width="1000">
             <defs>
@@ -51,12 +53,13 @@ const AboutUs = () => {
             <rect fill="url(#grad2)" width="90" height="90" rx="8" style={{transform:'rotate(-45deg)'}}/>
           </svg>
         </Grid>
-        <Grid item lg={5} style={{marginTop:'10%'}}>
+        </Hidden>
+        <Grid item lg={4} md={5} sm={8} xs={11} style={{marginTop:'10%'}}>
         <Fade duration={1000} bottom>
-          <img src={require('./images/people.svg')} alt="" height="300" width="450" style={{background:'white', border:'10px solid #e6e6e6', borderRadius:'20px'}}/>
+          <img src={require('./images/people.svg')} alt="" style={{background:'white', border:'10px solid #e6e6e6', borderRadius:'20px', width : "94%"}}/>
         </Fade>
         </Grid>
-        <Grid item lg={4} style={{marginTop:'1%'}}>
+        <Grid item lg={4} md={4} sm={8} xs={11} style={{marginTop:'1%'}}>
         <Fade duration={1000} bottom>
           <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
           <h1 style={{color:'#ff7a59', marginBottom:'10%'}}>Our journey</h1>
@@ -68,14 +71,14 @@ const AboutUs = () => {
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="stretch">
-        <Grid item lg={12} style={{textAlign:'center', marginBottom:'5%'}}>
+        <Grid item lg={12} md={12} sm={12} xs={12} style={{textAlign:'center', marginBottom:'5%'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
             <p style={{marginLeft:'30%', marginRight:'30%', lineHeight:'1.8', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
           </Fade>
         </Grid>
         <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
-          <Grid item xs={6} lg={5} >
+          <Grid item lg={5} md={5} sm={6} xs={12}>
             <Fade duration={1000} bottom>
               <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'5%', lineHeight:'1.7', textAlign:'justify', color:'#404040'}}>
                 <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
@@ -84,7 +87,7 @@ const AboutUs = () => {
               </p>
             </Fade>
           </Grid>
-          <Grid item xs={6} lg={5}>
+          <Grid item lg={5} md={5} sm={6} xs={10}>
             <Fade duration={1000} bottom>
               <Card style={{width:'80%', marginLeft:'10%', borderRadius:'0px', boxShadow:'none', border:'none'}}>
                 <CardContent style={{background:'#efeef6', marginTop:'3%'}}> {/*e0deed*/}
@@ -98,7 +101,7 @@ const AboutUs = () => {
           </Grid>
         </Grid>
         <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
-          <Grid item xs={6} lg={5} style={{marginTop:'4%'}}>
+          <Grid item lg={5} md={5} sm={6} xs={10} style={{marginTop:'4%'}}>
             <Fade duration={1000} bottom>
               <Card style={{width:'80%',borderRadius:'0px', boxShadow:'none', border:'none', marginLeft:'15%'}}>
                 <CardContent style={{background:'#ffebe6', marginTop:'3%'}}>{/*ffd6cc*/}
@@ -110,7 +113,7 @@ const AboutUs = () => {
               </Card>
             </Fade>
           </Grid>
-          <Grid item xs={6} lg={5} style={{marginTop:'2%'}}>
+          <Grid item lg={5} md={5} sm={6} xs={12} style={{marginTop:'2%'}}>
             <Fade duration={1000} bottom>
               <p style={{marginLeft:'12%', marginRight:'11%', marginTop:'8%', lineHeight:'1.8', textAlign:'justify', color:'#404040'}}>
                 <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
@@ -124,11 +127,15 @@ const AboutUs = () => {
       <Grid container justify="center" alignItems="center" style={{background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', padding:'5% 0%', marginTop:'8%'}}>
         <Card style={{width:'75%', boxShadow:'none'}}>
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
-            <Grid item lg={12} style={{padding:'5% 2%'}}>
-              <Fade duration={1000} bottom>
-                <img src={require('./images/speaker.svg')} alt="" height="180" style={{float:'left', marginRight:'7.4%', marginTop:'-3%', marginBottom:'-8%'}}/>
-                <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'30px', marginTop:'-1%'}}>Still not sure? Let us change your mind</p>
-                <Table style={{marginLeft:'32.5%'}}>
+            <Grid justify="center" alignItems="center" container item lg={12} xs={12} style={{padding:'5% 2%'}}>
+                <Grid lg={5} xs={12}>
+                  <img src={require('./images/speaker.svg')} alt="" style={{float:'left', marginRight:'7.4%', marginTop:'-10%', marginBottom:'0%', width: '80%'}}/>
+                </Grid>
+                <Grid lg={7} xs={12}>
+                  <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'4.5vw', marginTop:'-1%'}}>Still not sure? Let us change your mind</p>
+                </Grid>
+                <Grid item lg={12} justify="center" alignItems="center">
+                <Table >
                   <TableRow>
                     <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
                     <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
@@ -140,8 +147,10 @@ const AboutUs = () => {
                     <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Years of Experience</TableCell>
                   </TableRow>
                 </Table>
-                <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'4%', marginBottom:'-5.5%',background:'#645ba4', padding:'1.2% 3%'}}>Book now</Button></Link>
-              </Fade>
+                </Grid>
+                <Grid justify="center" alignItems="center">
+                <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'4%', marginBottom:'-5.5%',background:'#645ba4', padding:'0.5vw 3%', width:'15vw'}}>Book now</Button></Link>
+                </Grid>
             </Grid>
           </CardContent>
         </Card>

@@ -94,7 +94,7 @@ const Navbar = () => {
       <AppBar lg={12} title="Dental-app" className={`${classes.appBar} ${
           trigger === false ? '' : classes.appBarScrolled
         }`}>
-        <Toolbar style={{ marginLeft:'10%', marginRight:'0%', marginTop:'1%'}}>
+        <Toolbar style={{ marginLeft:'0%', marginRight:'0%', marginTop:'1%'}}>
           <Grid container justify="flex-start" alignItems="center" lg={6} md={6} sm={6} xs={6}>
             <Typography>
               <Link to="/"><img alt="..." src={require("./images/logo.png")} height="50" style={{transform: 'rotate(-90deg)', cursor:'pointer'}}/></Link>
