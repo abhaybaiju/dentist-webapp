@@ -2,7 +2,7 @@
 //FrontPage colors
 //Counter placement?✅
 //Pics about
-//Leftover Content---Decide services and illustrations/images accordingly.
+//Leftover Content---Decide services and illustrations/images accordingly.----Write Reviews
 //Gridding
 //Stepper background--svg
 //Terms of use and privacy policy from razorpay
