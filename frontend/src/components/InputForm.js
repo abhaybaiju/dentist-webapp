@@ -175,9 +175,9 @@ const InputForm = () => {
         <FormControl component="fieldset" style={{margin:'2% 0%'}}>
           <FormLabel component="legend" style={{color:'grey', textAlign:'left'}}>Gender</FormLabel>
           <RadioGroup row aria-label="gender" name="gender" value={gender?gender: globalGender} onChange={(e)=>setGender(e.target.value)} style={{color:'#404040'}}>
-            <FormControlLabel value="Male" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Male" />
-            <FormControlLabel value="Female" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Female" />
-            <FormControlLabel value="Others" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Others" />
+            <FormControlLabel value="M" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Male" />
+            <FormControlLabel value="F" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Female" />
+            <FormControlLabel value="O" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Others" />
           </RadioGroup>
         </FormControl>
       </Grid>
