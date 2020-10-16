@@ -8,7 +8,7 @@
 //Terms of use and privacy policy from razorpay
 //verify--button solid, arrow, white??----parse date and time
 //Whatsapp
-//Navbar media query------done??-------change!!
+//Navbar media query✅
 //Razorpay live mode
 //Animations for book and about counter-----------done? Cards hover animation??
 //SES Live Mode
