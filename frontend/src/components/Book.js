@@ -232,7 +232,9 @@ const Book = () => {
           <VerticalStepper />
           <br /><br/>
         </Grid>
-      <Footer top="2%" bottom="2%" left="12%" right="-25%"/>
+        <Grid item lg={12}>
+          <Footer top="2%" bottom="2%" left="12%" right="-25%"/>
+        </Grid>
     </Grid>
   );
 }

@@ -8,7 +8,8 @@ export const initialState = {
     globalAge: null,
     globalChecked:false,
     globalEmail: null,
-    globalTimeText: null
+    globalTimeText: null,
+    globalRating: null,
 };
 
 
@@ -31,6 +32,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 globalDate : action.globalDate,
+            }
+        case 'SET_RATING':
+            return {
+              ...state,
+              globalRating: action.globalRating,
             }
         case 'SET_FORM':
             return {
