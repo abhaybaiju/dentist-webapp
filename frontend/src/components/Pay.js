@@ -1,6 +1,8 @@
-import React from 'react';
-import {Button, Grid, Table, TableRow, TableCell, makeStyles} from '@material-ui/core';
+import React, {useState} from 'react';
+import {Button, Grid, Table, TableRow, TableCell, makeStyles, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, TextField} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import ClearIcon from '@material-ui/icons/Clear';
+import DoneIcon from '@material-ui/icons/Done';
 import axios from 'axios';
 import { useStateValue } from './StateProvider.js';
 import img from './images/blue_wave.png';
@@ -10,9 +12,29 @@ import { faRupeeSign, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    marginTop:'5%',
+    marginTop:'3%',
     marginBottom:'2%',
     padding:'1%',
+    width:'100%',
+    backgroundColor: 'white',
+    color:'#3f3d56',
+    boxShadow:'none',
+    borderRadius:'5px',
+    border:'1px solid #3f3d56',
+    "&:hover": {
+      backgroundColor: "#2f2b4f",
+      color:'white',
+      borderRadius:'5px',
+      borderColor:'#2f2b4f',
+    },
+    "&:focus": {
+      backgroundColor: "#2f2b4f",
+      color:'white',
+      borderColor:'#2f2b4f',
+    }
+  },
+  applybutton: {
+    padding:'20%',
     width:'100%',
     backgroundColor: 'white',
     color:'#3f3d56',
@@ -50,18 +72,20 @@ function loadScript(src) {
 }
 
 const sendPostRequest = async (postData) => {
-try{
-    const resp = await axios.post("http://localhost:1337/book",postData);
-    console.log(resp);
-} catch (err) {
-    console.error(err);
-}
+  try{
+      const resp = await axios.post("http://localhost:1337/book",postData);
+      console.log(resp);
+  } catch (err) {
+      console.error(err);
+  }
 }
 
 const __DEV__ = document.domain === 'localhost'
 
 const Pay = () => {
 
+  const [promo, setPromo] = useState("");
+  const [validPromo, setValidPromo] = useState("");
   const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalDate}, dispatch] = useStateValue();
 
   async function displayRazorPay() {
@@ -130,29 +154,39 @@ const Pay = () => {
         <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
       </Grid>
       <Grid item lg={5} style={{borderRight:'0.5px solid #cccccc'}}>
-      <Table>
-        <TableRow>
-          <TableCell style={{borderBottom:'none'}}><p style={{color:'#3f3d56', fontSize:'20px', textAlign:'left', marginTop:'0%', marginBottom:'0%', fontWeight:'500'}}>Billing Summary</p></TableCell>
-        </TableRow>
-      </Table>
         <Table>
           <TableRow>
-            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Dental Consultation</p></TableCell>
-            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 164.00</p></TableCell>
+            <TableCell style={{borderBottom:'none'}}><p style={{color:'#3f3d56', fontSize:'20px', textAlign:'left', marginTop:'0%', marginBottom:'0%', fontWeight:'500'}}>Billing Summary</p></TableCell>
           </TableRow>
         </Table>
         <Table>
           <TableRow>
-            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}>Subtotal</p></TableCell>
-            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{float:'right', marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 169.50</p></TableCell>
+            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Dental Consultation</p></TableCell>
+            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 400.00</p></TableCell>
+          </TableRow>
+        </Table>
+        <Table>
+          <TableRow>
+            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}>Have a Promo Code?</p></TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>SGST (9%)</p></TableCell>
-            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>CGST (9%)</p></TableCell>
-            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p></TableCell>
+            <TableCell style={{paddingTop:'0%'}}>
+              <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
+                <TextField variant="outlined" label="Promo Code" error={validPromo===false} helperText={validPromo === "" ? "" : validPromo ? "Promo Code Applied" : "Invalid Promo Code"} id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
+                  onChange={(e)=>{setPromo(e.target.value);}}
+                  InputProps = {{
+                    endAdornment:
+                      <IconButton edge="end" style={validPromo?{color:'green'}:{color:'red'}}>
+                        {validPromo===""? "": validPromo ? <DoneIcon /> : <ClearIcon/>}
+                      </IconButton>,
+                    classes: {
+                      adornedEnd: classes.adornedEnd
+                    }
+                  }}
+                />
+              </FormControl>
+            </TableCell>
+            <TableCell style={{paddingTop:'0%'}}><Button variant="outlined" onClick={()=>setValidPromo(false)} className={classes.applybutton}>Apply</Button></TableCell>
           </TableRow>
         </Table>
         <Table>
@@ -185,6 +219,55 @@ const Pay = () => {
 }
 
 export default Pay;
+
+
+
+/*
+
+<TableRow>
+  <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>CGST (9%)</p></TableCell>
+  <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p></TableCell>
+</TableRow>
+
+<TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{float:'right', marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 169.50</p></TableCell>
+
+<TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Promo Code</p></TableCell>
+
+<p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 15.25</p>
+
+<TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px', borderBottom:'none'}}>Have a promo code?</p></TableCell>
+
+<TableRow>
+  <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px', borderBottom:'none'}}>Have a promo code?</p></TableCell>
+</TableRow>
+<TableRow>
+  <TableCell style={{paddingBottom:'0%'}}>
+    <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
+      <InputLabel htmlFor="promo">Promo Code</InputLabel>
+      <OutlinedInput required id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
+        onChange={(e)=>{setPromo(e.target.value);}}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton edge="end" style={validPromo?{color:'green'}:{color:'red'}}>
+              {validPromo===""? "": validPromo ? <DoneIcon /> : <ClearIcon/>}
+            </IconButton>
+          </InputAdornment>
+        }
+        startAdornment={
+          <InputAdornment position="start">
+            <IconButton edge="start" style={{color:'#3f3d56'}}>
+              <VerifiedUserIcon />
+            </IconButton>
+          </InputAdornment>
+        }
+        labelWidth={80}
+      />
+    </FormControl>
+  </TableCell>
+  <TableCell style={{paddingBottom:'0%'}}><Button variant="outlined" color="primary" onClick={()=>setValidPromo(false)}>Check</Button></TableCell>
+</TableRow>
+
+*/
 
 
 /*

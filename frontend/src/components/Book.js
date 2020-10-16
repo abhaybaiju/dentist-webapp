@@ -5,218 +5,10 @@ import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
 import Pay from './Pay.js';
 import Footer from './Footer';
-import prism from './images/Circles.svg';
+import bg from './images/circled-background.svg';
 import {Redirect } from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-/*import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'; */
-import ComponentOne from './ComponentOne';
-import ComponentTwo from './ComponentTwo';
-import ComponentThree from './ComponentThree';
-
 import { useStateValue } from './StateProvider.js';
-
-
-
-/*const Process1 = () => {
-  const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  button: {
-    marginRight: theme.spacing(1),
-    backgroundColor: 'white',
-    color:'#ff7a59',
-    boxShadow:'none',
-    "&:hover": {
-      backgroundColor: "white",
-      boxShadow:'none',
-      textShadow: '0 0 1px #ff7a59'
-    }
-  },
-  step: {
-    textAlign:'center',
-    width:'100%',
-  },
-  completed: {
-    display: 'inline-block',
-  },
-  icon:{
-    color: 'grey',
-    paddingLeft:'50%',
-    "&$activeIcon": {
-      fill:'#ff7a59',
-      '& $text': {
-        fill: '#white',
-      },
-    },
-    "&$completedIcon": {
-      color: '#ff7a59'
-    }
-  },
-  activeIcon: {},
-  completedIcon: {}
-}));
-
-function getSteps() {
-  return ['Confirm date and time', 'Patient Details', 'Confirm your appointment'];
-}
-
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return (
-        <ComponentOne />
-      );
-    case 1:
-      return (
-        <ComponentTwo />
-      );
-    case 2:
-      return (
-        <ComponentThree />
-      );
-    default:
-      return 'Unknown step';
-  }
-}
-
-function HorizontalNonLinearStepper() {
-  const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState({});
-  const steps = getSteps();
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge}, dispatch] = useStateValue();
-
-  const completedSteps = () => {
-    return completed[2]&&completed[1]&&completed[0];
-  };
-
-  const allStepsCompleted = () => {
-    return completedSteps();
-  };
-
-  const handleBack = () => {
-    setActiveStep(prevActiveStep => (prevActiveStep-1));
-    const newCompleted = completed;
-    newCompleted[activeStep] = false;
-    setCompleted(newCompleted);
-  };
-
-  const handleComplete = () => {
-    const newCompleted = completed;
-    if(activeStep === 1){
-      console.log(activeStep);
-      if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null){
-        alert("Please fill all required fields");
-      }
-      else{
-        console.log("All filled out");
-        newCompleted[activeStep] = true;
-        setCompleted(newCompleted);
-        setActiveStep(prevActiveStep => (prevActiveStep+1));
-      }
-    }
-    else{
-      newCompleted[activeStep] = true;
-      setCompleted(newCompleted);
-      setActiveStep(prevActiveStep => (prevActiveStep+1));
-    }
-  };
-
-  return (
-    <Grid style={{overflowX:'hidden', marginLeft:'5%', marginRight:'5%'}}>
-        <Card variant="outlined" style={{width:'80%', marginLeft:'10%', marginTop:'5%'}}>
-          <Grid>
-            <Stepper nonLinear activeStep={activeStep} connector={false} style={{background:"#f8faf9", height:'10%'}}>
-                {steps.map((label, index) => (
-                    <Step key={label} className={classes.step}>
-                      <StepLabel completed={completed[index]}  StepIconProps={{ classes:{ root: classes.icon, active: classes.activeIcon, completed: classes.completedIcon } }}>
-                        <p style={(completed[index] || activeStep===index)?{color:'#ff7a59'}:{color:'grey'}}>{label}</p>
-                      </StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
-          </Grid>
-          <Grid>
-            {allStepsCompleted() ? (
-              <Grid>
-                <Typography className={classes.instructions}>
-                  <Redirect to="/Success"/>
-                </Typography>
-              </Grid>
-            ) : (
-              <Grid>
-                <Typography>{getStepContent(activeStep)}</Typography>
-                <Grid container justify="space-between" alignItems="center" style={{marginTop:'5%', marginBottom:'1%'}}>
-                  <Grid item>
-                  <Button disabled={(activeStep === 0)?true:false} onClick={handleBack} className={classes.button} style={{marginLeft:'15%'}}>
-                    <ArrowBackIosIcon />Back
-                  </Button>
-                  </Grid>
-                  <Grid item>
-                  <Button variant="contained" style={(activeStep===2)?{display:'none'}:null} className={classes.button} onClick={handleComplete}>
-                    <ArrowForwardIosIcon />Complete Step
-                  </Button>
-                  </Grid>
-                </Grid>
-              </Grid>
-            )}
-          </Grid>
-        </Card>
-      </Grid>
-    );
-  }
-
-  return(
-    <HorizontalNonLinearStepper />
-  );
-}
-
-const Process = () => {
-
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime}, dispatch] = useStateValue();
-  const [valid, setValid] = useState(false);
-
-  const handleComplete = () => {
-    if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null){
-      alert("Please fill all required fields");
-    } else if (globalTime === null) {
-      alert("Please select a valid time slot");
-    } else {
-      setValid(true);
-    }
-  }
-
-  return(
-    <Grid container justify="space-evenly" alignItems="center" style={{marginLeft:'1%', marginRight:'10%'}}>
-      { valid ? (
-          <>
-          <Grid item lg={12}>
-            <p>Verify your details</p>
-          </Grid>
-          <ComponentThree />
-          </>
-        ):
-        (
-          <>
-          <Grid item lg={12}>
-            <p style={{textAlign:'center', fontWeight:'600', color:'#3f3d56', background:'#ececed'}}>Book your appointment</p>
-          </Grid>
-          <Grid item lg={5}>
-            <InputForm />
-            <Button onClick={handleComplete}>Book my appointment</Button>
-          </Grid>
-          <Grid item lg={5}>
-            <DateTime />
-          </Grid>
-          </>
-        )
-      }
-    </Grid>
-  )
-}*/
 
 const VerticalStepper = () => {
 
@@ -246,7 +38,7 @@ const VerticalStepper = () => {
      fontSize:'16px'
    },
    labelActive: {
-     animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
+     animation:`$mylabel 1s ${theme.transitions.easing.easeIn}`,
      animationFillMode:'forwards',
      //color:'white',
      fontSize:'17px'
@@ -254,7 +46,7 @@ const VerticalStepper = () => {
    labelCompleted: {
      //animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
      //animationFillMode:'forwards',
-     color:'white',
+     color:'#3f3d56',
      fontSize:'17px'
    },
    icon:{
@@ -268,11 +60,11 @@ const VerticalStepper = () => {
        },
      },
      "&$completedIcon": {
-       animation:`$myicon 1s ${theme.transitions.easing.easeIn}`,
+       animation:`$mylabel 1s ${theme.transitions.easing.easeIn}`,
        animationFillMode:'forwards',
      },
      "&$completedIconPast": {
-       color:'white'
+       color:'#3f3d56'
      }
    },
    activeIcon: {},
@@ -292,6 +84,14 @@ const VerticalStepper = () => {
      },
      "100%": {
        color:'white'
+     }
+   },
+   "@keyframes mylabel": {
+     "0%": {
+       color:'white'
+     },
+     "100%": {
+       color:'#3f3d56'
      }
    },
    nextButton: {
@@ -384,7 +184,7 @@ const VerticalStepper = () => {
 
   return (
     <Grid container alignItems="stretch" justify="center" style={{ marginLeft:'5%', marginRight:'5%', width:'90%'}}>
-      <Grid item lg={3} style={{height:570}} classes={{root: classes.card, hover: classes.hover}}>
+      <Grid item lg={3} style={{height:570, background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}} classes={{root: classes.card, hover: classes.hover}}>
         <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{margin:'10% 5%', background:'transparent', height:200}}>
           {steps.map((label, index) => (
             <Step key={label}>
@@ -397,7 +197,7 @@ const VerticalStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item lg={8} style={{border:'2px solid #2f2b4f', borderLeft:'none', height:570}}>
+      <Grid item lg={8} style={{height:570}} classes={{root: classes.card, hover: classes.hover}}>
         <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
         <div style={{textAlign:'center', marginBottom:'2%'}}>
         <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center', borderRadius:'50%'}}>
@@ -408,6 +208,8 @@ const VerticalStepper = () => {
     </Grid>
   );
 }
+
+//background:'rgba(188, 225, 246, 0.8)'
 
 const Book = () => {
   return(
