@@ -40,7 +40,15 @@ const Service = () => {
       marginTop:'23%',
       fontSize: '40px',
       color:'#f4fcfe'
-    }
+    },
+    card: {
+      boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+      transition: '0.5s',
+      "&:hover": {
+        boxShadow: '0 32px 32px 0 rgba(0,0,0,0.2)'
+      },
+    },
+    hover:{}
   }));
 
   const classes = useStyles();
@@ -143,7 +151,7 @@ const Service = () => {
         </Grid>
         <Grid item lg={3} style={{marginRight:'-10%'}}>
           <Fade duration={1000} bottom>
-            <Card style={{marginRight:'5%'}}>
+            <Card style={{marginRight:'5%'}} classes={{root:classes.card, hover:classes.hover}}>
               <CardContent className={classes.cardContent}>
                 <Grid className={classes.cardMedia}>
                   <FontAwesomeIcon icon={faComment} className={classes.cardIcon}/>
@@ -156,7 +164,7 @@ const Service = () => {
         </Grid>
         <Grid item lg={3} style={{marginRight:'-10%'}}>
           <Fade duration={1000} delay={150} bottom>
-            <Card style={{marginRight:'5%'}}>
+            <Card style={{marginRight:'5%'}} classes={{root:classes.card, hover:classes.hover}}>
               <CardContent className={classes.cardContent}>
                 <Grid className={classes.cardMedia}>
                   <FontAwesomeIcon icon={faPaperPlane} className={classes.cardIcon}/>
@@ -169,7 +177,7 @@ const Service = () => {
         </Grid>
         <Grid item lg={3}>
           <Fade duration={1000} delay={300} bottom>
-            <Card style={{marginRight:'5%'}}>
+            <Card style={{marginRight:'5%'}} classes={{root:classes.card, hover:classes.hover}}>
               <CardContent className={classes.cardContent}>
                 <Grid className={classes.cardMedia}>
                   <FontAwesomeIcon icon={faHeart} className={classes.cardIcon}/>

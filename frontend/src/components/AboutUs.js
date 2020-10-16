@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Card, CardContent, Table, TableRow, TableCell, Button, Hidden} from '@material-ui/core';
+import {Grid, Card, CardContent, Table, TableRow, TableCell, Button, Hidden, makeStyles} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -11,6 +11,20 @@ import Fade from 'react-reveal/Fade';
 import about from './images/about.svg';
 
 const AboutUs = () => {
+
+  const useStyles = makeStyles((theme) => ({
+    card: {
+      boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+      transition: '0.5s',
+      "&:hover": {
+        boxShadow: '0 32px 32px 0 rgba(0,0,0,0.2)'
+      },
+    },
+    hover:{}
+  }));
+
+  const classes = useStyles();
+
   return(
     <Grid style={{overflowX:'hidden'}}>
       <div className="custom-shape-divider-top-1601571914">
@@ -67,7 +81,7 @@ const AboutUs = () => {
             <li>It’s 1998 and Lila Dental Clinic is being established by a young couple with heads full of dreams and minds full of knowledge. The only weapons in their arsenal are welcoming smiles and honest work. </li>
             <li>Cut to the present, the humble clinic has grown into one of the premier and leading establishments in New Delhi and beyond. The couple has earned a few greys and the patients have grown in number but the welcoming smiles and the urge to deliver the best remains as strong as ever.</li>
           </ul>
-        </Fade>  
+        </Fade>
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="stretch">
@@ -125,7 +139,7 @@ const AboutUs = () => {
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="center" style={{background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', padding:'5% 0%', marginTop:'8%'}}>
-        <Card style={{width:'75%', boxShadow:'none'}}>
+        <Card style={{width:'75%'}} classes={{root:classes.card, hover:classes.hover}}>
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
             <Grid justify="center" alignItems="center" container item lg={12} xs={12} style={{padding:'5% 2%'}}>
                 <Grid lg={5} xs={12}>

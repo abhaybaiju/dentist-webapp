@@ -5,7 +5,7 @@ import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
 import Pay from './Pay.js';
 import Footer from './Footer';
-
+import prism from './images/Circles.svg';
 import {Redirect } from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 /*import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -300,7 +300,15 @@ const VerticalStepper = () => {
      color:'white',
      background:'#3f3d56',
      borderRadius:'50%',
-   }
+   },
+   card: {
+     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+     transition: '0.3s',
+     "&:hover": {
+       boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)'
+     },
+   },
+   hover:{}
   }));
 
   //const [check, setCheck] = useState(true);
@@ -376,7 +384,7 @@ const VerticalStepper = () => {
 
   return (
     <Grid container alignItems="stretch" justify="center" style={{ marginLeft:'5%', marginRight:'5%', width:'90%'}}>
-      <Grid item lg={3} style={{background:'#1c92d2', border:'1px solid #1c92d2', height:570}}>
+      <Grid item lg={3} style={{height:570}} classes={{root: classes.card, hover: classes.hover}}>
         <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{margin:'10% 5%', background:'transparent', height:200}}>
           {steps.map((label, index) => (
             <Step key={label}>
