@@ -13,11 +13,10 @@
 //IMPORTANT
 //Pics about--------SEND
 //Leftover Content---Decide services and illustrations/images accordingly.----Write Reviews
-//Terms of use and privacy policy from razorpay-------SEND LINK 
+//Terms of use and privacy policy from razorpay-------SEND LINK
 
 //SHAMBHAVI
 //Navbar fix, contact us margins fix
 //About us svg fix
 //FrontPage colors
-//download env file
 //design sidedrawer
