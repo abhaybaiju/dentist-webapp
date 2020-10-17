@@ -47,7 +47,7 @@ const FrontPage = () => {
           <img alt="..." src={require('./images/doctors.svg')} height="400"/>
         </Grid>
         <Fab href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 20,bottom: 20,left: 'auto',position: 'fixed', backgroundColor: "#ffffff"}}>
-          <WhatsAppIcon style={{color:"#6be778"}} />
+          <img src={require("./images/whatsapp.jpg")} height="60" style={{borderRadius:"50px"}}></img>
         </Fab>
         <Grid item lg={12} style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', height:120, marginTop:'3%'}}>
         </Grid>
