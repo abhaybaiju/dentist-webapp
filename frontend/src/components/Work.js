@@ -1,12 +1,12 @@
 //ABHAY
 //Counter placement?------timer? shift up?????????
-//Gridding
+//Gridding----Services, Book, FrontPage?, Success?
 //Razorpay live mode, razorpay phone fix?
-//Animations for steps(fade)
+//Animations for steps----Book Page(fade)
 //SES Live Mode
 //disable passed time on current date, disable date when all slots booked/last slot time passed
 //time is not there in localStorage
-//Success Rating session on refresh???
+//Success Rating session on refresh??? localStorage??
 //verify parse time switch case not working, date done
 
 //IMPORTANT
@@ -15,6 +15,5 @@
 //Terms of use and privacy policy from razorpay-------SEND LINK
 
 //SHAMBHAVI
-//Navbar fix, contact us margins fix
-//About us svg fix
-//design sidedrawer
+//contact us, footer margins fix
+//About us svg fix, counter gridding fix
