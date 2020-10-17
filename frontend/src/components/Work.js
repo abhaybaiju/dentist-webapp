@@ -1,7 +1,7 @@
 //ABHAY
 //Counter placement?------timer? shift up?????????
 //Gridding
-//Whatsapp
+//Whatsapp✅
 //Razorpay live mode, razorpay phone fix?
 //Animations for steps(fade)
 //SES Live Mode

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container, Grid,Button, makeStyles, Fade} from '@material-ui/core';
+import {Container, Grid,Button, makeStyles, Fade, Fab} from '@material-ui/core';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Navbar from './Navbar';
 import img from './images/front.svg';
 import {Link} from 'react-router-dom';
@@ -45,6 +46,9 @@ const FrontPage = () => {
         <Grid item lg={5} style={{marginTop:'10%'}}>
           <img alt="..." src={require('./images/doctors.svg')} height="400"/>
         </Grid>
+        <Fab href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 20,bottom: 20,left: 'auto',position: 'fixed', backgroundColor: "#ffffff"}}>
+          <WhatsAppIcon style={{color:"#6be778"}} />
+        </Fab>
         <Grid item lg={12} style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', height:120, marginTop:'3%'}}>
         </Grid>
       </Grid>

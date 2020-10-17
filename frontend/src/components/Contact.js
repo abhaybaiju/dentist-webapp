@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
-import {Grid, Table, TableRow, TableCell, TextField, Button, makeStyles} from '@material-ui/core';
+import {Grid, Table, TableRow, TableCell, TextField, Button, makeStyles, Fab} from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MapView from './Map';
 import Footer from './Footer';
@@ -136,6 +137,9 @@ const Contact = () => {
             <Button className={classes.buttonSubmit} onClick={handleSubmit}>Submit</Button>
           </Fade>
           </Grid>
+          <Fab href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 20,bottom: 20,left: 'auto',position: 'fixed', backgroundColor: "#ffffff"}}>
+          <WhatsAppIcon style={{color:"#6be778"}} />
+        </Fab>
         </Grid>
         <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
       </Grid>
