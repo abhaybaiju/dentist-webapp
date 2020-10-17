@@ -94,19 +94,21 @@ const Navbar = () => {
       <AppBar lg={12} title="Dental-app" className={`${classes.appBar} ${
           trigger === false ? '' : classes.appBarScrolled
         }`}>
-        <Toolbar style={{ marginLeft:'5%', marginRight:'-5%', marginTop:'1%'}}>
-          <Grid container justify="flex-start" alignItems="center" lg={6} md={6} sm={6} xs={6}>
+        <Toolbar style={{ marginLeft:'0%', marginRight:'0%', marginTop:'1%'}}>
+          <Grid container justify="flex-end" alignItems="center" lg={2} md={2} sm={2} xs={2}>
             <Typography>
               <Link to="/"><img alt="..." src={require("./images/logo.png")} height="50" style={{transform: 'rotate(-90deg)', cursor:'pointer'}}/></Link>
             </Typography>
+          </Grid>
+          <Grid container justify="flex-start" alignItems="center" lg={4} md={4} sm={4} xs={4}>
             <Hidden xsDown>
-              <Typography style={{marginLeft:'3%', fontWeight:'bold', color:'#3f3d56'}}>
+              <Typography style={{marginLeft:'8%', fontWeight:'bold', color:'#3f3d56'}}>
                   LILA DENTAL CLINIC
               </Typography>
             </Hidden>
           </Grid>
           <Hidden smDown>
-            <Grid container justify="space-evenly" alignItems="flex-right" spacing={3} lg={12} md={12}>
+            <Grid container justify="flex-end" alignItems="flex-right" spacing={4} lg={12} md={12}>
                 <Grid item >
                   <a href="/" title="Home" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Home</a>
                 </Grid>
