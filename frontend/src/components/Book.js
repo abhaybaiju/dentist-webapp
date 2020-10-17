@@ -113,6 +113,63 @@ const VerticalStepper = () => {
 
   //const [check, setCheck] = useState(true);
 
+  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalChecked, globalTime}, dispatch] = useStateValue();
+
+  const [name, setName] = useState(globalName);
+  const [email, setEmail] = useState(globalEmail);
+  const [phone, setPhone] = useState(globalPhone);
+  const [gender, setGender] = useState(globalGender);
+  const [age, setAge] = useState(globalAge);
+  const [check, setCheck] = useState(false);
+  const [validname, setValidName] = useState("");
+  const [validemail, setValidEmail] = useState("");
+  const [validphone, setValidPhone] = useState("");
+
+  function handleName(val) {
+      setName(val);
+  }
+  function handleValidName(val) {
+      setValidName(val);
+  }
+  function handleEmail(val) {
+      setEmail(val);
+  }
+  function handleValidEmail(val) {
+      setValidEmail(val);
+  }
+  function handlePhone(val) {
+      setPhone(val);
+  }
+  function handleValidPhone(val) {
+      setValidPhone(val);
+  }
+  function handleGender(val) {
+      setGender(val);
+  }
+  function handleAge(val) {
+      setAge(val);
+  }
+  function handleCheck(val) {
+      setCheck(val);
+  }
+
+  /*const handleInputForm = () => {
+    if(name ==="" || email===""|| phone===""|| gender==="" || validname!=true || validemail!=true || validphone!=true){
+      console.log("Fields are empty or incorrectly filled.");
+      console.log(name,email,phone,gender,"hello");
+      return;
+    }
+    dispatch({
+      type: 'SET_FORM',
+      globalName: name,
+      globalEmail: email,
+      globalPhone: phone,
+      globalGender: gender,
+      globalAge: age,
+      globalChecked: true
+    });
+  }*/
+
   function getSteps() {
     return ['Select date and time', 'Patient Details', 'Review your appointment'];
   }
@@ -122,7 +179,10 @@ const VerticalStepper = () => {
       case 0:
         return (<DateTime />);
       case 1:
-        return (<InputForm />);
+        return (<InputForm name={name} email={email} phone={phone} gender={gender} age={age} check={check} validname={validname} validemail={validemail} validphone={validphone}
+          globalName={globalName} globalEmail={globalEmail} globalPhone={globalPhone} globalGender={globalGender} globalAge={globalAge} globalChecked={globalChecked}
+          onNameChange={handleName} onEmailChange={handleEmail} onPhoneChange={handlePhone} onGenderChange={handleGender}
+          onAgeChange={handleAge} onCheckChange={handleCheck} onValidNameChange={handleValidName} onValidEmailChange={handleValidEmail} onValidPhoneChange={handleValidPhone}/>);
       case 2:
         return (<Pay />);
       default:
@@ -130,7 +190,7 @@ const VerticalStepper = () => {
     }
   }
   const classes = useStyles();
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalChecked}, dispatch] = useStateValue();
+  //const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalChecked}, dispatch] = useStateValue();
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
@@ -161,10 +221,20 @@ const VerticalStepper = () => {
       }
     } else if(activeStep === 1){
       console.log(activeStep);
-      if(globalName === null || globalEmail === null|| globalPhone === null|| globalGender === null|| globalAge === null || globalChecked === false){
+      if(name === null || email === null|| phone === null|| gender === null|| age === null || check === false){
         alert("Please fill all required fields");
-      }
-      else{
+      } else if (validname!=true || validemail!=true || validphone!=true) {
+        alert("Please enter correct values");
+      } else{
+        dispatch({
+          type: 'SET_FORM',
+          globalName: name,
+          globalEmail: email,
+          globalPhone: phone,
+          globalGender: gender,
+          globalAge: age,
+          globalChecked: true
+        });
         console.log("All filled out");
         newCompleted[activeStep] = true;
         setCompleted(newCompleted);

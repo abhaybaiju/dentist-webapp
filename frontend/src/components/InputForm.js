@@ -9,7 +9,7 @@ import { useStateValue } from './StateProvider.js';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
 
-const InputForm = () => {
+const InputForm = (props) => {
 
   const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -54,7 +54,7 @@ const InputForm = () => {
 
 
   const classes = useStyles();
-  const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalChecked}, dispatch] = useStateValue();
+  /*const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalChecked}, dispatch] = useStateValue();
 
   const [name, setName] = useState(globalName);
   const [email, setEmail] = useState(globalEmail);
@@ -64,29 +64,11 @@ const InputForm = () => {
   const [check, setCheck] = useState(false);
   const [validname, setValidName] = useState("");
   const [validemail, setValidEmail] = useState("");
-  const [validphone, setValidPhone] = useState("");
+  const [validphone, setValidPhone] = useState("");*/
 
   let array = Array.from({length: 100}, (_, i) => i + 1)
   const lesser = "<1";
   const greater = ">100";
-
-  const handleCheckChange = () => {
-    setCheck(true);
-    if(name ==="" || email===""|| phone===""|| gender==="" || validname!=true || validemail!=true || validphone!=true){
-      console.log("Fields are empty or incorrectly filled.");
-      console.log(name,email,phone,gender,"hello");
-      return;
-    }
-    dispatch({
-      type: 'SET_FORM',
-      globalName: name,
-      globalEmail: email,
-      globalPhone: phone,
-      globalGender: gender,
-      globalAge: age,
-      globalChecked: true
-    });
-  }
 
   return(
     <Grid container justify="center" alignItems="center">
@@ -96,15 +78,15 @@ const InputForm = () => {
       <Grid item lg={10}>
         <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
           <InputLabel htmlFor="name">Full name</InputLabel>
-          <OutlinedInput required id="name" type={'text'} value={name?name: globalName} placeholder="Your name" color="primary"
+          <OutlinedInput required id="name" type={'text'} value={props.name?props.name: props.globalName} placeholder="Your name" color="primary"
             onChange={(e)=>{
-              setName(e.target.value);
-              e.target.value.match("^[a-zA-Z ]*$")===null? setValidName(false) : setValidName(true);
+              props.onNameChange(e.target.value);
+              e.target.value.match("^[a-zA-Z ]*$")===null? props.onValidNameChange(false) : props.onValidNameChange(true);
             }}
             endAdornment={
               <InputAdornment position="end">
-                <IconButton edge="end" style={validname?{color:'green'}:{color:'red'}}>
-                  {validname===""? "": validname ? <DoneIcon /> : <ClearIcon/>}
+                <IconButton edge="end" style={props.validname?{color:'green'}:{color:'red'}}>
+                  {props.validname===""? "": props.validname ? <DoneIcon /> : <ClearIcon/>}
                 </IconButton>
               </InputAdornment>
             }
@@ -122,15 +104,15 @@ const InputForm = () => {
       <Grid item lg={10}>
         <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
           <InputLabel htmlFor="email">Email</InputLabel>
-          <OutlinedInput required id="email" type={'text'} value={email?email: globalEmail} placeholder="Your email id" color="primary"
+          <OutlinedInput required id="email" type={'text'} value={props.email?props.email: props.globalEmail} placeholder="Your email id" color="primary"
             onChange={(e)=>{
-              setEmail(e.target.value);
-              e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")===null? setValidEmail(false) : setValidEmail(true);
+              props.onEmailChange(e.target.value);
+              e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")===null? props.onValidEmailChange(false) : props.onValidEmailChange(true);
             }}
             endAdornment={
               <InputAdornment position="end">
-                <IconButton edge="end" style={validemail?{color:'green'}:{color:'red'}}>
-                  {validemail===""? "": validemail ? <DoneIcon /> : <ClearIcon/>}
+                <IconButton edge="end" style={props.validemail?{color:'green'}:{color:'red'}}>
+                  {props.validemail===""? "": props.validemail ? <DoneIcon /> : <ClearIcon/>}
                 </IconButton>
               </InputAdornment>
             }
@@ -148,15 +130,15 @@ const InputForm = () => {
       <Grid item lg={10}>
         <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
           <InputLabel htmlFor="phone">Contact</InputLabel>
-          <OutlinedInput required id="phone" type={'text'} value={phone?phone: globalPhone} placeholder="Your phone number" color="primary"
+          <OutlinedInput required id="phone" type={'text'} value={props.phone?props.phone: props.globalPhone} placeholder="Your phone number" color="primary"
             onChange={(e)=>{
-              setPhone(e.target.value);
-              e.target.value.match("^[0-9]{10}$")===null? setValidPhone(false) : setValidPhone(true);
+              props.onPhoneChange(e.target.value);
+              e.target.value.match("^[0-9]{10}$")===null? props.onValidPhoneChange(false) : props.onValidPhoneChange(true);
             }}
             endAdornment={
               <InputAdornment position="end">
-                <IconButton edge="end" style={validphone?{color:'green'}:{color:'red'}}>
-                  {validphone===""? "": validphone ? <DoneIcon /> : <ClearIcon/>}
+                <IconButton edge="end" style={props.validphone?{color:'green'}:{color:'red'}}>
+                  {props.validphone===""? "": props.validphone ? <DoneIcon /> : <ClearIcon/>}
                 </IconButton>
               </InputAdornment>
             }
@@ -174,7 +156,7 @@ const InputForm = () => {
       <Grid item lg={5} style={{textAlign:'center'}}>
         <FormControl component="fieldset" style={{margin:'2% 0%'}}>
           <FormLabel component="legend" style={{color:'grey', textAlign:'left'}}>Gender</FormLabel>
-          <RadioGroup row aria-label="gender" name="gender" value={gender?gender: globalGender} onChange={(e)=>setGender(e.target.value)} style={{color:'#404040'}}>
+          <RadioGroup row aria-label="gender" name="gender" value={props.gender?props.gender: props.globalGender} onChange={(e)=>props.onGenderChange(e.target.value)} style={{color:'#404040'}}>
             <FormControlLabel value="M" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Male" />
             <FormControlLabel value="F" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Female" />
             <FormControlLabel value="O" control={<Radio classes={{root: classes.radio, checked: classes.checked, hover: classes.hover}} />} label="Others" />
@@ -184,7 +166,7 @@ const InputForm = () => {
       <Grid item lg={5} style={{textAlign:'center'}}>
         <FormControl variant="outlined" style={{margin:'2% 0%', width:'35%'}}>
           <InputLabel htmlFor="age">Age</InputLabel>
-          <Select value={age?age: globalAge} onChange={(e)=>setAge(e.target.value)} label="Age" id="age" style={{textAlign:'left'}}>
+          <Select value={props.age?props.age: props.globalAge} onChange={(e)=>props.onAgeChange(e.target.value)} label="Age" id="age" style={{textAlign:'left'}}>
             <MenuItem value={lesser} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{lesser}</MenuItem>
             {array.map((key,value) => (
               <MenuItem value={value+1} classes={{root:classes.menu, hover: classes.hover,focus: classes.focus}}>{value+1}</MenuItem>
@@ -197,8 +179,8 @@ const InputForm = () => {
         <FormControl component="fieldset" style={{marginTop:'2%', marginBottom:'-2%', marginLeft:'1%'}}>
           <FormControlLabel control={
             <Checkbox
-              checked={check}
-              onChange={handleCheckChange}
+              checked={props.check}
+              onChange={() => props.onCheckChange(!props.check)}
               name="checked"
               classes={{root:classes.check, hover: classes.hover,checked: classes.checked}}
             />

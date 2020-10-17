@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function loadScript(src) {
   return new Promise((resolve) => {
     const script = document.createElement('script');
@@ -87,6 +86,80 @@ const Pay = () => {
   const [promo, setPromo] = useState("");
   const [validPromo, setValidPromo] = useState("");
   const [{globalName, globalEmail, globalPhone, globalGender, globalAge, globalTime, globalDate}, dispatch] = useStateValue();
+  const [time, setTime] = useState("");
+  //const date = globalDate;
+  function parseTime(gtime) {
+    var t=""
+    try{
+      switch (gtime) {
+        case 1100:
+          t = "11:00 AM";
+          break;
+        case 1115:
+          t = "11:15 AM";
+          break;
+        case 1130:
+          t = "11:30 AM";
+          break;
+        case 1145:
+          t = "11:45 AM";
+          break;
+        case 1200:
+          t = "12:00 PM";
+          break;
+        case 1215:
+          t = "12:15 PM";
+          break;
+        case 1230:
+          t = "12:30 PM";
+          break;
+        case 1245:
+          t = "12:45 PM";
+          break;
+        case 1300:
+          t = "01:00 PM";
+          break;
+        case 1830:
+          t = "06:30 PM";
+          break;
+        case 1845:
+          t = "06:45 PM";
+          break;
+        case 1900:
+          t = "07:00 PM";
+          break;
+        case 1915:
+          t = "07:15 PM";
+          break;
+        case 1930:
+          t = "07:30 PM";
+          break;
+        case 1945:
+          t = "07:45 PM";
+          break;
+        case 2000:
+          t = "08:00 PM";
+          break;
+        case 2015:
+          t = "08:15 PM";
+          break;
+        case 2030:
+          t = "08:30 PM";
+          break;
+        default:
+          t = "Please select another time slot!";
+      }
+    }
+    catch(err){
+      console.log(err);
+    }
+    return t;
+  }
+
+  //setTime(parseTime(globalTime));
+  const date = [globalDate.slice(0, 3), ",", globalDate.slice(3)].join('');
+
+  /**/
 
   async function displayRazorPay() {
 
@@ -192,7 +265,7 @@ const Pay = () => {
         <Table>
           <TableRow>
             <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}>Total</h3></TableCell>
-            <TableCell style={{borderBottom:'none'}}><h3 style={{float:'right', marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#3f3d56'}}/> 200.00</h3></TableCell>
+            <TableCell style={{borderBottom:'none'}}><h3 style={{float:'right', marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#3f3d56'}}/> 400.00</h3></TableCell>
           </TableRow>
         </Table>
       </Grid>
@@ -207,7 +280,7 @@ const Pay = () => {
           </TableRow>
         </Table>
         <div style={{border:' 2px solid #2f2b4f', borderRadius:'20px', width:'55%', borderTop:'50px solid #2f2b4f', marginLeft:'5%'}}>
-          <p style={{padding:'6%', textAlign:'center', fontSize:'20px', fontWeight:'400', color:'#3f3d56'}}>{globalDate}<br/>{globalTime}</p>
+          <p style={{padding:'6%', textAlign:'center', fontSize:'20px', fontWeight:'400', color:'#3f3d56'}}>{date}<br/>{time}</p>
         </div>
       </Grid>
       <Grid item lg={10}>
