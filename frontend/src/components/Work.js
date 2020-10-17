@@ -1,13 +1,12 @@
 //ABHAY
 //Counter placement?------timer? shift up?????????
 //Gridding
-//Whatsapp✅
 //Razorpay live mode, razorpay phone fix?
 //Animations for steps(fade)
 //SES Live Mode
 //disable passed time on current date, disable date when all slots booked/last slot time passed
 //time is not there in localStorage
-//Success Rating session on refresh???-----colors seem fine btw!
+//Success Rating session on refresh???
 //verify parse time switch case not working, date done
 
 //IMPORTANT
@@ -18,5 +17,4 @@
 //SHAMBHAVI
 //Navbar fix, contact us margins fix
 //About us svg fix
-//FrontPage colors
 //design sidedrawer

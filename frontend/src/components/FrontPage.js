@@ -9,21 +9,25 @@ import './css/FrontPage.css';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
-    color: 'white',
-    transition: '0.5s',
-    marginTop:'10%',
-    boxShadow: '0 0 20px #eee',
-    borderRadius: '10px',
-    padding: '10px 60px',
-    textAlign: 'center',
-    textTransform: 'uppercase',
-    backgroundSize: '200% auto',
-    display: 'block',
+    marginTop:'3%',
+    marginBottom:'2%',
+    padding:'2%',
+    width:'50%',
+    backgroundColor: 'white',
+    color:'#3f3d56',
+    boxShadow:'none',
+    borderRadius:'5px',
+    border:'1px solid #3f3d56',
     "&:hover": {
-      backgroundPosition: 'right center', /* change the direction of the change here */
-      color: '#fff',
-      textDecoration:'none'
+      backgroundColor: "#2f2b4f",
+      color:'white',
+      borderRadius:'5px',
+      borderColor:'#2f2b4f',
+    },
+    "&:focus": {
+      backgroundColor: "#2f2b4f",
+      color:'white',
+      borderColor:'#2f2b4f',
     }
   }
 }));
@@ -34,11 +38,11 @@ const FrontPage = () => {
 
   return(
     <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1500 } : {})}>
-      <Grid spacing={2} direction="row" container alignItems="center" justify="center" style={{ minHeight: '100vh', overflow:'hidden'}}>
+      <Grid spacing={3} direction="row" container alignItems="center" justify="space-evenly" style={{overflowX:'hidden'}}>
         <Grid item lg={12}>
           <Navbar />
         </Grid>
-        <Grid item lg={5} style={{color:'#3f3d56', marginTop:'10%'}}>
+        <Grid item lg={4} style={{color:'#3f3d56', marginTop:'8%', textAlign:'center'}}>
           <h1 style={{lineHeight:'1.3'}}>Scared of dental treatments?</h1><br/>
           <p style={{lineHeight:'1.6', color:'#404040'}}>With our experienced staff and patient-friendly atmosphere, you’ll be nothing but smiles.</p>
           <Link to="/Book" style={{textDecoration:'none'}}><Button className={classes.button} variant="outlined">Book Now</Button></Link>
@@ -46,14 +50,13 @@ const FrontPage = () => {
         <Grid item lg={5} style={{marginTop:'10%'}}>
           <img alt="..." src={require('./images/doctors.svg')} height="400"/>
         </Grid>
-        <Fab href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 20,bottom: 20,left: 'auto',position: 'fixed', backgroundColor: "#ffffff"}}>
-          <img src={require("./images/whatsapp.jpg")} height="60" style={{borderRadius:"50px"}}></img>
-        </Fab>
-        <Grid item lg={12} style={{background:`url(${img})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', height:120, marginTop:'3%'}}>
+        <Grid item lg={12} style={{background:`url(${img})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', top: 'auto',right:0,bottom:0,left:0,position: 'fixed', height:120}}>
         </Grid>
+        <Fab target="_blank" href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 40,bottom: 40,left: 'auto',position: 'fixed', backgroundColor: "#ffffff", padding:'3.3%'}}>
+          <img src={require("./images/whatsapp.png")} height="155"></img>
+        </Fab>
       </Grid>
     </Fade>
-
   );
 }
 
