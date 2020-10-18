@@ -14,7 +14,5 @@
 //Leftover Content---Decide services and illustrations/images accordingly.----Write Reviews
 
 //SHAMBHAVI
-//contact us, footer margins fix
-//About us -----> people svg center?, counter gridding fix
-////Gridding----Services, Book, FrontPage(looks good), Success?
+////Gridding----Book, About Us(Cards, counter, people svg not centering), Footer
 //Terms of use and privacy policy from razorpay
