@@ -6,6 +6,7 @@ import moment from 'moment';
 import ImageSVG from './image';
 import Rating from '@material-ui/lab/Rating';
 import { useStateValue } from './StateProvider.js';
+import calendar from './images/calendar.svg';
 
 const Success = () => {
 
@@ -15,9 +16,8 @@ const Success = () => {
       },
       button: {
         marginTop:'3%',
-        marginBottom:'2%',
         padding:'2%',
-        width:'100%',
+        width:'90%',
         backgroundColor: 'white',
         color:'#3f3d56',
         boxShadow:'none',
@@ -72,32 +72,26 @@ const Success = () => {
     }
     return(
       <Fade in={true} style={{ transformOrigin: '0 0 0' }} {...(true ? { timeout: 1500 } : {})}>
-          <Grid container alignItems="center" justify="space-evenly" style={{marginTop:'-12%', marginBottom:'-2%', marginLeft:'-5%', overflow:'hidden'}} spacing={2}>
-            <Grid item lg={10}>
-              <p>Hello</p>
-            </Grid>
-            <Grid item lg={2} justify="flex-end">
+          <Grid container alignItems="stretch" justify="space-evenly" style={{marginBottom:'-2%',overflow:'hidden'}} spacing={2}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <Navbar/>
             </Grid>
-            <Grid item lg={5} style={{color:'#3f3d56', marginTop:'5%', marginLeft:'0%'}}>
+            <Grid item lg={4} md={5} sm={8} xs={10} style={{color:'#3f3d56', marginTop:'10%'}}>
               <h1 style={{lineHeight:'1.3'}}>Hello {globalName},</h1>
               <p>Your appointment has been booked successfully!</p>
               {(value === null) ?
-                <p style={{fontWeight:'600'}}>Take a moment to rate your web experience with us: <Rating name="pristine" value={value} style={{paddingTop:'3%', fontSize:'40px'}} onChange={(event, newValue) => {handleRatingChange()}}/></p>
+                <p style={{fontWeight:'600'}}>Take a moment to rate your web experience with us: <br /><Rating name="pristine" value={value} style={{paddingTop:'3%', fontSize:'40px'}} onChange={(event, newValue) => {handleRatingChange()}}/></p>
                 :
                 <p style={{color:'green'}}>Thank you for your valuable feedback!</p>
               }
-              <p style={{lineHeight:'1.6'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
+              <p style={{lineHeight:'1.6', width:'90%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
               <Button variant="outlined" href={string} className={classes.button}>Add to Google calendar</Button>
             </Grid>
-            <Grid item lg={1} style={{marginTop:'20%', marginLeft:'-10%'}}>
-              <img alt="..." src={require('./images/calendar.svg')} height="400" style={{marginTop:'0%'}}/>
-            </Grid>
-            <Grid item lg={4} style={{marginLeft:'-20%', marginTop:'5%'}}>
-              <ImageSVG />
+            <Grid item lg={5} md={5} sm={8} xs={10} style={{background:`url(${calendar})`, backgroundRepeat:'no-repeat', backgroundPosition:'0% 100%', backgroundSize:'60% 60%'}}>
+              <ImageSVG style={{float:'right'}}/>
             </Grid>
             <Grid item lg={12}>
-              <Footer top="-5%" bottom="-2%" left="12%" right="-30%"/>
+              <Footer top="-2%" bottom="-2%" left="8%" right="-30%"/>
             </Grid>
           </Grid>
       </Fade>
@@ -105,3 +99,10 @@ const Success = () => {
 }
 
 export default Success;
+
+
+/*
+
+
+
+*/

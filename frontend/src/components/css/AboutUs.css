@@ -7,6 +7,8 @@
     line-height: 0;
 }
 
+
+
 .svg {
     position: relative;
     display: block;
@@ -14,6 +16,8 @@
     height: 700px;
     transform: rotateY(180deg);
 }
+
+
 
 .style1 {
   stop-color:#f2fcfe;

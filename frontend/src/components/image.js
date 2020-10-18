@@ -1,8 +1,11 @@
 import React from 'react';
+import {Grid } from '@material-ui/core';
 
 const ImageSVG = () => {
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" height="800">
+    <Grid container alignItems="center" justify="flex-start">
+    <Grid item lg={12} md={12} sm={12} xs={12}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" height="100%" width="100%">
       <g id="freepik--Character--inject-4">
         <path d="M290.93,126.21c13.24-.74,21,12.21,13.32,20.45s-2.22,12.29.87,13.79c-3.38,9.74-30.44,11.08-36.18,2.86-4.82-6.9,14-15.78,9.46-23.31S280.63,126,290.93,126.21Z" style={{fill:"#263238"}}></path>
         <path d="M210.9,184.63l1.86,2.09a3.25,3.25,0,0,0,2.78,1.08l4.89-.52a6.09,6.09,0,0,0,4.66-3.07l.59-1.06c-2.84-3.68-8.63-5.57-8.63-5.57l-1.59-.72a2.71,2.71,0,0,0-3.64,1.27l-1.47,3.13A3.12,3.12,0,0,0,210.9,184.63Z" style={{fill:"#ffb573"}}></path>
@@ -54,6 +57,8 @@ const ImageSVG = () => {
         <text x="175" y="160.99" style={{fontSize:'11px', fill:'#3f3d56', fontWeight:'600'}}>Dental booking</text>
       </g>
     </svg>
+    </Grid>
+    </Grid>
   );
 }
 

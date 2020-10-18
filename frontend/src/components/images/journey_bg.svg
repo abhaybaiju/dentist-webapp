@@ -1,0 +1,9 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="700" width="700" transform="translate(-100 0)">
+  <defs>
+    <linearGradient id="grad2" x1="0" y1="0" x2="11" y2="0">
+      <stop offset="0%" stop-color="#1c92d2" stop-opacity="0.7"/>
+      <stop offset="10%" stop-color="#f2fcfe" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#grad2)" width="120" height="120" rx="8" ry="8" transform="rotate(45, 35, 85)"/>
+</svg>
