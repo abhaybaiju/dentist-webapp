@@ -2,7 +2,7 @@
 //Animations for steps----Book Page(fade)
 //disable passed time on current date, disable date when all slots booked/last slot time passed
 //time is not there in localStorage
-//Success Rating session on refresh??? localStorage?? test once
+//Success Rating session on refresh??? localStorage??✅
 //verify(step 3) parse time switch case not working, date done
 
 //LIVE MODE TESTING

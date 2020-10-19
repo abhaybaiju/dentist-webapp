@@ -245,7 +245,7 @@ const Pay = () => {
           <TableRow>
             <TableCell style={{paddingTop:'0%'}}>
               <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
-                <TextField variant="outlined" label="Promo Code" error={validPromo===false} helperText={validPromo === "" ? "" : validPromo ? "Promo Code Applied" : "Invalid Promo Code"} id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
+                <TextField variant="outlined" label="Promo Code" error={validPromo===false} helperText={validPromo === "hiddenpromocodeoffer1" ? "" : validPromo ? "Promo Code Applied" : "Invalid Promo Code"} id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
                   onChange={(e)=>{setPromo(e.target.value);}}
                   InputProps = {{
                     endAdornment:
