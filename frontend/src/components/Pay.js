@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Grid, Table, TableRow, TableCell, makeStyles, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, TextField} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -156,7 +156,10 @@ const Pay = () => {
     return t;
   }
 
-  //setTime(parseTime(globalTime));
+  useEffect(() => {
+    setTime(parseTime(globalTime));
+  },[])
+  //;
   const date = [globalDate.slice(0, 3), ",", globalDate.slice(3)].join('');
 
   /**/

@@ -233,7 +233,7 @@ const Service = () => {
                   <CardContent>
                     <Paper style={{textAlign:'center', height:300, padding:'15% 10%'}}>
                       <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'40px', color:'#3f3d56'}}/></p>
-                      <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}>{review.description}</p>
+                      <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}><i>{review.description}</i></p>
                       <img src={review.img} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
                       <p style={{color:'#404040'}}>{review.name}</p>
                     </Paper>
