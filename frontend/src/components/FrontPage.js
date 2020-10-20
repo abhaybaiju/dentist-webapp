@@ -47,7 +47,7 @@ const FrontPage = () => {
           <Link to="/Book" style={{textDecoration:'none'}}><Button className={classes.button} variant="outlined">Book Now</Button></Link>
         </Grid>
         <Grid item lg={5} md={5} sm={5} xs={10} style={{marginTop:'0%', marginBottom:'10%'}}>
-          <img alt="..." src={require('./images/doctors.svg')} height="400" width="100%"/>
+          <img alt="illustration" src={require('./images/doctors.svg')} height="400" width="100%"/>
         </Grid>
         <Grid item lg={12} md={12} sm={12} xs={12} style={{background:`url(${img})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', top: 'auto',right:0,bottom:0,left:0,position: 'fixed', height:120}}>
         </Grid>

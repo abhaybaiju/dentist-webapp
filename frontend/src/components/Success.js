@@ -42,6 +42,8 @@ const Success = () => {
 
     const handleRatingChange = (e, val) => {
       setValue(val);
+      console.log(val);
+      localStorage.setItem("rating","true");
       dispatch({
         type: 'SET_RATING',
         globalRating: value,
@@ -51,6 +53,7 @@ const Success = () => {
     const classes = useStyles();
     const date = new Date(localStorage.getItem('globalDate'));
     const time = localStorage.getItem('globalTime');
+    const localRating = localStorage.getItem('rating');
     const hours = parseInt(parseInt(time)/100);
     const minutes = parseInt(parseInt(time)%100);
     var date1 = date.setHours(hours,minutes,0);
@@ -79,7 +82,7 @@ const Success = () => {
             <Grid item lg={4} md={5} sm={8} xs={10} style={{color:'#3f3d56', marginTop:'10%'}}>
               <h1 style={{lineHeight:'1.3'}}>Hello {globalName},</h1>
               <p>Your appointment has been booked successfully!</p>
-              {(value === null) ?
+              {( localRating === null ) ? 
                 <p style={{fontWeight:'600'}}>Take a moment to rate your web experience with us: <br /><Rating name="pristine" value={value} style={{paddingTop:'3%', fontSize:'40px'}} onChange={(event, newValue) => {handleRatingChange()}}/></p>
                 :
                 <p style={{color:'green'}}>Thank you for your valuable feedback!</p>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Grid, Table, TableRow, TableCell, makeStyles, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, TextField} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -9,7 +9,7 @@ import img from './images/blue_wave.png';
 import './css/App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRupeeSign, faLock } from '@fortawesome/free-solid-svg-icons';
-
+import Fade from 'react-reveal/Fade';
 const useStyles = makeStyles((theme) => ({
   button: {
     marginTop:'3%',
@@ -156,7 +156,10 @@ const Pay = () => {
     return t;
   }
 
-  //setTime(parseTime(globalTime));
+  useEffect(() => {
+    setTime(parseTime(globalTime));
+  },[])
+  //;
   const date = [globalDate.slice(0, 3), ",", globalDate.slice(3)].join('');
 
   /**/
@@ -222,6 +225,7 @@ const Pay = () => {
   const classes = useStyles();
 
   return (
+    <Fade bottom>
     <Grid container justify="center" alignItems="stretch" spacing={2}>
       <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'0%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
@@ -287,7 +291,7 @@ const Pay = () => {
         <Button className={classes.button} onClick={displayRazorPay}>Pay Now</Button>
         <p style={(validPromo===false)?{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase', marginBottom:'-1.5%'}:{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
       </Grid>
-    </Grid>
+    </Fade>
   );
 }
 

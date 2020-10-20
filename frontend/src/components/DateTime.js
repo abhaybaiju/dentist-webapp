@@ -10,6 +10,7 @@ import { MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
 import axios from 'axios';
+import Fade from 'react-reveal/Fade';
 
 const DateTime = () => {
 
@@ -82,7 +83,8 @@ const DateTime = () => {
   const [{globalTime, globalTimeText}, dispatch] = useStateValue();
 
   const handleTimeChange = (timeval, text) => {
-		setTime(timeval);
+    setTime(timeval);
+    localStorage.setItem("time",timeval);
 		dispatch({
 			type: 'SET_GLOBALTIME',
 			globalTime: timeval,
@@ -203,6 +205,7 @@ const DateTime = () => {
 
 
   return(
+    <Fade bottom>
     <Grid container justify="space-evenly" alignItems="stretch" spacing={2} style={{height:'100%', marginBottom:'0%'}}>
       <Grid item lg={4} md={8} sm={10} xs={10} style={{marginTop:'2%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-7%', marginTop:'1%', marginBottom:'10%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h2>
@@ -236,6 +239,7 @@ const DateTime = () => {
         <Button disabled={b2030} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button>
       </Grid>
     </Grid>
+    </Fade>
   );
 
 }

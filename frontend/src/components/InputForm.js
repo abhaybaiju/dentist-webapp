@@ -8,7 +8,7 @@ import PersonPinIcon from '@material-ui/icons/PersonPin';
 import { useStateValue } from './StateProvider.js';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
-
+import Fade from 'react-reveal/Fade';
 const InputForm = (props) => {
 
   const useStyles = makeStyles((theme) => ({
@@ -71,6 +71,7 @@ const InputForm = (props) => {
   const greater = ">100";
 
   return(
+    <Fade bottom>
     <Grid container justify="center" alignItems="center">
       <Grid item lg={12}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', marginTop:'-1%'}}><PersonPinIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>Personal Details</h2>
@@ -199,7 +200,7 @@ const InputForm = (props) => {
           />
         </FormControl>
       </Grid>
-    </Grid>
+    </Fade>
   )
 }
 
