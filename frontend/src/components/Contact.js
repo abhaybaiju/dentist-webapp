@@ -83,7 +83,7 @@ const Contact = () => {
             </Fade>
           </Grid>
           <Grid item lg={7} md={6} sm={12} xs={12} style={{marginTop:'3%'}}>
-            <img alt="..." src={require('./images/contact.svg')} style={{width: "90%", marginLeft:"10%"}}/>
+            <img alt="illustration" src={require('./images/contact.svg')} style={{width: "90%", marginLeft:"10%"}}/>
           </Grid>
         </Grid>
         <Grid container alignItems="flex-start" justify="space-evenly" spacing={0}>

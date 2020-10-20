@@ -295,7 +295,7 @@ const Book = () => {
             </Grid>
           </Grid>
           <Grid item lg={4}>
-            <img alt="..." src={require('./images/booking_illustration.svg')} height="400"/>
+            <img alt="illustration" src={require('./images/booking_illustration.svg')} height="400"/>
           </Grid>
         </Grid>
         <Grid style={{marginTop:'5%'}}>

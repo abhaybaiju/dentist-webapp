@@ -1,5 +1,5 @@
 //ABHAY
-//Animations for steps----Book Page(fade)
+//Animations for steps----Book Page(fade)✅
 //disable passed time on current date, disable date when all slots booked/last slot time passed
 //time is not there in localStorage
 //Success Rating session on refresh??? localStorage??✅

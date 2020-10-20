@@ -97,7 +97,7 @@ const Navbar = () => {
         <Toolbar style={{ marginLeft:'0%', marginRight:'0%', marginTop:'1%'}}>
           <Grid container justify="flex-end" alignItems="center" lg={2} md={2} sm={2} xs={2}>
             <Typography>
-              <Link to="/"><img alt="..." src={require("./images/logo.png")} height="50" style={{transform: 'rotate(-90deg)', cursor:'pointer'}}/></Link>
+              <Link to="/"><img alt="logo" src={require("./images/logo.png")} height="50" style={{transform: 'rotate(-90deg)', cursor:'pointer'}}/></Link>
             </Typography>
           </Grid>
           <Grid container justify="flex-start" alignItems="center" lg={4} md={4} sm={4} xs={4}>

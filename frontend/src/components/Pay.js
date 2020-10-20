@@ -9,7 +9,7 @@ import img from './images/blue_wave.png';
 import './css/App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRupeeSign, faLock } from '@fortawesome/free-solid-svg-icons';
-
+import Fade from 'react-reveal/Fade';
 const useStyles = makeStyles((theme) => ({
   button: {
     marginTop:'3%',
@@ -225,72 +225,74 @@ const Pay = () => {
   const classes = useStyles();
 
   return (
-    <Grid container justify="center" alignItems="stretch" spacing={2}>
-      <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'1%'}}>
-        <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
+    <Fade bottom>
+      <Grid container justify="center" alignItems="stretch" spacing={2}>
+        <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'1%'}}>
+          <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
+        </Grid>
+        <Grid item lg={5} style={{borderRight:'0.5px solid #cccccc'}}>
+          <Table>
+            <TableRow>
+              <TableCell style={{borderBottom:'none'}}><p style={{color:'#3f3d56', fontSize:'20px', textAlign:'left', marginTop:'0%', marginBottom:'0%', fontWeight:'500'}}>Billing Summary</p></TableCell>
+            </TableRow>
+          </Table>
+          <Table>
+            <TableRow>
+              <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Dental Consultation</p></TableCell>
+              <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 400.00</p></TableCell>
+            </TableRow>
+          </Table>
+          <Table>
+            <TableRow>
+              <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}>Have a Promo Code?</p></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell style={{paddingTop:'0%'}}>
+                <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
+                  <TextField variant="outlined" label="Promo Code" error={validPromo===false} helperText={validPromo === "hiddenpromocodeoffer1" ? "" : validPromo ? "Promo Code Applied" : "Invalid Promo Code"} id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
+                    onChange={(e)=>{setPromo(e.target.value);}}
+                    InputProps = {{
+                      endAdornment:
+                        <IconButton edge="end" style={validPromo?{color:'green'}:{color:'red'}}>
+                          {validPromo===""? "": validPromo ? <DoneIcon /> : <ClearIcon/>}
+                        </IconButton>,
+                      classes: {
+                        adornedEnd: classes.adornedEnd
+                      }
+                    }}
+                  />
+                </FormControl>
+              </TableCell>
+              <TableCell style={{paddingTop:'0%'}}><Button variant="outlined" onClick={()=>setValidPromo(false)} className={classes.applybutton}>Apply</Button></TableCell>
+            </TableRow>
+          </Table>
+          <Table>
+            <TableRow>
+              <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}>Total</h3></TableCell>
+              <TableCell style={{borderBottom:'none'}}><h3 style={{float:'right', marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#3f3d56'}}/> 400.00</h3></TableCell>
+            </TableRow>
+          </Table>
+        </Grid>
+        <Grid item lg={5} >
+          <Table style={{paddingLeft:'0%'}}>
+            <TableRow>
+              <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', paddingTop:'0%', paddingBottom:'0%', color:'#3f3d56'}}>{globalName}</h3></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{marginTop:'0%', paddingTop:'0%'}}>{globalEmail}</p></TableCell>
+              <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{float:'right', marginTop:'0%', paddingTop:'0%'}}>{globalPhone}</p></TableCell>
+            </TableRow>
+          </Table>
+          <div style={{border:' 2px solid #2f2b4f', borderRadius:'20px', width:'55%', borderTop:'50px solid #2f2b4f', marginLeft:'5%'}}>
+            <p style={{padding:'6%', textAlign:'center', fontSize:'20px', fontWeight:'400', color:'#3f3d56'}}>{date}<br/>{time}</p>
+          </div>
+        </Grid>
+        <Grid item lg={10}>
+          <Button className={classes.button} onClick={displayRazorPay}>Pay Now</Button>
+          <p style={{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
+        </Grid>
       </Grid>
-      <Grid item lg={5} style={{borderRight:'0.5px solid #cccccc'}}>
-        <Table>
-          <TableRow>
-            <TableCell style={{borderBottom:'none'}}><p style={{color:'#3f3d56', fontSize:'20px', textAlign:'left', marginTop:'0%', marginBottom:'0%', fontWeight:'500'}}>Billing Summary</p></TableCell>
-          </TableRow>
-        </Table>
-        <Table>
-          <TableRow>
-            <TableCell><p style={{marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}>Dental Consultation</p></TableCell>
-            <TableCell><p style={{float:'right', marginTop:'0%', marginBottom:'0%', fontSize:'15px'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#595959'}}/> 400.00</p></TableCell>
-          </TableRow>
-        </Table>
-        <Table>
-          <TableRow>
-            <TableCell style={{borderBottom:'none', paddingBottom:'0%'}}><p style={{marginTop:'0%', marginBottom:'0%', paddingBottom:'0%', fontSize:'15px'}}>Have a Promo Code?</p></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell style={{paddingTop:'0%'}}>
-              <FormControl variant="outlined" style={{width:'100%', margin:'2% 0%'}}>
-                <TextField variant="outlined" label="Promo Code" error={validPromo===false} helperText={validPromo === "hiddenpromocodeoffer1" ? "" : validPromo ? "Promo Code Applied" : "Invalid Promo Code"} id="promo" type={'text'} value={promo} placeholder="Your promo code" color="primary"
-                  onChange={(e)=>{setPromo(e.target.value);}}
-                  InputProps = {{
-                    endAdornment:
-                      <IconButton edge="end" style={validPromo?{color:'green'}:{color:'red'}}>
-                        {validPromo===""? "": validPromo ? <DoneIcon /> : <ClearIcon/>}
-                      </IconButton>,
-                    classes: {
-                      adornedEnd: classes.adornedEnd
-                    }
-                  }}
-                />
-              </FormControl>
-            </TableCell>
-            <TableCell style={{paddingTop:'0%'}}><Button variant="outlined" onClick={()=>setValidPromo(false)} className={classes.applybutton}>Apply</Button></TableCell>
-          </TableRow>
-        </Table>
-        <Table>
-          <TableRow>
-            <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}>Total</h3></TableCell>
-            <TableCell style={{borderBottom:'none'}}><h3 style={{float:'right', marginTop:'0%', marginBottom:'0%', color:'#3f3d56'}}><FontAwesomeIcon icon={faRupeeSign} style={{color:'#3f3d56'}}/> 400.00</h3></TableCell>
-          </TableRow>
-        </Table>
-      </Grid>
-      <Grid item lg={5} >
-        <Table style={{paddingLeft:'0%'}}>
-          <TableRow>
-            <TableCell style={{borderBottom:'none'}}><h3 style={{marginTop:'0%', marginBottom:'0%', paddingTop:'0%', paddingBottom:'0%', color:'#3f3d56'}}>{globalName}</h3></TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{marginTop:'0%', paddingTop:'0%'}}>{globalEmail}</p></TableCell>
-            <TableCell style={{borderBottom:'none', paddingTop:'0%'}}><p style={{float:'right', marginTop:'0%', paddingTop:'0%'}}>{globalPhone}</p></TableCell>
-          </TableRow>
-        </Table>
-        <div style={{border:' 2px solid #2f2b4f', borderRadius:'20px', width:'55%', borderTop:'50px solid #2f2b4f', marginLeft:'5%'}}>
-          <p style={{padding:'6%', textAlign:'center', fontSize:'20px', fontWeight:'400', color:'#3f3d56'}}>{date}<br/>{time}</p>
-        </div>
-      </Grid>
-      <Grid item lg={10}>
-        <Button className={classes.button} onClick={displayRazorPay}>Pay Now</Button>
-        <p style={{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
-      </Grid>
-    </Grid>
+    </Fade>
   );
 }
 

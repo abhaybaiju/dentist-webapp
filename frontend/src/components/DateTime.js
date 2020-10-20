@@ -10,6 +10,7 @@ import { MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
 import axios from 'axios';
+import Fade from 'react-reveal/Fade';
 
 const DateTime = () => {
 
@@ -79,7 +80,8 @@ const DateTime = () => {
   const [{globalTime, globalTimeText}, dispatch] = useStateValue();
 
   const handleTimeChange = (timeval, text) => {
-		setTime(timeval);
+    setTime(timeval);
+    localStorage.setItem("time",timeval);
 		dispatch({
 			type: 'SET_GLOBALTIME',
 			globalTime: timeval,
@@ -200,43 +202,45 @@ const DateTime = () => {
 
 
   return(
-    <Grid container justify="space-evenly" alignItems="stretch" spacing={2}>
-      <Grid item lg={5}>
-        <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-7%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h2>
+    <Fade bottom>
+      <Grid container justify="space-evenly" alignItems="stretch" spacing={2}>
+        <Grid item lg={5}>
+          <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-7%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h2>
+        </Grid>
+        <Grid item lg={5}>
+          <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-10%'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h2>
+        </Grid>
+        <Grid item lg={4} style={{marginTop:'2%'}}>
+          <MuiThemeProvider theme={theme}>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" inputVariant="outlined" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
+            </MuiPickersUtilsProvider>
+          </MuiThemeProvider>
+        </Grid>
+        <Grid item lg={6} style={{float:'right', marginRight:'-5%'}}>
+          <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>AM</p>
+          <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
+          <Button disabled={b1115} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
+          <Button disabled={b1130} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>
+          <Button disabled={b1145} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145, e.currentTarget.value)}>11:45<sup>am</sup></Button>
+          <Button disabled={b1200} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200, e.currentTarget.value)}>12:00<sup>pm</sup></Button>
+          <Button disabled={b1215} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215, e.currentTarget.value)}>12:15<sup>pm</sup></Button>
+          <Button disabled={b1230} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button>
+          <Button disabled={b1245} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button>
+          <Button disabled={b1300} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button>
+          <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>PM</p>
+          <Button disabled={b1830} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button>
+          <Button disabled={b1845} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button>
+          <Button disabled={b1900} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button>
+          <Button disabled={b1915} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button>
+          <Button disabled={b1930} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button>
+          <Button disabled={b1945} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button>
+          <Button disabled={b2000} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button>
+          <Button disabled={b2015} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button>
+          <Button disabled={b2030} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button>
+        </Grid>
       </Grid>
-      <Grid item lg={5}>
-        <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-10%'}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h2>
-      </Grid>
-      <Grid item lg={4} style={{marginTop:'2%'}}>
-        <MuiThemeProvider theme={theme}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" inputVariant="outlined" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
-          </MuiPickersUtilsProvider>
-        </MuiThemeProvider>
-      </Grid>
-      <Grid item lg={6} style={{float:'right', marginRight:'-5%'}}>
-        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>AM</p>
-        <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
-        <Button disabled={b1115} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
-        <Button disabled={b1130} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>
-        <Button disabled={b1145} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145, e.currentTarget.value)}>11:45<sup>am</sup></Button>
-        <Button disabled={b1200} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200, e.currentTarget.value)}>12:00<sup>pm</sup></Button>
-        <Button disabled={b1215} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215, e.currentTarget.value)}>12:15<sup>pm</sup></Button>
-        <Button disabled={b1230} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button>
-        <Button disabled={b1245} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button>
-        <Button disabled={b1300} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button>
-        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>PM</p>
-        <Button disabled={b1830} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button>
-        <Button disabled={b1845} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button>
-        <Button disabled={b1900} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button>
-        <Button disabled={b1915} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button>
-        <Button disabled={b1930} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button>
-        <Button disabled={b1945} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button>
-        <Button disabled={b2000} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button>
-        <Button disabled={b2015} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button>
-        <Button disabled={b2030} variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button>
-      </Grid>
-    </Grid>
+    </Fade>
   );
 
 }
