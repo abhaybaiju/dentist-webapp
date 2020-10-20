@@ -82,7 +82,7 @@ const Success = () => {
             <Grid item lg={4} md={5} sm={8} xs={10} style={{color:'#3f3d56', marginTop:'10%'}}>
               <h1 style={{lineHeight:'1.3'}}>Hello {globalName},</h1>
               <p>Your appointment has been booked successfully!</p>
-              {( localRating === null ) ? 
+              {( localRating === null ) ?
                 <p style={{fontWeight:'600'}}>Take a moment to rate your web experience with us: <br /><Rating name="pristine" value={value} style={{paddingTop:'3%', fontSize:'40px'}} onChange={(event, newValue) => {handleRatingChange()}}/></p>
                 :
                 <p style={{color:'green'}}>Thank you for your valuable feedback!</p>
@@ -91,10 +91,10 @@ const Success = () => {
               <Button variant="outlined" href={string} className={classes.button}>Add to Google calendar</Button>
             </Grid>
             <Grid item lg={5} md={5} sm={8} xs={10} style={{background:`url(${calendar})`, backgroundRepeat:'no-repeat', backgroundPosition:'0% 100%', backgroundSize:'60% 60%'}}>
-              <ImageSVG style={{float:'right'}}/>
+              <ImageSVG />
             </Grid>
-            <Grid item lg={12}>
-              <Footer top="-2%" bottom="-2%" left="8%" right="-30%"/>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
+              <Footer />
             </Grid>
           </Grid>
       </Fade>

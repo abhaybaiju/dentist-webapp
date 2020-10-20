@@ -343,8 +343,8 @@ const Book = () => {
           <VerticalStepper />
           <br /><br/>
         </Grid>
-        <Grid item lg={12} md={12} sm={12} xs={12}>
-          <Footer top="2%" bottom="2%" left="12%" right="-25%"/>
+        <Grid item lg={12} md={12} sm={12} xs={12} style={{marginBottom:'2%'}}>
+          <Footer/>
         </Grid>
     </Grid>
   );

@@ -152,7 +152,7 @@ const AboutUs = () => {
           </CardContent>
         </Card>
       </Grid>
-      <Footer top="5%" bottom="2%" left="12%" right="-25%"/>
+      <Footer/>
     </Grid>
   );
 }

@@ -11,7 +11,6 @@ import img2 from './images/blob1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment, faPaperPlane, faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-import './css/Services.css';
 import Fade from 'react-reveal/Fade';
 
 
@@ -244,7 +243,7 @@ const Service = () => {
           </Fade>
         </Grid>
       </Grid>
-      <Footer top="8%" bottom="2%" left="7%" right="-35%"/>
+      <Footer/>
     </Grid>
   );
 }

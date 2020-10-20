@@ -141,7 +141,7 @@ const Contact = () => {
             <img src={require("./images/whatsapp.png")} height="155"></img>
           </Fab>
         </Grid>
-        <Footer top="2%" bottom="2%" left="12%" right="-22%"/>
+        <Footer/>
       </Grid>
   );
 }
