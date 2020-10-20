@@ -254,8 +254,8 @@ const VerticalStepper = () => {
 
   return (
     <Grid container alignItems="stretch" justify="center" style={{ marginLeft:'5%', marginRight:'5%', width:'90%'}}>
-      <Grid item lg={3} style={{height:570, background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}} classes={{root: classes.card, hover: classes.hover}}>
-        <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{margin:'10% 5%', background:'transparent', height:200}}>
+      <Grid item lg={3} md={3} sm={3} xs={3} style={{height:'100%', background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', marginBottom:'0%'}} classes={{root: classes.card, hover: classes.hover}}>
+        <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{padding:'20% 10%', background:'transparent', height:'100%', margin:'0% 0%'}}>
           {steps.map((label, index) => (
             <Step key={label}>
               <StepButton onClick={handleStep(index)}>
@@ -267,8 +267,8 @@ const VerticalStepper = () => {
           ))}
         </Stepper>
       </Grid>
-      <Grid item lg={8} style={{height:570}} classes={{root: classes.card, hover: classes.hover}}>
-        <Typography style={{margin:'5% 0%'}}>{getStepContent(activeStep)}</Typography>
+      <Grid item lg={8} md={8} sm={8} xs={8} style={{height:'100%'}} classes={{root: classes.card, hover: classes.hover}}>
+        <Typography style={{margin:'5% 0%', height:'100%'}}>{getStepContent(activeStep)}</Typography>
         <div style={{textAlign:'center', marginBottom:'2%'}}>
         <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center', borderRadius:'50%'}}>
           <ExpandMoreIcon className={classes.nextButton}/>

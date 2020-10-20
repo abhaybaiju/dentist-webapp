@@ -223,7 +223,7 @@ const Pay = () => {
 
   return (
     <Grid container justify="center" alignItems="stretch" spacing={2}>
-      <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'1%'}}>
+      <Grid item lg={10} style={{ marginTop:'0%', paddingTop:'0%', marginBottom:'0%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', paddingTop:'0%', marginTop:'0%'}}><VerifiedUserIcon style={{marginRight:'1.5%', marginBottom:'-0.8%', fontSize:'30px'}}/>You're almost there!</h2>
       </Grid>
       <Grid item lg={5} style={{borderRight:'0.5px solid #cccccc'}}>
@@ -285,7 +285,7 @@ const Pay = () => {
       </Grid>
       <Grid item lg={10}>
         <Button className={classes.button} onClick={displayRazorPay}>Pay Now</Button>
-        <p style={{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
+        <p style={(validPromo===false)?{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase', marginBottom:'-1.5%'}:{textAlign:'center', marginTop:'0%', paddingTop:'0%', fontSize:'12px',color:'#999999', textTransform:'uppercase'}}><FontAwesomeIcon icon={faLock} style={{color:'#999999'}}/>  Secure Checkout</p>
       </Grid>
     </Grid>
   );

@@ -176,7 +176,7 @@ const InputForm = (props) => {
         </FormControl>
       </Grid>
       <Grid item lg={10}>
-        <FormControl component="fieldset" style={{marginTop:'2%', marginBottom:'-2%', marginLeft:'1%'}}>
+        <FormControl component="fieldset" style={{marginTop:'2%', marginBottom:'-5%', marginLeft:'1%'}}>
           <FormControlLabel control={
             <Checkbox
               checked={props.check}
@@ -188,10 +188,12 @@ const InputForm = (props) => {
             label={
               <div style={{color:'#666666', fontStyle:'italic'}}>
                 <span>I understand and accept the </span>
-                <Link to={'/terms'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Terms Of Use</Link>
+                <Link target="_blank" to={'/Terms'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Terms Of Use</Link>
+                <span>, </span>
+                <Link target="_blank" to={'/Privacy'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Privacy Policy</Link>
                 <span> and </span>
-                <Link to={'/privacy'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Privacy Policy</Link>
-                <span>of Lila Dental Clinic.</span>
+                <Link target="_blank" to={'/Refund'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Cancellation/Refund Policy</Link>
+                <span> of Lila Dental Clinic.</span>
               </div>
             }
           />
