@@ -1,6 +1,7 @@
 //ABHAY
 //disable passed time on current date, disable date when all slots booked/last slot time passed✅
-//disable dates after two months
+//disable dates after two months✅
+//add google calendar link to confirmation email
 //check for client dates in whole app and replace with server date
 //time is not there in localStorage
 

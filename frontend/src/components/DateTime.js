@@ -11,6 +11,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
 import axios from 'axios';
 import Fade from 'react-reveal/Fade';
+import { setDate } from 'date-fns';
 
 const DateTime = () => {
 
@@ -52,10 +53,21 @@ const DateTime = () => {
     }
   }));
 
-
+  const getDate = async () => {
+    try{
+      const resp = await axios.get('http://localhost:1337/date');
+      console.log("resp is ",resp);
+      return resp.data.date;
+    }
+    catch (error){
+      console.log(error);
+    }
+  }
   const classes = useStyles();
   const [am, setAM] = React.useState(true);
-  const [date, changeDate] = React.useState(new Date().toDateString());
+  const [date, changeDate] = React.useState("");
+  const [currentDate,setCurrentDate] = React.useState("");
+  var serverDate;
   const sup="AM";
   //const pm="PM";
   //const morning = [['11:00', '11:15', '11:30'], ['11:45', '12:00', '12:15'], ['12:30', '12:45', '01:00']]
@@ -114,6 +126,7 @@ const DateTime = () => {
       setb2015(false);
       setb2030(false);
       const serverDate = await axios.get('http://localhost:1337/date');
+      console.log("currentDate is ",currentDate);
       var d = new Date(serverDate.data.date);
       if(d.getDate()===changedDate.getDate() && d.getMonth() === changedDate.getMonth() && d.getFullYear() === changedDate.getFullYear())
       {
@@ -288,6 +301,7 @@ const DateTime = () => {
   }
 
   const handleDateChange = (changedDate) => {
+    console.log("chdate",changedDate)
     dispatch({
 			type: 'SET_GLOBALDATE',
 			globalDate: changedDate.toDateString()
@@ -296,13 +310,20 @@ const DateTime = () => {
     fetchAppointments(changedDate);
   }
 
-  const disableSundays = (date) => {
-    return date.getDay() === 0;
+  const disableSundays = (inputDate) => {
+    var diff = inputDate.getMonth() - (new Date(currentDate).getMonth())
+    if(diff > 2 || diff < 0){
+      return true;
+    }
+    return inputDate.getDay() === 0;
   }
 
   useEffect(() => {
+    getDate().then(value => {console.log("value",value);
+    const dateString = new Date(value).toDateString();
+    setCurrentDate(dateString);
     console.log("inside useeffect");
-    handleDateChange(new Date());
+    handleDateChange(new Date(value));});
   },[]);
 
 
