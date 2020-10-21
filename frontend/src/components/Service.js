@@ -1,7 +1,6 @@
 import React from 'react';
 import {Grid, Button, Card, CardContent, makeStyles, Paper} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel';
-//import Carousel from 'react-responsive-carousel';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -127,7 +126,7 @@ const Service = () => {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Fade duration={1000} bottom>
             <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600', textAlign:'center'}}>Our Services</p>
-            <h1 style={{color:'#2f2b4f', textAlign:'center'}}>What We Bring To You</h1>
+            <h1 style={{color:'#2f2b4f', textAlign:'center'}}>What We Offer</h1>
             <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
           </Fade>
         </Grid>
@@ -138,14 +137,14 @@ const Service = () => {
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
           <Fade duration={1000} bottom>
-            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 1</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>General Procedures</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>We offer a host of general treatment procedures including scaling, root planning and restorative procedures like fillings. We also provide for the replacement of missing teeth through both removable and fixed fixtures.</p>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
           <Fade duration={1000} bottom>
-            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 2</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Specialized Procedures</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Specialised procedures include gum surgeries or gingival surgeries, depigmentation or black gums treatment and treatment for periodontitis also called as the treatment of pyorrhea.</p>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
@@ -160,8 +159,8 @@ const Service = () => {
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>
           <Fade duration={1000} bottom>
-            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Service 3</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Advanced Procedures</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>We also offer advanced and complex treatment procedures like bone substitutes or bone grafts. Cosmetic procedures like cosmetic fillings also come under the host of advanced procedures that one can opt for. Another popular treatment is the dental implant which has become the most sought after and effective method to replace teeth.</p>
           </Fade>
         </Grid>
       </Grid>
