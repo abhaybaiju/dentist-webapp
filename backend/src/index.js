@@ -12,6 +12,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const sesClient = require('./ses-client')
 const Mailgen = require('mailgen')
+const moment = require('moment');
 const app = express();
 const dotenv= require('dotenv');
 dotenv.config();
@@ -102,6 +103,26 @@ app.post("/book", async(req, res) => {
       [name, contact, gender, time, date, email]
     );
     res.json("Accepted");
+    
+    const hours = parseInt(parseInt(time)/100);
+    const minutes = parseInt(parseInt(time)%100);
+    var date1 = date.setHours(hours,minutes,0);
+    const startDate = moment(date1).format("YYYYMMDDT");
+    const endHour = date.getHours();
+    const endMins = (date.getMinutes() + 15)%60;
+
+    var string;
+    if(minutes === 0){
+      string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString()  + "0000%2F" + startDate + endHour.toString() + endMins.toString() + "00&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+    }
+    else{
+      if(endMins === 0){
+        string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString() + minutes.toString() + "00%2F" + startDate + (endHour+1).toString() + "0000&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+      }
+      else{
+        string = "http://www.google.com/calendar/event?action=TEMPLATE&dates=" + startDate + hours.toString() + minutes.toString() + "00%2F" + startDate + endHour.toString() + endMins.toString() + "00&text=Dentist%20Appointment&location=Lila%20Dental%20Clinic%20Dg-2%2F57-a%2C%20Dda%20Flats%2C%20Vikaspuri%2C%20Vikaspuri%2C%20Delhi%2C%20110018&ctz=Asia/Kolkata&details=Appointment%20at%20Lila%20Dental%20Clinic";
+      }
+    }
 
     //create email
     var mailGenerator = new Mailgen({
@@ -109,7 +130,7 @@ app.post("/book", async(req, res) => {
       product: {
           // Appears in header & footer of e-mails
           name: 'Lila Dental Clinic',
-          link: 'https://mailgen.js/'
+          link: 'https://liladentalclinic.com/'
           // Optional product logo
           // logo: 'https://mailgen.js/img/logo.png'
       }
@@ -135,7 +156,7 @@ app.post("/book", async(req, res) => {
               button: {
                   color: '#1c92d2', // Optional action button color
                   text: 'Add to Google Calendar',
-                  link: 'https://mailgen.js/confirm?s=d9729feb74992cc3482b350163a1a010'
+                  link: string
               }
           },
           outro: 'Need help, or have questions? Contact us below.'
