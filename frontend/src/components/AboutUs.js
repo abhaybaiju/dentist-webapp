@@ -30,8 +30,8 @@ const AboutUs = () => {
   return(
     <Grid style={{overflowX:'hidden'}}>
       <Grid container justify="space-evenly" alignItems="center" style={{background:`url(${about_bg})`, backgroundSize:'cover', paddingBottom:'15%'}}>
-        <Grid item lg={12} md={12} sm={12} xs={12} style={{background:'transparent'}}><Navbar style={{background:'transparent', marginBottom:'8%'}}/></Grid>
-        <Grid item lg={6} md={5} sm={12} xs={12}style={{color:'#3f3d56', marginLeft:'3%', marginRight:'-2%', marginTop:'8%'}}>
+        <Grid item lg={12} md={12} sm={12} xs={12} style={{background:'transparent', marginBottom:'10%'}}><Navbar style={{background:'transparent', marginBottom:'8%'}}/></Grid>
+        <Grid item lg={7} md={7} sm={10} xs={10}style={{color:'#3f3d56', margin:'auto', width:'80%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <p style={{fontSize:'7vh', fontWeight:'600'}}>Want to know more ?</p>
             <p style={{lineHeight:'1.6', fontSize:'3vh', color:'#4d4d4d'}}>
@@ -39,24 +39,22 @@ const AboutUs = () => {
             </br> Keep scrolling to find out.</p>
           </Fade>
         </Grid>
-        <Grid item lg={6} md={6} sm={12} xs={12} style={{marginTop:'15%', marginLeft:'8%', marginRight:'-17%'}}>
+        <Grid item lg={5} md={5} sm={10} xs={10} style={{margin:'auto', width:'auto'}}>
           <Fade duration={1000} bottom>
-            <img src={about} alt="" style={{width: "70%"}}/>
+            <img src={about} alt="" height="400" style={{width: "80%", paddingLeft:'10%'}}/>
           </Fade>
         </Grid>
       </Grid>
       <Grid container justify="flex-start" alignItems="stretch" style={{marginTop:'5%', marginBottom:'0%', background:'transparent', paddingLeft:0}} spacing={0}>
-        <Hidden mdDown>
-        <Grid item lg={2} style={{background:`url(${journey})`, backgroundSize:'cover', width:'100%', height:600}}>
+        <Grid item lg={2} md={3} sm={2} xs={4} style={{background:`url(${journey})`, backgroundSize:'cover', width:'100%', height:600}}>
         </Grid>
-        </Hidden>
-        <Grid item lg={4} md={5} sm={8} xs={11} style={{marginTop:'5%', background:'transparent'}}>
+        <Grid item lg={4} md={7} sm={8} xs={7} style={{marginTop:'5%', background:'transparent'}}>
           {/*<p style={{ background:`url(${journey})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', transform:'rotate(45deg)', borderRadius:'0em', width:800, height:800}}></p>*/}
           <Fade duration={1000} bottom>
-            <img src={require('./images/people.svg')} alt="" style={{background:'white', border:'10px solid #e6e6e6', borderRadius:'20px', width : "100%"}}/>
+            <img src={require('./images/people.svg')} alt="" height="400" style={{background:'white', border:'10px solid #e6e6e6', borderRadius:'20px', width : "100%"}}/>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={6} sm={10} xs={11} style={{marginTop:'1%', paddingLeft:'10%', paddingRight:'0%'}}>
+        <Grid item lg={6} md={8} sm={8} xs={11} style={{margin:'auto', paddingLeft:'10%', paddingRight:'10%', width:'80%'}}>
           <Fade duration={1000} bottom>
             <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
             <h1 style={{color:'#ff7a59', marginBottom:'10%'}}>Our journey</h1>
@@ -71,7 +69,7 @@ const AboutUs = () => {
         <Grid item lg={5} md={6} sm={8} xs={8} style={{textAlign:'center', marginBottom:'5%'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
-            <p style={{ lineHeight:'1.8', color:'#404040', width:'100%', textAlign:'center', float:'right'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
+            <p style={{ lineHeight:'1.8', color:'#404040', width:'100%', textAlign:'center', float:'right', fontSize:'18px'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
           </Fade>
         </Grid>
         <Grid spacing={1} item xs={12} container justify="center" alignItems="stretch">
@@ -124,29 +122,27 @@ const AboutUs = () => {
       <Grid container justify="center" alignItems="center" style={{background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', padding:'5% 0%', marginTop:'8%'}}>
         <Card style={{width:'75%'}} classes={{root:classes.card, hover:classes.hover}}>
           <CardContent style={{padding:'5%', marginBottom:'0%'}}>
-            <Grid justify="center" alignItems="center" container item lg={12} xs={12} style={{padding:'5% 2%'}}>
-                <Grid lg={5} xs={12}>
+            <Grid justify="center" alignItems="stretch" container item lg={12} xs={12} style={{padding:'5% 2%'}}>
+                <Grid item lg={5} xs={5}>
                   <img src={require('./images/speaker.svg')} alt="" style={{float:'left', marginRight:'7.4%', marginTop:'-10%', marginBottom:'0%', width: '80%'}}/>
                 </Grid>
-                <Grid lg={7} xs={12}>
-                  <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'4.5vw', marginTop:'-1%'}}>Still not sure? Let us change your mind</p>
+                <Grid item lg={7} xs={7}>
+                  <p style={{color:'#3f3d56', fontWeight:'600', fontSize:'2.3vw', marginTop:'-1%'}}>Still not sure? Let us change your mind</p>
+                  <Table style={{width:'100%'}}>
+                    <TableRow>
+                      <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'33%', padding:'4px 8px', textAlign:'center'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
+                      <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'33%', textAlign:'center'}}>2</TableCell>
+                      <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', padding:'4px 8px', textAlign:'center'}}>20</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell style={{border:'none', fontSize:'16px', padding:'4px 13px', color:'#808080', fontWeight:'500', textAlign:'center'}}>Satisfied customers</TableCell>
+                      <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500', textAlign:'center'}}>Doctors</TableCell>
+                      <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500', textAlign:'center'}}>Years of Experience</TableCell>
+                    </TableRow>
+                  </Table>
                 </Grid>
-                <Grid item lg={12} justify="center" alignItems="center">
-                <Table >
-                  <TableRow>
-                    <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'25%', padding:'4px 8px'}}><CountUp start={0} end={1000} duration={2} suffix="+" useEasing={false} redraw={true}></CountUp></TableCell>
-                    <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', width:'22%', padding:'4px 8px'}}>2</TableCell>
-                    <TableCell style={{border:'none', fontSize:'28px', color:'#3f51b5', padding:'4px 8px'}}>20</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell style={{border:'none', fontSize:'16px', padding:'4px 13px', color:'#808080', fontWeight:'500'}}>Satisfied customers</TableCell>
-                    <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Doctors</TableCell>
-                    <TableCell style={{border:'none', fontSize:'16px', padding:'4px 10px', color:'#808080', fontWeight:'500'}}>Years of Experience</TableCell>
-                  </TableRow>
-                </Table>
-                </Grid>
-                <Grid justify="center" alignItems="center">
-                <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'4%', marginBottom:'-5.5%',background:'#645ba4', padding:'0.5vw 3%', width:'15vw'}}>Book now</Button></Link>
+                <Grid item lg={12} md={12} sm={12} xs={12}>
+                  <Link to="/Book" style={{textDecoration:'none'}}><Button style={{color:'white', marginLeft:'50%',marginTop:'4%', marginBottom:'-5.5%',background:'#645ba4', padding:'0.5vw 3%', width:'15vw'}}>Book now</Button></Link>
                 </Grid>
             </Grid>
           </CardContent>

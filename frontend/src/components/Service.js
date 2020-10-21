@@ -149,12 +149,12 @@ const Service = () => {
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+            <img src={require('./images/sharing_articles.svg')} alt="" height="350" width="100%"/>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'15%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/sharing_articles.svg')} alt="" height="350"/>
+            <img src={require('./images/sharing_articles.svg')} alt="" height="350" width="100%"/>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>
@@ -229,11 +229,13 @@ const Service = () => {
               {reviews.map( (review, i) =>
                 <Card style={{marginLeft:'-2.5%', marginRight:'-2.5%'}}>
                   <CardContent>
-                    <Paper style={{textAlign:'center', height:300, padding:'15% 10%'}}>
-                      <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'40px', color:'#3f3d56'}}/></p>
+                    <Paper style={{textAlign:'center', height:'100%', padding:'10% 10%'}}>
+                      <p style={{ background:'#e2e1ea', borderRadius:'18px', width:'10%', marginLeft:'40%', padding:'5%', marginTop:'-5%'}}><FontAwesomeIcon icon={faQuoteRight} style={{fontSize:'3.5vh', color:'#3f3d56', textAlign:'center'}}/></p>
                       <p style={{color:'#404040', lineHeight:'1.8', marginLeft:'10%', marginRight:'10%', marginTop:'10%', textAlign:'justify', marginBottom:'10%'}}><i>{review.description}</i></p>
-                      <img src={review.img} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%', float:'left', marginLeft:'30%', marginTop:'-1%', marginRight:'-10%'}}/>
-                      <p style={{color:'#404040'}}>{review.name}</p>
+                      <div style={{width:'100%', textAlign:'center', paddingBottom:'5%', margin:'auto'}}>
+                        <img src={review.img} alt="" height="35" width="35" style={{border:'1px solid #e2e1ea', borderRadius:'50%'}}/>
+                        <p style={{color:'#404040'}}>{review.name}</p>
+                      </div>
                     </Paper>
                   </CardContent>
                 </Card>

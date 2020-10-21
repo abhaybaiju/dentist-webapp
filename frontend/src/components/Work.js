@@ -15,4 +15,5 @@
 
 //SHAMBHAVI
 ////Gridding----About Us(Cards, counter, people svg not centering)
+//footer
 //Terms of use and privacy policy from razorpay

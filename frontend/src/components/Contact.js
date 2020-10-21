@@ -138,7 +138,7 @@ const Contact = () => {
           </Fade>
           </Grid>
           <Fab href="https://api.whatsapp.com/send?phone=919810336864" style={{margin: 0,top: 'auto',right: 40,bottom: 40,left: 'auto',position: 'fixed', backgroundColor: "#ffffff"}}>
-            <img src={require("./images/whatsapp.png")} height="155"></img>
+            <img src={require("./images/whatsapp.png")} height="155" alt=""></img>
           </Fab>
         </Grid>
         <Footer/>

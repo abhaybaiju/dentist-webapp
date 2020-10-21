@@ -13,6 +13,8 @@ import axios from 'axios';
 import Fade from 'react-reveal/Fade';
 import { setDate } from 'date-fns';
 
+import './css/App.css';
+
 const DateTime = () => {
 
   const theme = createMuiTheme({
@@ -333,20 +335,20 @@ const DateTime = () => {
 
   return(
     <Fade bottom>
-    <Grid container justify="space-evenly" alignItems="center" spacing={2} style={{height:'100%', marginBottom:'0%'}}>
-      <Grid item lg={4} md={6} sm={8} xs={10} style={{marginTop:'2%'}}>
+    <Grid container justify="space-around" alignItems="center" spacing={0} style={{height:'100%', marginBottom:'0%'}}>
+      <Grid item lg={4} md={6} sm={8} xs={12} style={{marginTop:'2%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-7%', marginTop:'1%', marginBottom:'10%'}}><CalendarTodayIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select date</h2>
-        <div style={{margin:'auto'}}>
+        <div style={{marginLeft:'7%'}}>
         <MuiThemeProvider theme={theme}>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" inputVariant="outlined" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }} />
+            <DatePicker disableToolbar disablePast shouldDisableDate={disableSundays} autoOk variant="static" inputVariant="outlined" openTo="date" value={date} onChange={handleDateChange} InputProps={{ className: classes.input }}/>
           </MuiPickersUtilsProvider>
         </MuiThemeProvider>
         </div>
       </Grid>
-      <Grid item lg={6} md={8} sm={10} xs={10} style={{float:'right', marginRight:'-5%'}}>
+      <Grid item lg={6} md={8} sm={10} xs={10} style={{marginRight:'-5%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-10%', marginTop:"-1.5%"}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h2>
-        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>AM</p>
+        <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'0%'}}>AM</p>
         <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
         <Button disabled={b1115} id="1115 "variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
         <Button disabled={b1130} id="1130" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>

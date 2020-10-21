@@ -280,7 +280,7 @@ const VerticalStepper = () => {
 
   return (
     <Grid container alignItems="stretch" justify="center" style={{ marginLeft:'5%', marginRight:'5%', width:'90%'}}>
-      <Grid item lg={3} md={3} sm={10} xs={10} style={{height:'100%', background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', marginBottom:'0%'}} classes={{root: classes.card, hover: classes.hover}}>
+      <Grid item lg={3} md={3} sm={10} xs={12} style={{height:'100%', background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', marginBottom:'0%'}} classes={{root: classes.card, hover: classes.hover}}>
         <Hidden smDown>
         <Stepper activeStep={activeStep} orientation="vertical" connector={<StepConnector classes={{active:classes.connectorActive, completed:classes.connectorCompleted, line:classes.line}}/>} style={{padding:'20% 10%', background:'transparent', height:'100%', margin:'0% 0%'}}>
           {steps.map((label, index) => (
@@ -308,7 +308,7 @@ const VerticalStepper = () => {
         </Stepper>
         </Hidden>
       </Grid>
-      <Grid item lg={8} md={8} sm={10} xs={10} style={{height:'100%'}} classes={{root: classes.card, hover: classes.hover}}>
+      <Grid item lg={8} md={8} sm={10} xs={12} style={{height:'100%'}} classes={{root: classes.card, hover: classes.hover}}>
         <Typography style={{margin:'5% 0%', height:'100%'}}>{getStepContent(activeStep)}</Typography>
         <div style={{textAlign:'center', marginBottom:'2%'}}>
         <Button color="primary" onClick={handleNext} style={(activeStep === steps.length - 1)?{display:'none'}:{ textAlign:'center', borderRadius:'50%'}}>
