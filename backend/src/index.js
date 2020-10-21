@@ -358,6 +358,13 @@ app.get('/slotfetcher', async (req, res) =>{
   }
 })
 
+app.get('/date', (req, res) => {
+  var d = new Date();
+  res.json({
+    date: d,
+  })
+})
+
 app.get('/', (req, res) => {
   res.json({
     message: "Hii",

@@ -1,5 +1,7 @@
 //ABHAY
-//disable passed time on current date, disable date when all slots booked/last slot time passed
+//disable passed time on current date, disable date when all slots booked/last slot time passed✅
+//disable dates after two months
+//check for client dates in whole app and replace with server date
 //time is not there in localStorage
 
 //LIVE MODE TESTING

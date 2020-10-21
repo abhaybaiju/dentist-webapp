@@ -113,8 +113,110 @@ const DateTime = () => {
       setb2000(false);
       setb2015(false);
       setb2030(false);
-
-      console.log("Date in fetch is ",changedDate)
+      const serverDate = await axios.get('http://localhost:1337/date');
+      var d = new Date(serverDate.data.date);
+      if(d.getDate()===changedDate.getDate() && d.getMonth() === changedDate.getMonth() && d.getFullYear() === changedDate.getFullYear())
+      {
+        var currentTime = d.getHours()*100 + d.getMinutes();
+        console.log("time in fetch is ",currentTime);
+        var timeArr = [1100,1115,1130,1145,1200,1215,1230,1245,1300,1830,1845,1900,1915,1930,1945,2000,2015,2030];
+        timeArr.forEach(t => {
+          console.log(t);
+          switch (t) {
+            case 1100:
+              if(t<=currentTime){
+                setb1100(true);
+              }
+              break;
+            case 1115:
+              if(t<=currentTime){
+                setb1115(true);
+              }
+              break;
+            case 1130:
+              if(t<=currentTime){
+                setb1130(true);
+              }
+              break;
+            case 1145:
+              if(t<=currentTime){
+                setb1145(true);
+              }
+              break;
+            case 1200:
+              if(t<=currentTime){
+                setb1200(true);
+              }
+              break;
+            case 1215:
+              if(t<=currentTime){
+                setb1215(true);
+              }
+              break;
+            case 1230:
+              if(t<=currentTime){
+                setb1230(true);
+              }
+              break;
+            case 1245:
+              if(t<=currentTime){
+                setb1245(true);
+              }
+              break;
+            case 1300:
+              if(t<=currentTime){
+                setb1300(true);
+              }
+              break;
+            case 1830:
+              if(t<=currentTime){
+                setb1830(true);
+              }
+              break;
+            case 1845:
+              if(t<=currentTime){
+                setb1845(true);
+              }
+              break;
+            case 1900:
+              if(t<=currentTime){
+                setb1900(true);
+              }
+              break;
+            case 1915:
+              if(t<=currentTime){
+                setb1915(true);
+              }
+              break;
+            case 1930:
+              if(t<=currentTime){
+                setb1930(true);
+              }
+              break;
+            case 1945:
+              if(t<=currentTime){
+                setb1945(true);
+              }
+              break;
+            case 2000:
+              if(t<=currentTime){
+                setb2000(true);
+              }
+              break;
+            case 2015:
+              if(t<=currentTime){
+                setb2015(true);
+              }
+              break;
+            case 2030:
+              if(t<=currentTime){
+                setb2030(true);
+              }break;
+            default:
+              console.log("Error in past time");
+          }
+        });
+      }
       const resp = await axios.get('http://localhost:1337/slotfetcher',{ params: { "date": changedDate.toDateString() } });
       console.log(resp.data);
       for(var row=0;row<resp.data.rowCount;row++){
