@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" transform="translate(-150 0)">
+  <rect x="0" y="0" height="100%" width="100%" fill="#ffebe6"/>
+  <circle fill="#ffd6cc" cx="280" cy="-50" r="200"/>
+</svg>
+
+
+<!-- <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" height="250" width="600" style={{marginTop:'-3%', marginBottom:'-6%', marginLeft:'-3.2%'}}>
+  <circle fill="" cx="250" cy="-200" r="400"/>
+</svg>
+
+
+
+style={{float:'right', marginTop:'-62.5%', position:'sticky', marginRight:'-5%'}}
+
+paddingRight:'24%', paddingLeft:'30%'
+
+ -->
