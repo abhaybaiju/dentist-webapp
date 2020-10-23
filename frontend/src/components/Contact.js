@@ -35,27 +35,37 @@ const Contact = () => {
       backgroundColor:'white'
     },
     buttonSubmit: {
-      background: 'linear-gradient(to right, #027e97 0%, #63a6b7  51%, #027e97 100%)',
-      color: 'white',
-      transition: '0.5s',
-      boxShadow: '0 0 20px #eee',
-      borderRadius: '10px',
-      padding: '10px 60px',
-      width: '20vw',
-      textAlign: 'center',
-      textTransform: 'uppercase',
-      backgroundSize: '200% auto',
+      marginTop:'5%',
+      marginLeft:'0%',
+      padding:'1.5%',
+      width:'20vw',
+      minWidth:'150px',
+      backgroundColor: 'white',
+      color:'#3f3d56',
+      boxShadow:'none',
+      borderRadius:'5px',
+      border:'1px solid #3f3d56',
       "&:hover": {
-        backgroundPosition: 'right center', /* change the direction of the change here */
-        color: '#fff',
-        textDecoration:'none'
+        backgroundColor: "#2f2b4f",
+        color:'white',
+        borderRadius:'5px',
+        borderColor:'#2f2b4f',
+      },
+      "&:focus": {
+        backgroundColor: "#2f2b4f",
+        color:'white',
+        borderColor:'#2f2b4f',
       }
-    }
+    },
 });
 
   const classes=useStyles();
 
   const handleSubmit = () => {
+    if(name==="" || email==="" || message===""){
+      alert("Please fill all the required fields");
+      return;
+    }
     const postData = {
       "name": name,
       "email": email,
@@ -78,8 +88,8 @@ const Contact = () => {
           <Grid item lg={12} md={12} sm={12} xs={12} style={{marginBottom:'8%'}}><Navbar /></Grid>
           <Grid item lg={5} md={5} sm={12} xs={12} style={{color:'#3f3d56', marginTop:'5%'}}>
             <Fade duration={1000} bottom>
-              <h1 style={{textAlign:'left', marginLeft:'15%', fontSize:'40px'}}>CONTACT US</h1>
-              <p style={{marginLeft:'15%',marginRight:'5%', lineHeight:'1.4', fontSize:'20px'}}>We are founded by a leading academic and researcher in the field of Industrial Systems Engineering.</p>
+              <h1 style={{textAlign:'left', marginLeft:'15%', fontSize:'40px'}}>Contact Us</h1>
+              <p style={{marginLeft:'15%',marginRight:'5%', lineHeight:'1.4', fontSize:'20px'}}>Looking for an answer? We would be happy to help. Reach out to us below.</p>
             </Fade>
           </Grid>
           <Grid item lg={7} md={6} sm={12} xs={12} style={{marginTop:'3%'}}>
@@ -91,13 +101,13 @@ const Contact = () => {
             <Fade duration={1000} bottom>
               <h3 style={{marginLeft:'7%',fontSize:'35px'}}>Contact details</h3>
               <p style={{marginLeft:'7%', lineHeight:'1.6', marginRight:'2%', fontSize:'16px', marginTop:'1%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
-              <Table style={{marginLeft:'5%', marginBottom:'-10%'}}>
+              <Table style={{marginLeft:'5%', marginBottom:'-8%'}}>
                 <TableRow>
                   <TableCell style={{borderBottom:'none', fontSize:'30px', width:'10px'}}><p style={{border:'1px solid #c86d6e', borderRadius:'15px', paddingLeft:'3px', paddingRight:'3px', height:'40px'}}><PhoneIcon style={{color:'white', background:'#bf6f72', padding:'5px', borderRadius:'12px', marginTop:'8%'}}/></p></TableCell>
                   <TableCell style={{borderBottom:'none'}}><TextField id="phone" label="Phone" defaultValue="+91 9810336864" InputProps={{readOnly: true, disableUnderline:true, classes:{input:classes.resize}}} InputLabelProps={{classes:{root:classes.label, focused: classes.focusedLabel, error: classes.erroredLabel}}}/></TableCell>
                 </TableRow>
               </Table>
-              <Table style={{marginLeft:'5%', marginBottom:'-7%'}}>
+              <Table style={{marginLeft:'5%', marginBottom:'-8%'}}>
                 <TableRow>
                   <TableCell style={{borderBottom:'none', width:'10px', fontSize:'30px'}}><p style={{border:'1px solid #c86d6e', borderRadius:'15px', paddingLeft:'3px', paddingRight:'3px', height:'40px'}}><EmailIcon style={{color:'white', background:'#bf6f72', padding:'5px', borderRadius:'12px', marginTop:'10%'}}/></p></TableCell>
                   <TableCell style={{borderBottom:'none'}}><TextField id="phone" label="Email" defaultValue="drcsbaiju@yahoo.co.in" InputProps={{readOnly: true, disableUnderline:true, classes:{input:classes.resize}}} InputLabelProps={{classes:{root:classes.label, focused: classes.focusedLabel, error: classes.erroredLabel}}}/></TableCell>
@@ -125,11 +135,11 @@ const Contact = () => {
           <Grid item lg={5} md={7} sm={9} xs={9} style={{color:'#3f3d56', textAlign:'left'}}>
           <Fade duration={1000} bottom>
             <h4>Fullname</h4>
-            <TextField id="fullname" value={name} onChange={(e)=> {setName(e.target.value)}} placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
+            <TextField id="fullname" value={name} required onChange={(e)=> {setName(e.target.value)}} placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>E-mail</h4>
-            <TextField id="fullname" value={email} onChange={(e)=> {setEmail(e.target.value)}} placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
+            <TextField id="email" value={email} required onChange={(e)=> {setEmail(e.target.value)}} placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>Message</h4>
-            <TextField id="fullname" value={message} onChange={(e)=> {setMessage(e.target.value)}} placeholder="Your question about our services" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
+            <TextField id="message" value={message} required onChange={(e)=> {setMessage(e.target.value)}} placeholder="Your question about our services" variant="outlined" multiline rows={4} fullWidth={true} InputProps={{disableUnderline:true}} style={{backgroundColor:'white'}}/>
           </Fade>
           </Grid>
           <Grid item lg={10} md={10} sm={10} xs={11} style={{textAlign:'center', marginTop:'2%', marginBottom:'4%'}}>
