@@ -193,7 +193,7 @@ const InputForm = (props) => {
                   <span>, </span>
                   <Link target="_blank" to={'/Privacy'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Privacy Policy</Link>
                   <span> and </span>
-                  <Link target="_blank" to={'/Refund'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Cancellation/Refund Policy</Link>
+                  <Link target="_blank" to={'/Refunds'} style={{textDecoration:'none', color:'#2f2b4f', fontStyle:'italic'}}>Cancellation/Refund Policy</Link>
                   <span> of Lila Dental Clinic.</span>
                 </div>
               }

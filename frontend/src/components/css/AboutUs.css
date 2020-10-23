@@ -23,18 +23,18 @@
 }
 /* linear-gradient(to right, #1c92d2, #f2fcfe); */
 
-ul {
+.ul {
   list-style-type: none;
 }
 
-ul li {
+.ul li {
     margin: 0;
     margin-bottom: 2em;
     position: relative;
     line-height: 2.0;
 }
 
-ul li::after {
+.ul li::after {
   content: '';
   height: 1em;
   width: 1em;

@@ -60,7 +60,7 @@ const AboutUs = () => {
           <Fade duration={1000} bottom>
             <p style={{color:'grey', textTransform:'uppercase', fontSize:'15px', fontWeight:'600'}}>About Us</p>
             <h1 style={{color:'#ff7a59', marginBottom:'10%'}}>Our journey</h1>
-            <ul style={{textAlign:'justify', color:'#404040'}}>
+            <ul style={{textAlign:'justify', color:'#404040'}} className="ul">
               <li>It’s 1998 and Lila Dental Clinic is being established by a young couple with heads full of dreams and minds full of knowledge. The only weapons in their arsenal are welcoming smiles and honest work. </li>
               <li>Cut to the present, the humble clinic has grown into one of the premier and leading establishments in New Delhi and beyond. The couple has earned a few greys and the patients have grown in number but the welcoming smiles and the urge to deliver the best remains as strong as ever.</li>
             </ul>

@@ -14,6 +14,6 @@
 //Leftover Content---Decide services and illustrations/images accordingly.----Write Reviews
 
 //SHAMBHAVI
-////Gridding----About Us(Cards, counter, people svg not centering)
+////Gridding----About Us(Cards)
 //footer
 //Terms of use and privacy policy from razorpay
