@@ -16,4 +16,3 @@
 //SHAMBHAVI
 ////Gridding----About Us(Cards)
 //footer
-//Terms of use and privacy policy from razorpay
