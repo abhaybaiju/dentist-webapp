@@ -89,6 +89,7 @@ const Success = () => {
               }
               <p style={{lineHeight:'1.6', width:'90%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
               <Button variant="outlined" href={string} className={classes.button}>Add to Google calendar</Button>
+              <Button variant="outlined" target="_blank" href="https://goo.gl/maps/qzTKKSQHUCMkwJNM9" className={classes.button}>Open in Google Maps</Button>
             </Grid>
             <Grid item lg={5} md={5} sm={8} xs={10} style={{background:`url(${calendar})`, backgroundRepeat:'no-repeat', backgroundPosition:'0% 100%', backgroundSize:'60% 60%'}}>
               <ImageSVG />
