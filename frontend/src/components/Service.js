@@ -132,7 +132,7 @@ const Service = () => {
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/sharing_articles.svg')} alt="" height="350" width="100%"/>
+            <img src={require('./images/one.png')} alt="" height="350" width="70%"/>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
@@ -149,12 +149,12 @@ const Service = () => {
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/sharing_articles.svg')} alt="" height="350" width="100%"/>
+            <img src={require('./images/two.png')} alt="" height="350" width="70%"/>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'15%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/sharing_articles.svg')} alt="" height="350" width="100%"/>
+            <img src={require('./images/three.png')} alt="" height="350" width="70%"/>
           </Fade>
         </Grid>
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>

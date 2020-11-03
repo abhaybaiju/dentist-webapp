@@ -5,7 +5,6 @@ import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
 import axios from 'axios';
 import { useStateValue } from './StateProvider.js';
-import img from './images/blue_wave.png';
 import './css/App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRupeeSign, faLock } from '@fortawesome/free-solid-svg-icons';
