@@ -36,7 +36,7 @@ app.post("/pay",async (req, res) => {
 
   const payment_capture=1
   const currency = 'INR'
-  const amount = 200
+  const amount = 400
 
   const options = {
     amount: (amount*100).toString(),

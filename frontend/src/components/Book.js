@@ -332,7 +332,7 @@ const Book = () => {
           <Grid item lg={4} md={5} sm={8} xs={10} style={{color:'#2f2b4f', margin:'auto'}}>
             <h1 style={{lineHeight:'1.3', paddingTop:'5%'}}>Booking appointments made easy</h1><br/>
             <Grid item lg={12}>
-              <p style={{lineHeight:'1.6'}}>Hassle-free booking for you at your convenient time. Hassle-free booking for you at your convenient time.</p>
+              <p style={{lineHeight:'1.6'}}>Hassle-free booking for you, at your convenient time. Book now for a seamless experience.</p>
             </Grid>
           </Grid>
           <Grid item lg={4} md={5} sm={10} xs={10} style={{margin:'auto'}}>

@@ -100,7 +100,7 @@ const Contact = () => {
           <Grid item lg={6} md={8} sm={10} xs={10} style={{color:'#3f3d56', paddingTop:'3%', paddingLeft:'3%'}}>
             <Fade duration={1000} bottom>
               <h3 style={{marginLeft:'7%',fontSize:'35px'}}>Contact details</h3>
-              <p style={{marginLeft:'7%', lineHeight:'1.6', marginRight:'2%', fontSize:'16px', marginTop:'1%'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+              <p style={{marginLeft:'7%', lineHeight:'1.6', marginRight:'2%', fontSize:'16px', marginTop:'1%'}}>Wanna talk to us? We’ll be happy to help. Contact us via phone, email or just drop in for a visit.</p>
               <Table style={{marginLeft:'5%', marginBottom:'-8%'}}>
                 <TableRow>
                   <TableCell style={{borderBottom:'none', fontSize:'30px', width:'10px'}}><p style={{border:'1px solid #c86d6e', borderRadius:'15px', paddingLeft:'3px', paddingRight:'3px', height:'40px'}}><PhoneIcon style={{color:'white', background:'#bf6f72', padding:'5px', borderRadius:'12px', marginTop:'8%'}}/></p></TableCell>
@@ -129,12 +129,12 @@ const Contact = () => {
           <Grid item lg={9} md={9} sm={9} xs={11} style={{color:'#2f2b4f', textAlign:'center', marginTop:'4%'}}>
           <Fade duration={1000} bottom>
             <p style={{fontSize:'35px', fontWeight:'600'}}> Can't find the answer you need? </p>
-            <p style={{lineHeight:'1.5'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <p style={{lineHeight:'1.5'}}>Send us a message and we’ll get back to you in a jiffy.</p>
           </Fade>
           </Grid>
           <Grid item lg={5} md={7} sm={9} xs={9} style={{color:'#3f3d56', textAlign:'left'}}>
           <Fade duration={1000} bottom>
-            <h4>Fullname</h4>
+            <h4>Name</h4>
             <TextField id="fullname" value={name} required onChange={(e)=> {setName(e.target.value)}} placeholder="Your full name" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>
             <h4>E-mail</h4>
             <TextField id="email" value={email} required onChange={(e)=> {setEmail(e.target.value)}} placeholder="Your e-mail address" variant="outlined" fullWidth={true} InputProps={{disableUnderline:true, classes:{input:classes.backColor}}}/>

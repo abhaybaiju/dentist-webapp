@@ -78,27 +78,17 @@ const Service = () => {
   var reviews = [
         {
             name: "Random Name #1",
-            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            description: "The clinic is extremely clean and hygienic. The doctors are well-experienced and friendly. I went there for a filling and the entire process was surprisingly painless. Would definitely recommend to anyone looking for honest and affordable dental treatment in Delhi.",
             img: require('./images/Shambhavi.png')
         },
         {
             name: "Random Name #2",
-            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            description: "Dr Anuradha and Dr Baiju are extremely friendly and make you feel extremely at home from the moment you step into the clinic. I have been coming here for the past 20 years and now my entire family is their patient. 10/10 service overall.",
             img: require('./images/Shambhavi.png')
         },
         {
             name: "Random Name #3",
-            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: require('./images/Shambhavi.png')
-        },
-        {
-            name: "Random Name #4",
-            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
-            img: require('./images/Shambhavi.png')
-        },
-        {
-            name: "Random Name #5",
-            description: "Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.",
+            description: "Best clinic in West Delhi. Friendly staff, excellent doctors and affordable treatments. Would definitely recommend it.",
             img: require('./images/Shambhavi.png')
         }
   ]
@@ -109,16 +99,16 @@ const Service = () => {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Navbar />
         </Grid>
-        <Grid item lg={4} md={8} sm={10} xs={10} style={{marginTop:'10%', textAlign:'center'}}>
+        <Grid item lg={5} md={8} sm={10} xs={10} style={{marginTop:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
-            <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
-            <p style={{lineHeight:'2.5', marginRight:'0%', textAlign:'justify', marginTop:'10%', color:'#404040', fontSize:'20px'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <h1 style={{color:'#2f2b4f'}}>Wondering what we offer?</h1>
+            <p style={{lineHeight:'2.5', marginRight:'0%', textAlign:'justify', marginTop:'10%', color:'#404040', fontSize:'20px'}}>Look no further. From advanced treatments like implants to minor ones like fillings, we’ve got you covered. Keep scrolling to know more.</p>
             <Button className={classes.button}>Book now</Button>
           </Fade>
         </Grid>
-        <Grid item lg={6} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'10%', background:'transparent', marginRight:'0%'}}>
+        <Grid item lg={5} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'0%', background:'transparent', marginRight:'0%'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/product.svg')} alt="" height="400" width="100%"/>
+            <img src={require('./images/features.svg')} alt="" height="350" width="100%"/>
           </Fade>
         </Grid>
       </Grid>
