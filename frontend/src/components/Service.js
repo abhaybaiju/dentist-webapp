@@ -109,16 +109,16 @@ const Service = () => {
         <Grid item lg={12} md={12} sm={12} xs={12}>
           <Navbar />
         </Grid>
-        <Grid item lg={5} md={8} sm={10} xs={10} style={{marginTop:'10%', textAlign:'center'}}>
+        <Grid item lg={4} md={8} sm={10} xs={10} style={{marginTop:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
             <p style={{lineHeight:'2.5', marginRight:'0%', textAlign:'justify', marginTop:'10%', color:'#404040', fontSize:'20px'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
             <Button className={classes.button}>Book now</Button>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'0%', background:'transparent', marginRight:'0%'}}>
+        <Grid item lg={6} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'10%', background:'transparent', marginRight:'0%'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/features.svg')} alt="" height="350" width="100%"/>
+            <img src={require('./images/product.svg')} alt="" height="400" width="100%"/>
           </Fade>
         </Grid>
       </Grid>
