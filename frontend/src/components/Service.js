@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Button, Card, CardContent, makeStyles, Paper} from '@material-ui/core';
+import {Grid, Button, Card, CardContent, makeStyles, Paper, Hidden} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Navbar from './Navbar';
@@ -112,7 +112,7 @@ const Service = () => {
         <Grid item lg={5} md={8} sm={10} xs={10} style={{marginTop:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#2f2b4f'}}>What can you expect?</h1>
-            <p style={{lineHeight:'2.5', marginRight:'0%', textAlign:'justify', marginTop:'10%', color:'#404040'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
+            <p style={{lineHeight:'2.5', marginRight:'0%', textAlign:'justify', marginTop:'10%', color:'#404040', fontSize:'20px'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions.</p>
             <Button className={classes.button}>Book now</Button>
           </Fade>
         </Grid>
@@ -130,7 +130,7 @@ const Service = () => {
             <hr style={{width:'5%', textAlign:'center', border:'3px solid #99daff', marginBottom:'5%'}}/>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <img src={require('./images/one.png')} alt="" height="350" width="70%"/>
           </Fade>
@@ -138,21 +138,30 @@ const Service = () => {
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#3f3d56', textAlign:'center'}}>General Procedures</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>We offer a host of general treatment procedures including scaling, root planning and restorative procedures like fillings. We also provide for the replacement of missing teeth through both removable and fixed fixtures.</p>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040', fontSize:'20px'}}>We offer a host of general treatment procedures including scaling, root planning and restorative procedures like fillings. We also provide for the replacement of missing teeth through both removable and fixed fixtures.</p>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
-          <Fade duration={1000} bottom>
-            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Specialized Procedures</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>Specialised procedures include gum surgeries or gingival surgeries, depigmentation or black gums treatment and treatment for periodontitis also called as the treatment of pyorrhea.</p>
-          </Fade>
-        </Grid>
-        <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
+        <Hidden lgUp>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <img src={require('./images/two.png')} alt="" height="350" width="70%"/>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={10} sm={10} xs={10} style={{marginLeft:'0%', marginBottom:'15%', textAlign:'center'}}>
+        </Hidden>
+        <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'10%'}}>
+          <Fade duration={1000} bottom>
+            <h1 style={{color:'#3f3d56', textAlign:'center'}}>Specialized Procedures</h1>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040', fontSize:'20px'}}>Specialised procedures include gum surgeries or gingival surgeries, depigmentation or black gums treatment and treatment for periodontitis also called as the treatment of pyorrhea.</p>
+          </Fade>
+        </Grid>
+        <Hidden mdDown>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%', marginBottom:'10%', textAlign:'center'}}>
+          <Fade duration={1000} bottom>
+            <img src={require('./images/two.png')} alt="" height="350" width="70%"/>
+          </Fade>
+        </Grid>
+        </Hidden>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%', marginBottom:'15%', textAlign:'center'}}>
           <Fade duration={1000} bottom>
             <img src={require('./images/three.png')} alt="" height="350" width="70%"/>
           </Fade>
@@ -160,7 +169,7 @@ const Service = () => {
         <Grid item lg={5} md={10} sm={10} xs={10} style={{marginRight:'5%', marginLeft:'5%', marginBottom:'15%'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#3f3d56', textAlign:'center'}}>Advanced Procedures</h1>
-            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040'}}>We also offer advanced and complex treatment procedures like bone substitutes or bone grafts. Cosmetic procedures like cosmetic fillings also come under the host of advanced procedures that one can opt for. Another popular treatment is the dental implant which has become the most sought after and effective method to replace teeth.</p>
+            <p style={{textAlign:'justify', lineHeight:'2.5', color:'#404040', fontSize:'20px'}}>We also offer advanced and complex treatment procedures like bone substitutes or bone grafts. Cosmetic procedures like cosmetic fillings also come under the host of advanced procedures that one can opt for. Another popular treatment is the dental implant which has become the most sought after and effective method to replace teeth.</p>
           </Fade>
         </Grid>
       </Grid>
