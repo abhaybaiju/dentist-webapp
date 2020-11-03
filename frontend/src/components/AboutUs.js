@@ -75,31 +75,42 @@ const AboutUs = () => {
           </Fade>
         </Grid>
         <Grid item container justify="center" alignItems="stretch" spacing={2} style={{marginBottom:0, paddingBottom:0}}>
-          <Grid item lg={5} md={5} sm={6} xs={12}>
+          <Grid item lg={5} md={8} sm={6} xs={12}>
             <Fade duration={1000} bottom>
-              <p style={{marginLeft:'16%', marginRight:'6%', marginTop:'0%', lineHeight:'1.8', textAlign:'justify', color:'#404040'}}>
+              <p style={{marginLeft:'11%', marginRight:'13%', marginTop:'0%', lineHeight:'1.8', textAlign:'justify', color:'#404040'}}>
                 <h3 style={{color:'#645ba4', textAlign:'center', marginBottom:'-1%'}}>Dr C.S Baiju</h3>
                 <br></br>
                 Graduated in 1996 with an M.D.S degree, Dr Baiju is now one of the leading periodontists in Delhi. His thirst for knowledge is almost equal to his expertise in the ins and outs of dentistry. When not in his clinic, he can often be found chilling with his family or poring over a dental journal.
               </p>
             </Fade>
           </Grid>
-          <Grid item lg={5} md={5} sm={6} xs={10} style={{background:`url(${purple})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', marginLeft:'12%'}}>
+          <Hidden smDown>
+          <Grid item lg={5} md={6} sm={8} xs={12} style={{background:`url(${purple})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', marginLeft:'12%'}}>
             <Fade duration={1000} bottom>
               <img src={require('./images/CSBaiju.png')} alt="" height="253" style={{float:'left', marginTop:'-1%', marginLeft:'-1%', marginBottom:'-1%'}}/>
             </Fade>
           </Grid>
+          </Hidden>
+          <Hidden mdUp>
+            <Grid item lg={5} md={5} sm={8} xs={12} style={{background:`url(${purple})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', marginLeft:'20%'}}>
+              <Fade duration={1000} bottom>
+                <img src={require('./images/CSBaiju.png')} alt="" height="253" style={{float:'left', marginTop:'-1%', marginLeft:'-1%', marginBottom:'-1%'}}/>
+              </Fade>
+            </Grid>
+          </Hidden>
         </Grid>
       </Grid>
       <Grid container justify="center" alignItems="stretch" style={{marginTop:'5%'}}>
-        <Grid item lg={5} md={6} sm={8} xs={12} style={{marginLeft:'0%'}}>
+        <Hidden mdDown>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%'}}>
           <Fade duration={1000} bottom>
-            <div item style={{width:'75%', maxHeight:'100%', background:`url(${orange})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', textAlign:'right', paddingRight:'35%'}}>
-              <img src={require('./images/AnuradhaBaiju.png')} alt="" height="300vh" style={{margin:'auto'}}/>
+            <div item style={{width:'75%', height:'100%', background:`url(${orange})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', textAlign:'right', paddingRight:'35%'}}>
+              <img src={require('./images/AnuradhaBaiju.png')} alt="" height="300vh" style={{marginTop:'-10%'}}/>
             </div>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={8} sm={10} xs={12} style={{marginTop:'2.5%'}}>
+        </Hidden>
+        <Grid item lg={5} md={8} sm={10} xs={12} style={{marginTop:'0%'}}>
           <Fade duration={1000} bottom>
             <p style={{marginLeft:'11%', marginRight:'13%', marginTop:'0%', lineHeight:'1.8', textAlign:'justify', color:'#404040'}}>
               <h3 style={{color:'#ff8566', textAlign:'center', marginBottom:'-1%'}}>Dr Anuradha Baiju</h3>
@@ -108,6 +119,15 @@ const AboutUs = () => {
             </p>
           </Fade>
         </Grid>
+        <Hidden lgUp>
+        <Grid item lg={5} md={6} sm={8} xs={10} style={{marginLeft:'0%'}}>
+          <Fade duration={1000} bottom>
+            <div item style={{width:'75%', height:'100%', background:`url(${orange})`, backgroundSize:'cover', backgroundRepeat:'no-repeat', textAlign:'right', paddingRight:'35%'}}>
+              <img src={require('./images/AnuradhaBaiju.png')} alt="" height="300vh" style={{marginTop:'-10%'}}/>
+            </div>
+          </Fade>
+        </Grid>
+        </Hidden>
       </Grid>
       <Grid container justify="center" alignItems="flex-start" style={{background:`url(${bg})`, backgroundRepeat:'no-repeat', backgroundSize:'cover', padding:'5% 0%', marginTop:'8%'}}>
         <Card style={{width:'75%'}} classes={{root:classes.card, hover:classes.hover}}>
