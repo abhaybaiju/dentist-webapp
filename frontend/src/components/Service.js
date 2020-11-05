@@ -77,7 +77,7 @@ const Service = () => {
 
   var reviews = [
         {
-            name: "Random Name #1",
+            name: "Shambhavi Sarin",
             description: "The clinic is extremely clean and hygienic. The doctors are well-experienced and friendly. I went there for a filling and the entire process was surprisingly painless. Would definitely recommend to anyone looking for honest and affordable dental treatment in Delhi.",
             img: require('./images/Shambhavi.png')
         },
