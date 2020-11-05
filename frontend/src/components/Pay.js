@@ -200,6 +200,7 @@ const Pay = () => {
             localStorage.setItem('payment',"success");
             localStorage.setItem("globalTime", globalTime);
             localStorage.setItem("globalDate",globalDate);
+            localStorage.setItem("globalName",globalName);
             const requestData = {
               "name": globalName,
               "contact": globalPhone,

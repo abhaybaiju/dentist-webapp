@@ -37,7 +37,7 @@ const Success = () => {
       },
     }));
 
-    const [{globalRating, globalName}, dispatch] = useStateValue();
+    const [{globalRating}, dispatch] = useStateValue();
     const [value, setValue] = useState(globalRating);
 
     const handleRatingChange = (e, val) => {
@@ -80,7 +80,7 @@ const Success = () => {
               <Navbar/>
             </Grid>
             <Grid item lg={4} md={5} sm={8} xs={10} style={{color:'#3f3d56', marginTop:'10%'}}>
-              <h1 style={{lineHeight:'1.3'}}>Hello {globalName},</h1>
+              <h1 style={{lineHeight:'1.3'}}>Hello {localStorage.getItem("globalName")},</h1>
               <p>Your appointment has been booked successfully!</p>
               {( localRating === null ) ?
                 <p style={{fontWeight:'600'}}>Take a moment to rate your web experience with us: <br /><Rating name="pristine" value={value} style={{paddingTop:'3%', fontSize:'40px'}} onChange={(event, newValue) => {handleRatingChange()}}/></p>
@@ -88,7 +88,7 @@ const Success = () => {
                 <p style={{color:'green'}}>Thank you for your valuable feedback!</p>
               }
               <p style={{lineHeight:'1.6', width:'90%'}}>Your appointment details are as shown. You can add the booking to your favourite calendar.</p>
-              <Button variant="outlined" href={string} className={classes.button}>Add to Google calendar</Button>
+              <Button variant="outlined" target="_blank" href={string} className={classes.button}>Add to Google calendar</Button>
               <Button variant="outlined" target="_blank" href="https://goo.gl/maps/qzTKKSQHUCMkwJNM9" className={classes.button}>Open in Google Maps</Button>
             </Grid>
             <Grid item lg={5} md={5} sm={8} xs={10} style={{background:`url(${calendar})`, backgroundRepeat:'no-repeat', backgroundPosition:'0% 100%', backgroundSize:'60% 60%'}}>
