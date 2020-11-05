@@ -71,7 +71,7 @@ const AboutUs = () => {
         <Grid item lg={5} md={6} sm={8} xs={8} style={{textAlign:'center', marginBottom:'5%'}}>
           <Fade duration={1000} bottom>
             <h1 style={{color:'#ff7a59', textTransform:'uppercase', marginBottom:'2.5%'}}>Who We Are</h1>
-            <p style={{ lineHeight:'1.8', color:'#404040', width:'100%', textAlign:'center', float:'right', fontSize:'18px'}}>Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world.</p>
+            <p style={{ lineHeight:'1.8', color:'#404040', width:'100%', textAlign:'center', float:'right', fontSize:'18px'}}>Wanna know who’s treating you? Here’s a little something about us.</p>
           </Fade>
         </Grid>
         <Grid item container justify="center" alignItems="stretch" spacing={2} style={{marginBottom:0, paddingBottom:0}}>

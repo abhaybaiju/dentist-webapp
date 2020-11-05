@@ -349,25 +349,25 @@ const DateTime = () => {
       <Grid item lg={6} md={8} sm={10} xs={10} style={{marginRight:'-5%'}}>
         <h2 style={{color:'#2f2b4f', textAlign:'center', marginLeft:'-10%', marginTop:"-1.5%"}}><AccessTimeIcon style={{marginRight:'2%', marginBottom:'-1.5%'}}/>Select time</h2>
         <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'0%'}}>AM</p>
-        <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1100, e.currentTarget.value)}>11:00<sup>am</sup></Button>
-        <Button disabled={b1115} id="1115 "variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1115, e.currentTarget.value)}>11:15<sup>am</sup></Button>
-        <Button disabled={b1130} id="1130" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1130, e.currentTarget.value)}>11:30<sup>am</sup></Button>
-        <Button disabled={b1145} id="1145" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1145, e.currentTarget.value)}>11:45<sup>am</sup></Button>
-        <Button disabled={b1200} id="1200" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1200, e.currentTarget.value)}>12:00<sup>pm</sup></Button>
-        <Button disabled={b1215} id="1215" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1215, e.currentTarget.value)}>12:15<sup>pm</sup></Button>
-        <Button disabled={b1230} id="1230" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1230, e.currentTarget.value)}>12:30<sup>pm</sup></Button>
-        <Button disabled={b1245} id="1245" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1245, e.currentTarget.value)}>12:45<sup>pm</sup></Button>
-        <Button disabled={b1300} id="1300" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1300, e.currentTarget.value)}>01:00<sup>pm</sup></Button>
+        <Button disabled={b1100} id="1100" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1100, e.currentTarget.value); e.currentTarget.focus()}}>11:00<sup>am</sup></Button>
+        <Button disabled={b1130} id="1130" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1130, e.currentTarget.value); e.currentTarget.focus()}}>11:30<sup>am</sup></Button>
+        <Button disabled={b1115} id="1115 "variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1115, e.currentTarget.value); e.currentTarget.focus()}}>11:15<sup>am</sup></Button>
+        <Button disabled={b1145} id="1145" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1145, e.currentTarget.value); e.currentTarget.focus()}}>11:45<sup>am</sup></Button>
+        <Button disabled={b1200} id="1200" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1200, e.currentTarget.value); e.currentTarget.focus()}}>12:00<sup>pm</sup></Button>
+        <Button disabled={b1215} id="1215" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1215, e.currentTarget.value); e.currentTarget.focus()}}>12:15<sup>pm</sup></Button>
+        <Button disabled={b1230} id="1230" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1230, e.currentTarget.value); e.currentTarget.focus()}}>12:30<sup>pm</sup></Button>
+        <Button disabled={b1245} id="1245" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1245, e.currentTarget.value); e.currentTarget.focus()}}>12:45<sup>pm</sup></Button>
+        <Button disabled={b1300} id="1300" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1300, e.currentTarget.value); e.currentTarget.focus()}}>01:00<sup>pm</sup></Button>
         <p style={{fontWeight:'600', fontSize:'15px', color:'#3f3d56', marginLeft:'2%'}}>PM</p>
-        <Button disabled={b1830} id="1830" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1830)}>06:30<sup>pm</sup></Button>
-        <Button disabled={b1845} id="1845" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1845)}>06:45<sup>pm</sup></Button>
-        <Button disabled={b1900} id="1900" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1900)}>07:00<sup>pm</sup></Button>
-        <Button disabled={b1915} id="1915" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1915)}>07:15<sup>pm</sup></Button>
-        <Button disabled={b1930} id="1930" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1930)}>07:30<sup>pm</sup></Button>
-        <Button disabled={b1945} id="1945" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(1945)}>07:45<sup>pm</sup></Button>
-        <Button disabled={b2000} id="2000" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2000)}>08:00<sup>pm</sup></Button>
-        <Button disabled={b2015} id="2015" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2015)}>08:15<sup>pm</sup></Button>
-        <Button disabled={b2030} id="2030" variant="outlined" className={classes.tablebutton} onClick={(e)=>handleTimeChange(2030)}>08:30<sup>pm</sup></Button>
+        <Button disabled={b1830} id="1830" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1830, e.currentTarget.value); e.currentTarget.focus()}}>06:30<sup>pm</sup></Button>
+        <Button disabled={b1845} id="1845" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1845, e.currentTarget.value); e.currentTarget.focus()}}>06:45<sup>pm</sup></Button>
+        <Button disabled={b1900} id="1900" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1900, e.currentTarget.value); e.currentTarget.focus()}}>07:00<sup>pm</sup></Button>
+        <Button disabled={b1915} id="1915" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1915, e.currentTarget.value); e.currentTarget.focus()}}>07:15<sup>pm</sup></Button>
+        <Button disabled={b1930} id="1930" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1930, e.currentTarget.value); e.currentTarget.focus()}}>07:30<sup>pm</sup></Button>
+        <Button disabled={b1945} id="1945" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(1945, e.currentTarget.value); e.currentTarget.focus()}}>07:45<sup>pm</sup></Button>
+        <Button disabled={b2000} id="2000" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(2000, e.currentTarget.value); e.currentTarget.focus()}}>08:00<sup>pm</sup></Button>
+        <Button disabled={b2015} id="2015" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(2015, e.currentTarget.value); e.currentTarget.focus()}}>08:15<sup>pm</sup></Button>
+        <Button disabled={b2030} id="2030" variant="outlined" className={classes.tablebutton} onClick={(e)=>{handleTimeChange(2030, e.currentTarget.value); e.currentTarget.focus()}}>08:30<sup>pm</sup></Button>
       </Grid>
     </Grid>
     </Fade>
