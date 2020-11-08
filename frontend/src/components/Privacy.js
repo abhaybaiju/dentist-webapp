@@ -11,13 +11,12 @@ const Privacy = () => {
       <br /><h3 style={{color:'#3f3d56'}}>SECTION 1 - WHAT DO WE DO WITH YOUR INFORMATION?</h3><br/><br/>
 When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.<br/><br/>
 When you browse our store, we also automatically receive your computer’s internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.<br/><br/>
-Email marketing (if applicable): With your permission, we may send you emails about our store, new products and other updates.<br/><br/>
 <h3 style={{color:'#3f3d56'}}>SECTION 2 - CONSENT</h3><br/><br/>
 How do you get my consent?<br/><br/>
 When you provide us with personal information to complete a transaction, verify your credit card, place an order, arrange for a delivery or return a purchase, we imply that you consent to our collecting it and using it for that specific reason only.<br/><br/>
 If we ask for your personal information for a secondary reason, like marketing, we will either ask you directly for your expressed consent, or provide you with an opportunity to say no.<br/><br/>
 How do I withdraw my consent?<br/><br/>
-If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at [___Company Contact Email___] or mailing us at: [___Company Office Address___]<br/><br/>
+If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at drcsbaiju@yahoo.co.in or mailing us at: DG-II, 57-A, Vikaspuri, New Delhi-110018<br/><br/>
 <h3 style={{color:'#3f3d56'}}>SECTION 3 - DISCLOSURE</h3><br/><br/>
 We may disclose your personal information if we are required by law to do so or if you violate our Terms of Service.<br/><br/>
 <h3 style={{color:'#3f3d56'}}>SECTION 4 - PAYMENT</h3><br/><br/>
@@ -43,9 +42,8 @@ By using this site, you represent that you are at least the age of majority in y
 We reserve the right to modify this privacy policy at any time, so please review it frequently. Changes and clarifications will take effect immediately upon their posting on the website. If we make material changes to this policy, we will notify you here that it has been updated, so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we use and/or disclose it.<br/><br/>
 If our store is acquired or merged with another company, your information may be transferred to the new owners so that we may continue to sell products to you.<br/><br/>
 <h3 style={{color:'#3f3d56'}}>QUESTIONS AND CONTACT INFORMATION</h3><br/><br/>
-If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at [___Company Contact Email___] or by mail at [___Company Office Address___]<br/><br/>
-[Re: Privacy Compliance Officer]<br/><br/>
-[622 Manglam Electronic Market Jaipur Rajasthan India 302001]<br/><br/>
+If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or simply want more information contact our Privacy Compliance Officer at drcsbaiju@yahoo.co.in or by mail at DG-II, 57-A, Vikaspuri, New Delhi-110018<br/><br/>
+<br/><br/>
       </Grid>
     </Grid>
   )

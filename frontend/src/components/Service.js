@@ -82,14 +82,14 @@ const Service = () => {
             img: require('./images/Shambhavi.png')
         },
         {
-            name: "Random Name #2",
+            name: "Mini Subhas",
             description: "Dr Anuradha and Dr Baiju are extremely friendly and make you feel extremely at home from the moment you step into the clinic. I have been coming here for the past 20 years and now my entire family is their patient. 10/10 service overall.",
-            img: require('./images/Shambhavi.png')
+            img: require('./images/Mini_Subhash.jpg')
         },
         {
-            name: "Random Name #3",
+            name: "Krishna Gupta",
             description: "Best clinic in West Delhi. Friendly staff, excellent doctors and affordable treatments. Would definitely recommend it.",
-            img: require('./images/Shambhavi.png')
+            img: require('./images/Krishna_Gupta.jpg')
         }
   ]
 
