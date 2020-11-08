@@ -106,9 +106,9 @@ const Service = () => {
             <Button className={classes.button}>Book now</Button>
           </Fade>
         </Grid>
-        <Grid item lg={5} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'0%', background:'transparent', marginRight:'0%'}}>
+        <Grid item lg={5} md={10} sm={12} xs={10} style={{marginBottom:'0%', marginTop:'10%', background:'transparent', marginRight:'0%'}}>
           <Fade duration={1000} bottom>
-            <img src={require('./images/features.svg')} alt="" height="350" width="100%"/>
+            <img src={require('./images/product.svg')} alt="" height="350" width="100%"/>
           </Fade>
         </Grid>
       </Grid>
