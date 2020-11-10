@@ -201,26 +201,7 @@ app.post("/book", async(req, res) => {
       }
       console.log('Event created: %s', event.data.htmlLink);
     });
-   /* calendar.events.list({
-       auth: jwtClient,
-       calendarId: 'abhay0198@gmail.com'
-    }, function (err, response) {
-       if (err) {
-           console.log('The API returned an error: ' + err);
-           return;
-       }
-       console.log(response);
-       var events = response.data.items;
-       if (events.length == 0) {
-           console.log('No events found.');
-       } else {
-           console.log('Event from Google Calendar:');
-           for (let event of response.data.items) {
-               console.log('Event name: %s', event.summary);
-           }
-       }
-    });*/
-    //console.log(req.body); //Test on POSTMAN! I didn't do :p
+   
   } catch (err) {
     console.error(err.message);
   }
@@ -319,10 +300,6 @@ app.get('/logo.png', (req, res) => {
 })
 
 app.get('/admin', async(req, res) => {
-    /*res.json({
-        message: "Hello Miss Angular Web Developer!",
-    })*/
-
     try {
       //Select already gives you back data so no need for "returning *"
       const allPayments = await pool.query("SELECT * FROM bookings");

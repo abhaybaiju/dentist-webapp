@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
-import {Table, TableRow, TableCell, Card, CardHeader, CardContent, Grid, makeStyles, Button, IconButton} from '@material-ui/core';
+import {Grid, makeStyles, Button} from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import { MuiThemeProvider } from '@material-ui/core'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider.js';
 import axios from 'axios';
 import Fade from 'react-reveal/Fade';
-import { setDate } from 'date-fns';
 
 import './css/App.css';
 
@@ -57,7 +54,7 @@ const DateTime = () => {
 
   const getDate = async () => {
     try{
-      const resp = await axios.get('http://localhost:1337/date');
+      const resp = await axios.get('api/date');
       console.log("resp is ",resp);
       return resp.data.date;
     }
@@ -127,7 +124,7 @@ const DateTime = () => {
       setb2000(false);
       setb2015(false);
       setb2030(false);
-      const serverDate = await axios.get('http://localhost:1337/date');
+      const serverDate = await axios.get('api/date');
       console.log("currentDate is ",currentDate);
       var d = new Date(serverDate.data.date);
       if(d.getDate()===changedDate.getDate() && d.getMonth() === changedDate.getMonth() && d.getFullYear() === changedDate.getFullYear())
@@ -232,7 +229,7 @@ const DateTime = () => {
           }
         });
       }
-      const resp = await axios.get('http://localhost:1337/slotfetcher',{ params: { "date": changedDate.toDateString() } });
+      const resp = await axios.get('api/slotfetcher',{ params: { "date": changedDate.toDateString() } });
       console.log(resp.data);
       for(var row=0;row<resp.data.rowCount;row++){
         var bookedTime = resp.data.rows[row].time;

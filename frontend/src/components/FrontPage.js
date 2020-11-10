@@ -1,6 +1,5 @@
 import React from 'react';
-import {Container, Grid,Button, makeStyles, Fade, Fab} from '@material-ui/core';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import {Grid,Button, makeStyles, Fade, Fab} from '@material-ui/core';
 import Navbar from './Navbar';
 import img from './images/front.svg';
 import {Link} from 'react-router-dom';

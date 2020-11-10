@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import {Card, CardContent, Grid, makeStyles, Stepper, Step, StepButton, StepContent, StepLabel, Button, Typography, Table, TableRow, TableCell, Slide, StepConnector, Hidden} from '@material-ui/core';
+import {Grid, makeStyles, Stepper, Step, StepButton, StepLabel, Button, Typography, StepConnector, Hidden} from '@material-ui/core';
 import Navbar from './Navbar';
 import InputForm from './InputForm.js';
 import DateTime from './DateTime.js';
 import Pay from './Pay.js';
 import Footer from './Footer';
 import bg from './images/circled-background.svg';
-import {Redirect } from 'react-router-dom';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useStateValue } from './StateProvider.js';
 

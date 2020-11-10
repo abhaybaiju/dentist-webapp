@@ -5,8 +5,9 @@ CREATE TABLE bookings (
 	patient_name VARCHAR ( 50 ) NOT NULL,
 	contact NUMERIC ( 20 ) NOT NULL,
 	gender CHAR (1) NOT NULL,
-	appointment TIMESTAMP NOT NULL,
-	description TEXT NOT NULL
+	time INTEGER NOT NULL,
+	date date NOT NULL,
+	email text NOT NULL
 );
 
 CREATE TABLE payments (

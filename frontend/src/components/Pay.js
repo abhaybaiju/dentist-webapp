@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Button, Grid, Table, TableRow, TableCell, makeStyles, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, TextField} from '@material-ui/core';
+import {Button, Grid, Table, TableRow, TableCell, makeStyles, FormControl, IconButton, TextField} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
@@ -71,7 +71,7 @@ function loadScript(src) {
 
 const sendPostRequest = async (postData) => {
   try{
-      const resp = await axios.post("http://localhost:1337/book",postData);
+      const resp = await axios.post("api/book",postData);
       console.log(resp);
   } catch (err) {
       console.error(err);
@@ -171,7 +171,7 @@ const Pay = () => {
       return
     }
 
-    const data = await fetch('http://localhost:1337/pay', {method: 'POST' }).then((t) =>
+    const data = await fetch('api/pay', {method: 'POST' }).then((t) =>
       t.json()
     )
 
@@ -189,7 +189,7 @@ const Pay = () => {
         "currency": data.currency,
         "name": "Lila Dental Clinic",
         "description": "Appointment Booking",
-        "image": "http://localhost:1337/logo.png",
+        "image": "api/logo.png",
         "order_id": data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "handler": (response) => {
           var redirect_url = "/";

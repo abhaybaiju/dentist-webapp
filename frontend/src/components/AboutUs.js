@@ -1,10 +1,9 @@
 import React from 'react';
-import {Grid, Card, CardContent, Table, TableRow, TableCell, Button, Hidden, makeStyles, Box} from '@material-ui/core';
+import {Grid, Card, CardContent, Table, TableRow, TableCell, Button, Hidden, makeStyles} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import CountUp from 'react-countup';
-import bg2 from './images/bg2.svg';
 import bg from './images/circled-background.svg';
 import about_bg from './images/about_bg.svg';
 import journey from './images/journey_bg.svg';

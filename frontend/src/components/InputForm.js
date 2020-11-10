@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import {Grid, TextField, InputLabel, Select, MenuItem, FormControl, FormLabel, RadioGroup, makeStyles, Radio, Input, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Checkbox} from '@material-ui/core';
+import {Grid, InputLabel, Select, MenuItem, FormControl, FormLabel, RadioGroup, makeStyles, Radio,  OutlinedInput, InputAdornment, IconButton, FormControlLabel, Checkbox} from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabled';
 import EmailIcon from '@material-ui/icons/Email';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
-import { useStateValue } from './StateProvider.js';
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
 import Fade from 'react-reveal/Fade';

@@ -72,7 +72,7 @@ const Contact = () => {
       "message": message
   }
     try{
-      const resp = axios.post("http://localhost:1337/query",postData);
+      const resp = axios.post("api/query",postData);
       console.log(resp);
       setName("");
       setEmail("")

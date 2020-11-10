@@ -1,7 +1,6 @@
 import React from 'react';
 import {Grid, Button, Card, CardContent, makeStyles, Paper, Hidden} from '@material-ui/core';
 import Carousel from 'react-material-ui-carousel';
-import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import img from './images/bg.svg';
