@@ -1,5 +1,6 @@
 import {SwipeableDrawer, IconButton, List, ListItem, ListItemText, Divider, ListItemIcon, ListItemAvatar} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import {Link} from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import ExploreIcon from '@material-ui/icons/Explore';
@@ -84,16 +85,16 @@ import { useState } from "react";
             />
           </ListItem>
           {navLinks.map(({ title, path, icon }) => (
-            <a href={path} key={title} className={classes.linkText}>
+            <Link to={path} key={title} className={classes.linkText}>
               <ListItem button>
                 <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText primary={title} />
               </ListItem>
-            </a>
+            </Link>
           ))}
           <Divider style={{marginTop:'6%', marginBottom:'2%'}}/>
           <ListItem button className={classes.btn}>
-            <a href="/Book" className={classes.button}><ListItemText primary="Book Now" /></a>
+            <Link to="/Book" className={classes.button}><ListItemText primary="Book Now" /></Link>
           </ListItem>
         </List>
       </div>

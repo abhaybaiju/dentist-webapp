@@ -1,12 +1,10 @@
 import React from 'react';
 import {Grid, AppBar, Toolbar, Typography, makeStyles, Hidden} from '@material-ui/core';
-//import './css/Navbar.css';
 import {Link} from 'react-router-dom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import SideDrawer from "./SideDrawer.js";
 
 
-//317e96
 const Navbar = () => {
 
   const useStyles = makeStyles((theme) => ({
@@ -110,19 +108,19 @@ const Navbar = () => {
           <Hidden smDown>
             <Grid container justify="flex-end" alignItems="flex-right" spacing={4} lg={12} md={12}>
                 <Grid item >
-                  <a href="/" title="Home" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Home</a>
+                  <Link to="/" title="Home" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Home</Link>
                 </Grid>
                 <Grid item >
-                  <a href="/About" title="About us" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>About Us</a>
+                  <Link to="/About" title="About us" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>About Us</Link>
                 </Grid>
                 <Grid item >
-                  <a href="/Services" title="Services" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Services</a>
+                  <Link to="/Services" title="Services" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Services</Link>
                 </Grid>
                 <Grid item >
-                  <a href="/Contact" title="Contact Us" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Contact Us</a>
+                  <Link to="/Contact" title="Contact Us" className={`${classes.a} ${trigger === false ? '' : classes.aScrolled}`}>Contact Us</Link>
                 </Grid>
                 <Grid item lg={4} md={4}>
-                  <a href="/Book" title="Book now" className={`${classes.btn} ${trigger === false ? '' : classes.btnScrolled}`}>Book Now</a>
+                  <Link to="/Book" title="Book now" className={`${classes.btn} ${trigger === false ? '' : classes.btnScrolled}`}>Book Now</Link>
                 </Grid>
             </Grid>
           </Hidden>
@@ -137,14 +135,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-
-
-/*
-
-
-  <Grid item sm={4} xs={4}>
-    <a href="/Book" title="Book now" className={`${classes.btn} ${trigger === false ? '' : classes.btnScrolled}`}>Book Now</a>
-  </Grid>
-
-
-*/

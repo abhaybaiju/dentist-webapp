@@ -3,3 +3,4 @@ backend/node_modules/
 backend/src/privatekey.json
 backend/src/config.js
 backend/.env
+backend/src/ec2-user@3.6.87.100
